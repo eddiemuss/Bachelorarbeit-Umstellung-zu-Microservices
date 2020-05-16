@@ -74,7 +74,22 @@ Verwendet wird die REST-Architektur ausschließlich für Anwendungen im Internet
 
 \subsubsection{Monolithe Architektur}
 
-%Todo Text einfügen
+Nach Rod Stephens liegt eine monolithisches Architektur vor, wenn jegliche Funktionalität des Systems miteinander verbunden ist. Dabei spricht er auf die Verbindung von Dateneingabe, Datenausgabe, Datenverarbeitung, sowie Fehlerhandhabung und Benutzeroberflächen. Erfüllt ein System diese Anforderungen, kann es nach Stephens als monolithisches System bezeichnet werden.
+
+Anders sieht es Sam Newman. Ihm nach liegt ein Monolites System schon vor, wenn die gesamte Funktionalität eines Systems gemeinsam über ein Deployment-Prozess bereitgestellt wird. Somit muss nicht zwingend jegliche Logik miteinander verbunden sein. Er unterteilt Monolithe Systeme in drei Kategorien: Einzelprozess Monolithe, Modulare Monolithe und verteilte Monolithe.
+
+Der Einzelprozess Monolith ist die gängigste Form und deckt sich mit der Definition von Rod Stephens. Somit handelt es sich dabei, um ein System bei dem das gesamte System ein Prozess abbildet. Dies bedeutet, dass jegliche Funktionalität auf einander aufbauend ist und nur eine Datenspeicherung für die gesamte Anwendung verwendet wird.
+Anders ist dies beim Modularen System. Dieses zeichnet sich darin aus, dass die Funktionalität in einzelne Module geteilt wird und sogar einzelne Module eine separate Datenspeicherung besitzen können. Diese Form von monolithen System ist jedoch seltener und wird nur von einzelnen Unternehmen eingesetzt.
+Im Gegensatz zu verteilten Systemen sind die einzelnen Komponenten nicht auf separaten Computern verteilt und werden durch einen Deployment-Prozess online gestellt. Des Weiteren sind die einzelnen Module nur leicht entkoppelt, so kann es immer noch Abhängigkeiten geben. Unterschiedlich davon sind verteilte Monolithe. Diese sind komplett entkoppelt und kommunizieren nur noch über definierte Schnittstellen. Sie erfüllen somit jegliche anforderungen an ein verteiltes System, sind jedoch in einem einzigen Bereitstellungsprozess gebündelt. Diese From wird jedoch kaum verwendet, da sowohl Nachteile auf Grund der Verteilung, als auch durch das gemeinsame Bereitstellen, entstehen.
+
+Nach sowohl Stephens, als auch Newman gibt es jedoch keine Vorgaben hinsichtlich der Gliederung innerhalb eines Monolithischen Systems. Demnach kann eine Model-View-Controller Ansatz als Monolithisches System gelten, solange es einheitlich deployed wird. Anders ist es mit einem verteilten System, da nach Definition ein Monolithen System kein verteiltes System sein kann. 
+
+Im Rahmen dieser Arbeit wird bei jeglichen weiteren Referieren auf den Begriff Monolithen System stets von einem Einzelprozess Monolithen ausgegangen, außer es wird expliziert von einem Modularen, oder verteilten Monolithen geschrieben. Dadurch sollen beide Definitionen berücksichtig werden.
+
+Im Vergleich zu einem verteilten System gibt es einige Vor- als auch Nachteile. So ist das bereitstellen eines Monolithen System einfacher, da es ein Bereitstellungsprozess für die gesamte Anwendung gibt. Wiederum führt dies dazu, dass der Prozess deutlich länger dauert. Diese Tatsache ist insbesondere gravierend, wenn vermehrt kleine Änderungen vorgenommen werden. Anderseits vereinfacht eine Anwendung, die als ein Prozess zu sehen ist, die Fehler suche und ermöglicht es Funktionen mehrfach zu verwenden. So lassen sich Funktionen und Klassen in einem Einzelprozess Monolithen mehrfach verwenden und schneller neue Funktionen umsetzen. Jedoch verursacht dies, dass schnell Abhängigkeiten entstehen können und Änderungen ungewollte Fehler verursachen. Dadurch wird die Umsetzung von neuen Funktionen mit steigender Codemenge verlangsamt und der Einstieg von neuen Teammitgliedern erschwert.
+
+Bei größeren Unternehmen mit mehreren Team kommt hinzu, dass es leicht zu Konflikten kommen kann, da alle auf die gleiche Codebase zugreifen. So führt ein Monolithen System dazu, dass bei vielen Entwickler viele Absprachen nötig sind und es zu Problemen bei der Zusammenführung von Funktionen kommen kann. Anders ist es beim Erstellen von System übergreifenden Test. Diese werden durch ein Monolithen System begünstigt und können im Vergleich zu einem verteilten System einfacher umgesetzt werden.
+
 %Todo Literaturnachweise ergänzen
 
 \subsubsection{Einordnung des aktuellen Systems von PluraPolit}
