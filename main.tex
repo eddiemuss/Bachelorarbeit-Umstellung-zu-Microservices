@@ -1,0 +1,73 @@
+\documentclass[a4paper, 12pt, headsepline]{scrartcl}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
+%encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%German-specific commands
+\usepackage[ngerman]{babel}
+
+%Hyphenation rules
+\usepackage{hyphenat}
+
+\usepackage{setspace}
+\usepackage{parskip}
+
+%Klickbares Inhaltsverzeichnis
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+	allcolors=black,
+	linktoc=all,
+}
+
+%Add a package quotes
+\usepackage[autostyle=true, german=quotes]{csquotes}
+  
+% Inhaltsverwaltung wird eingefügt
+\usepackage[style=authortitle, citestyle=authoryear]{biblatex}
+
+\addbibresource{references.bib}
+
+\onehalfspacing
+
+\begin{document}
+
+\input{sections/start}
+
+\newpage
+\pagenumbering{Roman}
+
+\section*{Abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{sections/Einleitung}
+
+\newpage
+
+\input{sections/Theory}
+
+\section{Methodik}
+\section{Auswertung der Interviews und Anwendung auf PluraPolit}
+\begin{itemize}
+	\item Public subscribe pattern
+	\item SOA 
+\end{itemize}
+
+\section{Fazit}
+
+\newpage
+
+\printbibliography[title=Literaturverzeichnis]
+
+\newpage
+
+\input{sections/eidesstattliche}
+
+\end{document}

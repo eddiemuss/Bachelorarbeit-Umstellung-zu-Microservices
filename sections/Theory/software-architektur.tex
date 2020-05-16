@@ -1,0 +1,80 @@
+\subsection{Software Architektur}
+
+Seit dem die ersten Großrechner gebaut wurden und ein Projekt nicht mehr von einem Team allein entwickelt werden konnte, entstand der Bedarf komplexe Systeme aufzuteilen und zu strukturieren. So war es schon in den 60er Jahren notwendig, die Entwicklung des  Betriebssystems OS/360 von IBM in mehrere Team aufzuteilen und klare Schnittstellen zwischen den Teilen zu bestimmen \parencite{brooks_mythical_1995}. Es entwickelte sich daraus eine der ersten Anwendungen und Umsetzungen von  Softwarearchitektur, welche erstmalig 1969 bei einer Softwaretechnik Konferenz in Rom auch als solche bezeichnet wurde \parencite[vgl.][S. 12]{buxton_software_1970}. In den darauf folgenden Jahren wuchs das Interesse an der Thematik und die Anwendungen der Teilung und Strukturierung von Softwaresystemen.
+Hieraus entstand die im Jahr 2000 veröffentlichte Norm IEEE1471:2000, welche am 15. Juli 2007 als  ISO/IEC  42010 übertragen wurde. In diesem Standard werden Anforderungen an die Beschreibung von System-, Software- und Unternehmensarchitekturen definiert \parencite{hilliard_isoiecieee_nodate}.
+
+\subsubsection{Definition}
+
+Helmut Balzert, einer der führenden Pioniere im Bereich Softwarearchitektur und Autor der Bücherreihe \textit{Lehrbuch der Softwaretechnik}, beschreibt diese als \textit{\enquote{eine strukturierte oder hierarchische Anordnung der Systemkomponenten, sowie Beschreibung ihrer Beziehungen}} \parencite[][S. 580]{balzert_lehrbuch_2011}. Ihm nach lässt sich somit jedes System in mehrere einzelne Komponenten teilen, welche untereinander in Verbindung stehen und gemeinsam das Gesamtsystem formen.
+
+Paul Clements, Autor der Bücher \textit{Software Architecture in Practice und Documenting Software Architectures: Views and Beyond}, schließt sich Balzert an und beschreibt Softwarearchitektur als \textit{\enquote{Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen}} \parencite[][S. 23]{clements_documenting_2010}.
+
+Somit definieren beide Softwarearchitektur als Strukturierung von einzelnen Komponenten, die untereinander in Beziehung stehen. Dabei können sowohl die Komponenten als auch die Beziehungen Eigenschaften besitzen. Die einzelnen Komponenten zusammen ergeben das Gesamtsystem, welches in einer bestimmten Struktur vorliegt und beschrieben wird. Folglich beinhaltet die Softwarearchitektur alle nötigen Informationen über die Struktur der einzelnen Systemkomponenten und deren Kommunikationen untereinander.
+
+Wird ein Softwaresystem in Komponenten geteilt, welches jedoch selbst eine Funktionalität besitzt, bedeutet dies, dass auch diese Logik in Teile geteilt wird und jede einzelne Komponente einen Teil erfüllt. Um gleichermaßen den selben Funktionsumfang, wie das Gesamtsystem bewältigen zu können, müssen die einzelnen Komponenten zusammenarbeiten. Demnach ist es wichtig, die Zuständigkeit jeder einzelnen Komponente genau zu klären und die Abhängigkeiten zu bestimmen. Auf Grund der Abhängigkeiten werden im Anschluss Schnittstellen definiert, über welche die einzelnen Komponenten Informationen austauschen können.
+
+Bei der Teilung in einzelne Komponenten können bekannte Architekturstile helfen, da sich diese im Laufe der Zeit entwickelt haben und gut dokumentiert sind. Architekturstile sich dabei einige Regeln zur Strukturierung eines Systems und fassen Merkmale eines IT-Systems, sowohl hinsichtlich der Komponenten, als auch ihrer Kommunikation zusammen \parencite[vlg.][S. 102]{starke_effektive_2015}. Seit Beginn der Softwarearchitektur hat sich eine Vielzahl an solchen Stilen entwickelt, die aus unterschiedlichen Intention entstanden sind. Jedes System hat dabei unterschiedliche Herangehensweisen, sowie Vor- als auch Nachteile. Da die Lösung eines Problem von der eigentlichem Umsetzung unabhängig ist, können auch unterschiedliche Architekturstile zur ein und der selben Lösung verwendet werden. Hinsichtlich der Auswahl des Stiles gibt es demnach keine richtige oder falsche Antwort. Es ist viel mehr das Abwiegen von Pro und Kontra, sowie eine persönliche Präferenz der Entwickler.
+
+Da die unterschiedlichen Architekturstile nicht im  Fokus dieser Bachelor Thesis sind, werden nur folgende Stile betrachtet:
+
+\begin{enumerate}
+	\item Verteilte Systeme,
+	\item Interaktionsorientierte Systeme,
+	\item REST-Architektur
+\end{enumerate}
+
+\subsubsection{Verteilte Systeme}
+
+Nach Andrew Tanenbaum werden verteilte Systeme als eine Menge unabhängiger Computer bezeichnet, die dem Benutzer wie ein einzelnes, kohärentes System erscheinen \parencite{tanenbaum_verteilte_2007}. Weiterführend beschreibt Gernot Starke die einzelnen Komponenten als entweder Verarbeitungs-, oder Speicherbausteine, die über definierte Schnittstellen innerhalb eines Kommunikationsnetz zusammenarbeiten \parencite[vlg.][S. 116]{starke_effektive_2015}. Im Gegensatz zur Definition von Softwarearchitektur grenzt sich das verteile System dadurch ab, dass von unabhängigen Computer geredet wird. Dadurch entstehen einige Vorteile. So lassen sich auf Grund der Unabhängigkeit, diese einzelnen Rechner unterschiedlich skalieren. Es entsteht dadurch ein Netzwerk an heterogenen Computern. Somit kann je nach Anforderung der einzelnen Komponenten, eine entsprechende Rechenleistung genutzt werden. Des Weiteren gibt es auf Grund der Verteilung eine gewisse Ausfallsicherheit. Diese entsteht, da das Gesamtsystem nicht durch eine, sondern durch mehrere Maschinen getragen wird. Dadurch können einzelne Computer ausfallen ohne, dass das Anwendungssystem ausfällt. Jedoch kann dadurch ein Teil der gesamten Funktionalität wegfallen, der ggf. für das System notwendig ist. Um dies zu verhindern, sollten geeignete Maßnahmen getroffen werden, indem zum Beispiel nicht allein ein Computer für die Funktionalität verantwortlich ist, sondern mehrere.
+
+Jedoch entsteht mit der Verteilung auch ein Anstieg der Komplexität, sowohl bei dem Konzipieren des Systems, als auch bei der Wartung und Managen dessen. Außerdem muss nicht nur ein Rechner abgesichert werden, sondern ein ganzes Netzwerk. Dadurch entsteht ein höherer Aufwand zur Absicherung.
+
+Die einzelnen Computer können über verschiedene Mechaniken miteinander kommunizieren: Einerseits durch direkten Aufruf entfernter Funktionalität und andererseits durch indirekten Austausch von Informationen \parencite[vlg.][S. 116]{starke_effektive_2015}. Dabei kann der Transfer synchron oder asynchron ablaufen. Bei einem synchronen Aufruf, der nur direkt ausgelöst wird, führt ein Computer über das Netzwerk die Funktionalität eines anderen aus und wartet auf dessen Antwort. Bei einem asynchronen Aufruf wird entweder direkt oder indirekt Logik eines anderen Computer aufgerufen, während der aufrufende Rechner, ohne auf die Antwort zu warten, weiter verarbeitet. Ist die aufgerufene Rechner fertig gibt er das Resultat zurück, welches vom ersten Computer aufgenommen und verarbeitet wird.
+
+%Todo Literaturquellen für synchrone und asynchrone Kommunikation
+
+Der Austausch von Informationen und das Aufrufen von externer Funktionalität kommt in einem System dauerhaft vor. Dadurch besteht das Risiko, dass einzelne Informationen verloren gehen können und das System sicherstellen muss, dass das Anwendungssystem nicht darunter leidet.
+
+\subsubsection{Interaktionsorientierte Systeme}
+
+Interaktionsorientierte Systeme zeichnen sich dadurch aus, dass sie den Fokus auf die Interaktion zwischen Mensch und Maschine legen \parencite[vlg.][S. 124]{starke_effektive_2015}.
+Ein viel verwendeter Vertreter hiervon ist der Model-View-Controller Ansatz. Hierbei werden die einzelnen Komponenten in drei unterschiedliche Kategorien eingeteilt, von dem jeweils ein Repräsentant vorhanden sein muss. Eingeteilt wird in die drei Kategorien: Model, View und Controller, unterdessen jede Gattung eine eigene Funktion besitzt. So kümmert sich das Model um die Datenspeicherung, den Datenabruf und Verarbeitung von Informationen. Davon getrennt sind die graphischen Darstellungen, welche durch Views definiert werden. Sie erhalten ihre Informationen vom Model. Das Verwalten der Benutzereingabe, sowie das weiterleiten zwischen einzelnen Views geschieht über den Controller. Er sorgt dafür, dass die Events oder Aktionen, die vom Benutzer über die Views auslöst werden, verarbeitet werden und führt entsprechende Datenverarbeitungen im Model aus. Abschließend updated er die erforderliche Darstellung.
+
+Beim Model-View-Controller Ansatz handelt es sich um ein Muster, welches oft in der Softwarearchitektur verwendet wird. Im Unterschied zu verteilten Systemen stellt das Muster jedoch keine Anforderungen bezügliche der Hardware. Viel mehr beschreibt es eine Art den Quellcode hinsichtlich seiner Funktion zu teilen. Demnach kann dieser Stil auch für Codeteilung innerhalb einer Komponente verwendet werden und beschreibt nicht zwingend ein Architekturstil, der sich auf das Gesamtsystem besieht.
+
+%Todo Einordnung und zusammenfassende Sätze hinzufügen
+%Todo Warum sollte ich MVC verwenden, muss mehr hervorgehoben werden
+%Todo Bilder einfügen
+
+\subsubsection{REST-Architektur}
+
+Neben den bislang genannten Architekturstilen gibt es eine Vielzahl von weiteren Strukturierungen, die sich erst in den letzten 20 Jahre entwickelt haben. Einer dieser Architekturstile ist die REST-Architektur, welche vom Miterfinder des HTTP-Standards Roy Fielding definiert wurde \parencite[][S. 128]{starke_effektive_2015}. Er beschrieb diesen Stil in seiner Dissertation an der Universität von Kalifornien im Jahr 2000 und charakterisiert ihn als Architekturstil fürs Web.
+
+Dabei steht REST für \textit{Representationl State Transfer}, welches ein Architekturstil für verteilte Systeme beschreibt und auf der Server-Client Architektur aufbaut \parencite[][S. 76]{fielding_architectural_2000}. Server-Client Architektur beschreibt eine Ausprägung eines verteilten Systems, bei dem die Anwendung in Server und Clients geteilt werden \parencite[][S. 117]{starke_effektive_2015}.\footnote{Hier kommt ein Text zur Einteilung des Begriffes Server-Client Architektur.}
+
+%Todo Fußnote zu Server-Client Architektur und damit Abgrenzung zum ursprünglichen Begriff des Mainfraims
+%Todo Soll die Erklärung vorher kommen, oder hier als Einschub bleiben. Bei Müller nachfragen.
+
+Ein Server ist dabei eine Komponente im Netzwerk, welches Services anbietet. Ein Service könnte zuständig sein, alle Informationen der hinterlegten Kunden auszugeben. Der Client hingegen konsumiert lediglich diese Informationen und dient dem Benutzer als Bedienungsoberfläche. Dies bedeutet, dass der Server nur passiv auf Anfragen vom Client wartet, während der Client selbst keine Informationen verarbeitet, sondern ausschließlich anzeigt.
+
+Die REST-Architektur verwendet diese Aufteilung, um eine feste Trennung der Zuständigkeit zu integrieren \parencite[vgl.][S. 78]{fielding_architectural_2000}.
+
+Die zweite Bedingung, die Fielding an den Architekturstil gestellt hat, ist dass die Kommunikation zustandslos, zu englisch (stateless), abläuft \parencite[][S. 78]{fielding_architectural_2000}. Dies bedeutet, dass die Nachrichten, die zwischen Server und Client ausgetauscht werden, alle nötigen Informationen beinhalten \parencite[][S. 128]{starke_effektive_2015}. Somit gibt der Server auf Anfrage des Clients stets die gleiche Antwort zurück, egal ob dieser zum ersten, oder wiederholten Mal angefragt wurde. Des Weiteren hängt die Antwort nicht vom Client ab.
+Diese Entkopplung zwischen den Komponenten ermöglicht, dass die Aufgabe des Server, sowie des Clients durch mehrere Computer verrichtet werden kann und somit das System skalierbar ist \parencite[][S. 79]{fielding_architectural_2000}.
+
+Der Hauptunterschied zwischen der REST-Architektur und anderen Stilen liegt jedoch in der genauen Bestimmung der zu verwendeten Kommunikationsschnittstellen. So bestimmt die REST-Architektur sehr explizit, welche From zur Kommunikation verwendet werden darf. Anders als andere Stile beruht der Aufruf von Methodiken nicht auf individuelle Funktionalität, sondern auf dem HTTP-Standard. Konkret bedeutet dies, dass die einzelnen Dienste des Servers sich an die HTTP-Optionen (GET, PUT, POST und DELETE) richten und keinen eigenen verwenden \parencite[vlg.][S. 128]{starke_effektive_2015}. Somit baut die REST-Architektur auf ein Kommunikationsstandard auf, der sich im Internet etabliert hat.
+
+Auf Grundlade der standardisierten Kommunikation können zwischen Server und Client intelligente Zwischenstationen geschalten werden, die dazu zuständig sind häufig vorkommende Anfragen abzuspeichern \parencites[vlg.][S. 79 f.]{fielding_architectural_2000}[][S. 128]{starke_effektive_2015}. Somit lässt sich eine Vielzahl von Serveranfragen im vornherein beantworten.
+
+Die Antwort des Servers erfolgt durch Repräsentationen der Daten, wovon es für jede Ressource mehr Formate gibt. So kann eine Schnittstelle abhängig des angeforderten Mediums, sowohl JSON­, als auch XML­ oder HTML zurück geben \parencite[vgl.][S. 128]{starke_effektive_2015}.
+
+Verwendet wird die REST-Architektur ausschließlich für Anwendungen im Internet, da es auf die Anwendung des Hypertext Transfer Protokoll\footnote{Weitere Informationen zum Hypertext Transfer Protokoll kann unter folgender Literatur gefunden werden \parencite{leach_hypertext_2020}.} (HTTP) angewiesen ist. Dabei findet der Architekturstil, sowohl Anwendung für ganze Systeme, als auch in komplexen Anwendungen mit einer Vielzahl ein einzelnen Services.
+
+%Todo Korrekturlesen von Yola
+
+\subsubsection{Monolithe Architektur}
+
+%Todo Text einfügen
+%Todo Literaturnachweise ergänzen
+
+\subsubsection{Einordnung des aktuellen Systems von PluraPolit}

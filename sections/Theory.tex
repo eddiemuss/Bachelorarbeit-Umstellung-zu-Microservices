@@ -1,0 +1,112 @@
+\section{Theoretischer Rahmen}
+
+Der Abschnitt umfasst ca. 16 Seiten.
+
+\input{sections/Theory/software-architektur}
+
+\subsection{Microservices}
+
+%	Todo Literatur finden und Abgrenzung schreiben. Es gab in dem Buch von Newman einen schnitt über die Geschichte und somit auch die Entwicklung des Begiffs.
+
+%Todo der erste Satz muss noch einmal überprüft werden. Er kann so nicht richtig sein.
+Der Begriff Microservices wird mehrdeutig verwendet. So wird je nach Perspektive entweder eine Softwarearchitektur oder eine Komponente einer solchen Architektur beschrieben. Eng verbunden mit diesem Begriff sind auch dynamische Systeme und Konzeptionierung von Unternehmensstrukturen. Demnach sieht Eberhard Wolf unter Microservices ein Modellierungskonzept, welches dazu dient größere Softwaresysteme in kleinere Einheiten zu teilen \parencite[vgl.][Kap. 1.1]{wolff_microservices_2018}. Dabei hat die Aufteilung Auswirkungen auf die Organisation als auch auf die Entwicklungsprozesse.
+
+Nach Sam Newman ist ein Microservice ein \textit{\enquote{eigenständige ausführbare Softwarekomponente, die innerhalb eines Anwendungssystems mit anderen Softwarekomponenten kollaboriert}} \parencite[][Kap. 2.1]{newman_monolith_2019}. Sie zeichnet sich durch das kommunizieren über definierte Netzwerkschnittstellen aus und formt in Vereinigungen eine Microservices-Architektur. Ein Microservice umfasst dabei die Datenspeicherung, Datenverarbeitung und Datendarstellung und besitzt eine gut definierte Benutzeroberfläche \parencite[vgl.][Kap. 2.1]{newman_monolith_2019}.
+
+Ergänzend dazu schreibt Wolf, dass sich das Konzept der Microservices-Architektur aus der Philosophie vom Unix Betriebssystem ableitet, welches nach Peter H. Salus folgende drei Leitpunkte umfasst \parencites{salus_quarter_1994}[vgl.][Kap. 1.1]{wolff_microservices_2018}:
+\begin{itemize}
+	\item Schreibe Programme, sodass sie nur eine Aufgabe erledigen und diese gut.
+	\item Schreibe Programme, die zusammen arbeiten.
+	\item Schreibe Programme, welche über definierte Schnittstellen (Textstream) kommunizieren.
+\end{itemize}
+
+Nach James Lewis sind Microservices kleine Anwendungen, die unabhängig bereitgestellt, getestet und skaliert werden. Ebenfalls wie Wolf beschreibt er diese Programme, als einfach zu verstehen, die nur eine Aufgabe übernehmen.
+
+Zusammenfassend lässt sich sagen, dass der Begriff Microservices nicht einheitlich definiert ist und es sich zwei unterschiedliche Perspektiven ergeben. Zum einen beschreibt es ein Modellierungskonzept, welches Auswirkungen auf Unternehmenssturkur und Managemententscheidungen hat und zum anderen kennzeichnet es eine Software-Architektur, die in eigenständige Komponente geteilt ist.
+
+In dieser Arbeit werden beiden Ansichten beleuchtet, um infolgedessen eine umfassende Einschätzung für PluraPolit zu geben.
+
+\subsection{Microservices als Modellierungskonzept}
+
+In diesem Abschnitt möchte ich mehr auf die Mircoservice-Architektur eingehen. Dabei möchte ich die Perspektive des verteilten Systems mehr beleuchten und die Unternehmsstruktur mehr vordern. Es wäre daher glaube sinnvoll den Abschnitt mit der Conways Law dem anzustellen oder einzu bauen.
+
+\subsubsection{Conway's Law}
+
+Die Abhängigkeit der Kommunikationsstruktur im Unternehmen zur verwendeten Software Architektur.
+
+\begin{itemize}
+	\item Begriff erklären
+	\item Auswirkungen für die Teamstruktur beschreiben
+\end{itemize}
+
+\subsubsection{Domain Driven Design}
+
+\begin{itemize}
+	\item Was ist DDD?
+	\item Was sind Bounded Contexts?
+	\item 	Bespiele dazu.
+	\item Schlussfolgerung für PluraPolit
+\end{itemize}
+
+\subsubsection{Cohesion und Coupling}
+
+In diesem Abschnitt möchte ich diese beiden Begriffe erklären und noch einmal den Zusammenhang zwischen Funktionlität hervorheben. Es soll klar werden wie Microservices geteilt werden und was es bedeutet Logig hinter definierten Schnitstellen zu verstecken.
+
+Abschließend zu diesem Abschnitt soll die dritte Bedingung für Microservices erstellt werden: \textbf{eine in teamsgeteilte, gemischte Unternehmensstruktur}
+
+\subsection{Microservice}
+
+In diesem Abschnitt möchte ich Microservice definieren und die einzelnen Merkmale benennen.
+Es sollen zwei Eigenschaften deutlich als solche hervorstechen: Eigenständige Komponente und standatiesierte Kommunikation.
+
+\subsubsection{Eigenständige Komponente}
+
+In diesem Abschnitt möchte ich detalierter auf die Eigenschaft als eigenständige Komponente eingehen. Ich möchte beschreiben, welche Vorteile es für das einsetzen ergibt und was sich weitere Merkmale sich dadruch ergeben.
+
+Benennen möchte ich dabei:
+\begin{itemize}
+	\item deployment
+	\item technology
+	\item max ein Team ist verantwortlich
+	\item DB
+	\item Feature bezogen (nach UNIX Philo)
+	\item wenige Abhängigkeiten -> bleibende Produktivität
+	\item leichter Einstieg
+	\item bedarf angepasste skalierung
+\end{itemize}
+
+Zum Ende des Kapitels möchte ich darauf eingehen, dass dies auch mit sich führt, dass der Aufwand fürs Refaktoren insbesondere bei Veränderungen über mehrere Services hinweg aufwendig ist. Die Aufwand steigt im vergleich zu unverteilten Systemen. Es stellt sich somit als ein deutlicher Nachteil heraus Funktionalität später großflächig zu ändern.
+Somit ist als Bedingung festzuhalten erst ein Produktmarketfit zu besitzen.
+
+\subsection{Produktmarketfit bestimmen}
+
+In diesem Abschnitt soll geklärt werden, wie ein Produktmarketfit bestimmt werden kann. Hierfür möchte ich viel aus Running Lean ziehen.
+
+Es geht darum zum Einen Produktmarketfit zu definieren und zum anderen eine Methode zu gegeben an dieser ein solcher Zustand gemessen werden kann.
+
+\subsection{Kommunikation von Services}
+
+In diesem Abschnitt möchte ich darauf eingehen welche anforderungen eine entkoppelte Infrastuktur an das Netztwerk und an die Kommunikation über standards hat.
+
+Ich möchte die unterschiedlichen Standards vorstellen und die zweite Anforderung für Microservices hinsichtlich des Netzwerks stellen.
+
+Es sollen auf folgende Kommunikationsmethoden eingegangen werden.
+\begin{itemize}
+	\item Request / Response
+	\item REST
+	\item HTTP-Operationen (GET, PUT, PATCH, POST, DELETE)
+	\item gRPC (habe selbst keine Ahnung was das ist)
+\end{itemize}
+
+\subsubsection{CAP - Theorem}
+
+System, Konsistenz, Verfügbarkeit und Partitionstoleranz können in einem verteilten System nicht gleichzeitig erfüllt sein.
+Die einzelnen Begriffe erklären \begin{itemize}
+	\item Konsistenz
+	\item Verfügbarkeit
+	\item Partitionstoleranz
+\end{itemize}
+
+\subsection{Bedingungen ableiten}
+
+Die Bedingungen aus den forhergehenden Kapiteln einführen und zusammenfügen.
