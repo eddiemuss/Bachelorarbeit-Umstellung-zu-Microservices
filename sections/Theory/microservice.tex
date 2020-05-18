@@ -1,0 +1,34 @@
+\subsection{Microservice}
+
+%In diesem Abschnitt möchte ich Microservice definieren und die einzelnen Merkmale benennen.
+%Es sollen zwei Eigenschaften deutlich als solche hervorstechen: Eigenständige Komponente und standatiesierte Kommunikation.
+
+Nach Sam Newman ist ein Microservice ein \textit{\enquote{eigenständige ausführbare Softwarekomponente, die innerhalb eines Anwendungssystems mit anderen Softwarekomponenten kollaboriert}} \parencite[][Kap. 2.1]{newman_monolith_2019}. Sie zeichnet sich durch das kommunizieren über definierte Netzwerkschnittstellen aus und formt in Vereinigungen eine Microservices-Architektur. Ein Microservice umfasst dabei die Datenspeicherung, Datenverarbeitung und Datendarstellung und besitzt eine gut definierte Benutzeroberfläche \parencite[vgl.][Kap. 2.1]{newman_monolith_2019}.
+
+Ergänzend dazu schreibt Wolf, dass sich das Konzept der Microservices-Architektur aus der Philosophie vom Unix Betriebssystem ableitet, welches nach Peter H. Salus folgende drei Leitpunkte umfasst \parencites{salus_quarter_1994}[vgl.][Kap. 1.1]{wolff_microservices_2018}:
+\begin{itemize}
+	\item Schreibe Programme, sodass sie nur eine Aufgabe erledigen und diese gut.
+	\item Schreibe Programme, die zusammen arbeiten.
+	\item Schreibe Programme, welche über definierte Schnittstellen (Textstream) kommunizieren.
+\end{itemize}
+
+Nach James Lewis sind Microservices kleine Anwendungen, die unabhängig bereitgestellt, getestet und skaliert werden. Ebenfalls wie Wolf beschreibt er diese Programme, als einfach zu verstehen, die nur eine Aufgabe übernehmen.
+
+\subsubsection{Eigenständige Komponente}
+
+In diesem Abschnitt möchte ich detalierter auf die Eigenschaft als eigenständige Komponente eingehen. Ich möchte beschreiben, welche Vorteile es für das einsetzen ergibt und was sich weitere Merkmale sich dadruch ergeben.
+
+Benennen möchte ich dabei:
+\begin{itemize}
+	\item deployment
+	\item technology
+	\item max ein Team ist verantwortlich
+	\item DB
+	\item Feature bezogen (nach UNIX Philo)
+	\item wenige Abhängigkeiten -> bleibende Produktivität
+	\item leichter Einstieg
+	\item bedarf angepasste skalierung
+\end{itemize}
+
+Zum Ende des Kapitels möchte ich darauf eingehen, dass dies auch mit sich führt, dass der Aufwand fürs Refaktoren insbesondere bei Veränderungen über mehrere Services hinweg aufwendig ist. Die Aufwand steigt im vergleich zu unverteilten Systemen. Es stellt sich somit als ein deutlicher Nachteil heraus Funktionalität später großflächig zu ändern.
+Somit ist als Bedingung festzuhalten erst ein Produktmarketfit zu besitzen.
