@@ -104,7 +104,14 @@ Ruby on Rails, kurz auch Rails bezeichnet, ist ein quellenoffenes Webframework, 
 
 Dabei orientiert sich Rails bei der Teilung der Dateien an dem Model-View-Controller-Ansatz \parencites[vgl.][S. 66 ff.]{hartl_ruby_2016}.
 
-Für das Einpflegen von neuen Tonaufnahmen bedeutet dies konkret, dass anhand der Eingabe der Url der für das verwalten von Tonaufnahmen zuständige Controller die gewünschte Darstellung anzeigt.  Darauf hin kann nun die Aufnahme als Datei hinterlegt werden und hochgeladen werden. Dies geschieht, indem per Klick im CMS ein HTTP-Anfrage mit der geladenen Datei an den Controller geschickt wird. Dieser kümmert sich anschließend darum, dass die Datei über das Model in der Datenbank gespeichert wird und gibt die Bestätigung der Aktion im View wieder.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Assets/CMS_V1}
+	\caption{Darstellung des Model-View-Controller-Ansatz}
+	\label{fig:mvc-plurapolit}
+\end{figure}
+
+Für das Einpflegen von neuen Tonaufnahmen bedeutet dies konkret, dass anhand der Eingabe der Url der für das verwalten von Tonaufnahmen zuständige Controller die gewünschte Darstellung anzeigt.  Darauf hin kann nun die Aufnahme als Datei hinterlegt werden und hochgeladen werden. Dies geschieht, indem per Klick im CMS ein HTTP-Anfrage mit der geladenen Datei an den Controller geschickt wird. Dieser kümmert sich anschließend darum, dass die Datei über das Model in der Datenbank gespeichert wird und gibt die Bestätigung der Aktion im View wieder (siehe \cref{fig:mvc-plurapolit}).
 
 Dabei wird die Tondatei selbst nicht in der Datenbank gespeichert. Vielmehr wird der Speicherservice von Amazon Web Services (S3) genutzt. Somit sendet, nachdem die Datei im View hinterlegt wurde, der Controller die Datei automatisch an S3 und erhält anschließend eine Url zurück. Diese wird anschließend abgespeichert und dient als Referenz zur eigentlichen Tonaufnahme (siehe Abbildung).
 
@@ -114,5 +121,5 @@ Auch die Plattform ist in Ruby on Rails implementiert. Genauer beschrieben hande
 
 Demnach gibt es eine Aufteilung hinsichtlich der graphischen Darstellung in Content Management System und Plattform. Die Datenspeicherung und Verwaltung ist jedoch gleich. Auch wird die gesamte Codebase in einem Bereitstellungsprozesses dem Hosting Service bereit gestellt. Somit handelt es sich beim System von PluraPolit um ein Monolith, welches teilweise Modular ist, die REST-Standards erfüllt und nach dem Model-View-Controller-Ansatz aufgeteilt ist. Des Weiteren nutz es vereinzelt externe Services von AWS, um Tondateien zu speichern und Transcripierungen vorzunehmen.
 
-%Todo Bilder erstellen und einfügen
+%Todo Bilder erstellen und einfügen 
 %Todo Inhaltliche Korrektur von Marcel

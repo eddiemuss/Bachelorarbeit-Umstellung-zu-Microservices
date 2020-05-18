@@ -14,6 +14,15 @@
 \usepackage{setspace}
 \usepackage{parskip}
 
+%Für quots
+\usepackage[autostyle=true, german=quotes]{csquotes}
+
+%Für Abbildungen
+\usepackage{graphicx}
+  
+% Inhaltsverwaltung wird eingefügt
+\usepackage[style=authortitle, citestyle=authoryear]{biblatex}
+
 %Klickbares Inhaltsverzeichnis
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -21,11 +30,8 @@
 	linktoc=all,
 }
 
-%Add a package quotes
-\usepackage[autostyle=true, german=quotes]{csquotes}
-  
-% Inhaltsverwaltung wird eingefügt
-\usepackage[style=authortitle, citestyle=authoryear]{biblatex}
+%Um auf ein Bild innerhalb eines Textes referieren zu können
+\usepackage[ngerman]{cleveref}
 
 \addbibresource{references.bib}
 
@@ -64,7 +70,13 @@
 
 \newpage
 
+% Literaturverzeichnis
 \printbibliography[title=Literaturverzeichnis]
+
+\newpage
+
+% Abbildungsverzeichnis
+\listoffigures
 
 \newpage
 
