@@ -78,7 +78,7 @@ Verwendet wird die REST-Architektur ausschließlich für Anwendungen im Internet
 
 \subsubsection{Monolithe Architektur}
 
-Der Begriff \textit{\enquote{Monolith}} leitet sich vom altgriechischen \textit{\enquote{monólithos}} ab und bedeutet \textit{\enquote{aus einem Stein}} \parencites[vlg.][]{duden_nodate}[vgl.][]{dwds_nodate}. In der Gesteinskunde wird da mit ein natürlich entstandener Gesteinsblock bezeichnet, der komplett aus einer Gesteinsart besteht \parencite[vgl.][]{dwds_nodate}.
+Der Begriff \textit{\enquote{Monolith}} leitet sich vom altgriechischen \textit{\enquote{monólithos}} ab und bedeutet \textit{\enquote{aus einem Stein}} \parencites[vlg.][]{duden_nodate}[vgl.][]{dwds_nodate}. In der Gesteinskunde wird damit ein natürlich entstandener Gesteinsblock bezeichnet, der komplett aus einer Gesteinsart besteht \parencite[vgl.][]{dwds_nodate}.
 
 Nach Rod Stephens liegt eine monolithische Softwarearchitektur vor, wenn jegliche Funktionalität des Systems miteinander verbunden ist. Dabei spricht er auf die Verbindung von Dateneingabe, Datenausgabe, Datenverarbeitung, sowie Fehlerhandhabung und Benutzeroberflächen \parencite[vgl.][S. 94]{stephens_beginning_2015}.
 
@@ -86,7 +86,12 @@ Anders sieht es Sam Newman. Ihm nach liegt ein Monolites System schon vor, wenn 
 
 Der Einzelprozess Monolith ist die gängigste Form und deckt sich mit der Definition von Rod Stephens. Somit handelt es sich dabei, um ein System bei dem das gesamte System ein Prozess abbildet. Dies bedeutet, dass jegliche Funktionalität auf einander aufbauend ist und nur eine Datenspeicherung für die gesamte Anwendung verwendet wird \parencite[vgl.][Kap. 2.2.1]{newman_monolith_2019}.
 Anders ist dies beim Modularen System. Dieses zeichnet sich darin aus, dass die Funktionalität in einzelne Module geteilt wird und sogar einzelne Module eine separate Datenspeicherung besitzen können \parencite[vgl.][Kap. 2.2.2]{newman_monolith_2019}. Diese Form von monolithen System ist jedoch seltener und wird nur von einzelnen Unternehmen eingesetzt.
+
+% Todo warum wird es selten verwendet
+
 Im Gegensatz zu verteilten Systemen sind die einzelnen Komponenten nicht auf separaten Computern verteilt und werden durch einen Deployment-Prozess online gestellt. Des Weiteren sind die einzelnen Module nur leicht entkoppelt, so kann es immer noch Abhängigkeiten geben \parencite[vgl.][Kap. 2.2.2]{newman_monolith_2019}. Unterschiedlich davon sind verteilte Monolithe. Diese sind komplett entkoppelt und kommunizieren nur noch über definierte Schnittstellen \parencite[vlg.][S. 116]{starke_effektive_2015}. Sie erfüllen somit jegliche Anforderungen an ein verteiltes System, sind jedoch in einem einzigen Bereitstellungsprozess gebündelt. Diese From wird jedoch kaum verwendet, da sowohl Nachteile auf Grund der Verteilung, als auch durch das gemeinsame Bereitstellen, entstehen.
+
+% Todo Bestimme genauer welche Nachteile hier gemein sind
 
 Weder Stephens, als auch Newman geben Vorgaben hinsichtlich der Gliederung innerhalb eines Monolithischen Systems. Demnach kann eine Model-View-Controller Ansatz als Monolithisches System gelten, solange es einheitlich deployed wird. Anders ist es mit einem verteilten System, da nach Definition ein Monolithen System kein verteiltes System sein kann. 
 
@@ -98,10 +103,11 @@ Bei größeren Unternehmen mit mehreren Team kommt hinzu, dass es leicht zu Konf
 
 \subsubsection{Einordnung des aktuellen Systems von PluraPolit}
 
-Wie aus der Einleitung hervorgeht, bietet PluraPolit eine Plattform an, die Jung- und Erstwähler bei der Politischen Bildung hilft. Dafür wurde ein Softwaresystem entwickelt, in welches sich zum einen leicht neuer Content einpflegen lässt und zum anderen die hinterlegten Tonaufnahmen den Benutzern darstellt. Um diese zu erreichen wurde neben der eigentlichen Plattform eine Content Management System (CMS) konzipiert. Umgesetzt wurde dies in einer Ruby on Rails Anwendung mit Zugriffsbeschränkung durch Passwortabfrage.
+Wie aus der Einleitung hervorgeht, bietet PluraPolit eine Plattform an, die Jung- und Erstwähler bei der politischen Bildung hilft. Dafür wurde ein Softwaresystem entwickelt, in welches sich zum einen leicht neuer Content einpflegen lässt und zum anderen die hinterlegten Tonaufnahmen den Benutzern darstellt. Um diese zu erreichen wurde neben der eigentlichen Plattform eine Content Management System (CMS) konzipiert. Umgesetzt wurde dies in einer Ruby on Rails Anwendung mit Zugriffsbeschränkung durch Passwortabfrage.
 
-Ruby on Rails, kurz auch Rails bezeichnet, ist ein quellenoffenes Webframework, welches für die Programmiersprache Ruby entwickelt wurde \parencites[vgl.][S.4]{hartl_ruby_2016}{ruby_org}[vgl.][S. 24]{sieben_wochen}. Es ist komplett Open Source und wird von einer aktiven Community entwickelt. Es gibt eine Vielzahl von kostenfreien Paketen, sogenannte Gems, die bei Belieben zu einem Projekt hinzugefügt werden können. Im Vergleich zu anderen Frameworks zeichnet sich Rails besonders durch seine Implementierung der REST-Architektur aus \parencite[vgl.][S. 5]{hartl_ruby_2016}. Diese Implementierung führt jedoch dazu, dass eine Vielzahl an Bedingungen an die Entwicklung und Implementierung von Rails Anwendungen gestellt werden. Getreu nach dem Motto “Konventionen vor Konfigurationen” nutz Rails die Bestimmungen als Vorteil und integriert ein System, indem externe Pakete ohne Konfigurationsaufwand hinzugefügt werden kann \parencite{ruby_doctrine}. Dies wird erreicht, indem durch Regeln festgelegt wird, welche Dateien für welche Funktionalitäten verantwortlich sind und wie diese Dateien zusammenarbeiten. 
+Ruby on Rails, kurz auch Rails bezeichnet, ist ein quellenoffenes Webframework, welches für die Programmiersprache Ruby entwickelt wurde \parencites[vgl.][S.4]{hartl_ruby_2016}{ruby_org}[vgl.][S. 24]{sieben_wochen}. Es ist komplett Open Source und wird von einer aktiven Community entwickelt. Es gibt eine Vielzahl von kostenfreien Paketen, sogenannte Gems, die bei Belieben zu einem Projekt hinzugefügt werden können. Im Vergleich zu anderen Frameworks zeichnet sich Rails besonders durch seine Implementierung der REST-Architektur aus \parencite[vgl.][S. 5]{hartl_ruby_2016}. Diese Implementierung führt jedoch dazu, dass eine Vielzahl an Bedingungen an die Entwicklung und Implementierung von Rails Anwendungen gestellt werden. Getreu dem Motto \textit{\enquote{Konvention vor Konfiguration}} nutzt Rails die Bestimmungen als Vorteil und integriert ein System, indem externe Pakete ohne Konfigurationsaufwand hinzugefügt werden können \parencite{ruby_doctrine}.
 
+% Todo noch einmal überarbeiten
 Dabei orientiert sich Rails bei der Teilung der Dateien an dem Model-View-Controller-Ansatz \parencites[vgl.][S. 66 ff.]{hartl_ruby_2016}.
 
 \begin{figure}
@@ -111,15 +117,24 @@ Dabei orientiert sich Rails bei der Teilung der Dateien an dem Model-View-Contro
 	\label{fig:mvc-plurapolit}
 \end{figure}
 
-Für das Einpflegen von neuen Tonaufnahmen bedeutet dies konkret, dass anhand der Eingabe der Url der für das verwalten von Tonaufnahmen zuständige Controller die gewünschte Darstellung anzeigt.  Darauf hin kann nun die Aufnahme als Datei hinterlegt werden und hochgeladen werden. Dies geschieht, indem per Klick im CMS ein HTTP-Anfrage mit der geladenen Datei an den Controller geschickt wird. Dieser kümmert sich anschließend darum, dass die Datei über das Model in der Datenbank gespeichert wird und gibt die Bestätigung der Aktion im View wieder (siehe \cref{fig:mvc-plurapolit}).
+% Todo Der Erste Satz ist noch etwas komplex und sollte ein zwei Teile gepackt werden.
+% Um eine neue Tonaufnahme einzupflegen muss eine Url aufgerufen werden. Controller kommt in Aktion.
+ Für das Einpflegen von neuen Tonaufnahmen bedeutet dies konkret, dass anhand der Eingabe der Url der für das verwalten von Tonaufnahmen zuständige Controller die gewünschte Darstellung anzeigt.
+Darauf hin kann die Aufnahme als Datei hochgeladen werden. Dies geschieht, indem per Klick im CMS ein HTTP-Anfrage mit der geladenen Datei an den Controller geschickt wird. Dieser kümmert sich anschließend darum, dass die Datei über das Model in der Datenbank gespeichert wird und gibt die Bestätigung der Aktion im View wieder (siehe \cref{fig:mvc-plurapolit}).
 
 Dabei wird die Tondatei selbst nicht in der Datenbank gespeichert. Vielmehr wird der Speicherservice von Amazon Web Services (S3) genutzt. Somit sendet, nachdem die Datei im View hinterlegt wurde, der Controller die Datei automatisch an S3 und erhält anschließend eine Url zurück. Diese wird anschließend abgespeichert und dient als Referenz zur eigentlichen Tonaufnahme (siehe Abbildung).
 
-Neben dem Hochladen von Tonaufnahmen dient jedoch das CMS auch dazu bestehende Informationen zu bearbeiten und ggf. anzupassen. Im Detail bedeutet dies, dass die jeweilige Webseite per Url Aufruf angefragt wird, der Controller die angeforderten Daten über das Model aus der Datenbank lädt und die Entsprechende graphische Darstellung rendert. Dabei übergibt der Controller die Informationen an den View, der anschließend die Daten über Embedded RuBy in HTML integriert und anzeigt (siehe Abbildung).
+Neben dem Hochladen von Tonaufnahmen dient jedoch das CMS auch dazu bestehende Informationen zu bearbeiten und ggf. anzupassen.
+% Todo Worauf bezieht sich das Detail - genauer beschreiben worauf sich das "Im Detail" bezieht.
+% Aufruf der Webseite zum bearbeiten.
+Im Detail bedeutet dies, dass die jeweilige Webseite per Url Aufruf angefragt wird, der Controller die angeforderten Daten über das Model aus der Datenbank lädt und die Entsprechende graphische Darstellung rendert. Dabei übergibt der Controller die Informationen an den View, der anschließend die Daten über Embedded RuBy in HTML integriert und anzeigt (siehe Abbildung).
 
-Auch die Plattform ist in Ruby on Rails implementiert. Genauer beschrieben handelt es sich bei der Plattform um die selbe Applikation wie das CMS nur das die graphische Darstellung durch das JavaScript Framework React übernommen wird. Im Detail bedeutet dies, dass beim Aufruf der Plattform eine Anfrage an den Controller geschickt wird und dieser anschließend die kompilierte React Anwendung ausgibt. Diese lägt eigenständig jegliche Informationen über HTTP Anfragen und kümmert sich um interne Seitenaufrufe. Die Anfragen werden dabei asynchrone an die Rails Applikation geschickt und vom Controller beantwortet. Somit erhält die React Anwendung über die Kommunikation von Controller und Module, den Content aus der Datenbank, der vorher eingepflegt wurde (Siehe Abbildung).
+% Todo Warum ist der Workflow für den user wichtig. Es ist noch nicht klar, dass der User die Daten bearbeiten möchte.
+
+Auch die Plattform ist in Ruby on Rails implementiert. Genauer beschrieben handelt es sich bei der Plattform um die selbe Applikation wie das CMS nur das die graphische Darstellung durch das JavaScript Framework React übernommen wird. Im Detail bedeutet dies, dass beim Aufruf der Plattform eine Anfrage an den Controller geschickt wird und dieser anschließend die kompilierte React Anwendung ausgibt. Diese lädt eigenständig jegliche Informationen über HTTP Anfragen und kümmert sich um interne Seitenaufrufe. Die Anfragen werden dabei asynchron an die Rails Applikation geschickt und vom Controller beantwortet. Somit erhält die React Anwendung über die Kommunikation von Controller und Modul, den Content aus der Datenbank, der vorher eingepflegt wurde (Siehe Abbildung).
 
 Demnach gibt es eine Aufteilung hinsichtlich der graphischen Darstellung in Content Management System und Plattform. Die Datenspeicherung und Verwaltung ist jedoch gleich. Auch wird die gesamte Codebase in einem Bereitstellungsprozesses dem Hosting Service bereit gestellt. Somit handelt es sich beim System von PluraPolit um ein Monolith, welches teilweise Modular ist, die REST-Standards erfüllt und nach dem Model-View-Controller-Ansatz aufgeteilt ist. Des Weiteren nutz es vereinzelt externe Services von AWS, um Tondateien zu speichern und Transcripierungen vorzunehmen.
 
 %Todo Bilder erstellen und einfügen 
 %Todo Inhaltliche Korrektur von Marcel
+% Todo anderen Namen für Plattform, Nutzersicht, User-Plattform, PluraPolit-Webseite
