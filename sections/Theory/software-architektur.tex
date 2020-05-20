@@ -5,11 +5,17 @@ Hieraus entstand die im Jahr 2000 veröffentlichte Norm IEEE1471:2000, welche am
 
 \subsubsection{Definition}
 
+%Todo Definition nach IEEE1471-2000 einfügen
+
 Helmut Balzert, einer der führenden Pioniere im Bereich Softwarearchitektur und Autor der Bücherreihe \textit{Lehrbuch der Softwaretechnik}, beschreibt diese als \textit{\enquote{eine strukturierte oder hierarchische Anordnung der Systemkomponenten, sowie Beschreibung ihrer Beziehungen}} \parencite[][S. 580]{balzert_lehrbuch_2011}. Ihm nach lässt sich somit jedes System in mehrere einzelne Komponenten teilen, welche untereinander in Verbindung stehen und gemeinsam das Gesamtsystem formen.
 
 Paul Clements, Autor der Bücher \textit{Software Architecture in Practice und Documenting Software Architectures: Views and Beyond}, schließt sich Balzert an und beschreibt Softwarearchitektur als \textit{\enquote{Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen}} \parencite[][S. 23]{clements_documenting_2010}.
 
 Somit definieren beide Softwarearchitektur als Strukturierung von einzelnen Komponenten, die untereinander in Beziehung stehen. Dabei können sowohl die Komponenten als auch die Beziehungen Eigenschaften besitzen. Die einzelnen Komponenten zusammen ergeben das Gesamtsystem, welches in einer bestimmten Struktur vorliegt und beschrieben wird. Folglich beinhaltet die Softwarearchitektur alle nötigen Informationen über die Struktur der einzelnen Systemkomponenten und deren Kommunikationen untereinander.
+
+%Todo Definition von Softwarearchitektur nach Martin Fowler einfügen und die relevanz von Entscheidungen auch Außerhalb von Technichen Entscheidungen (siehe Youtube Video).
+
+%Todo Darauf eingehen, dass zum größten Teil auf die Technische Definition eingeganen wird.
 
 Wird ein Softwaresystem in Komponenten geteilt, welches jedoch selbst eine Funktionalität besitzt, bedeutet dies, dass auch diese Logik in Teile geteilt wird und jede einzelne Komponente einen Teil erfüllt. Um gleichermaßen den selben Funktionsumfang, wie das Gesamtsystem bewältigen zu können, müssen die einzelnen Komponenten zusammenarbeiten. Demnach ist es wichtig, die Zuständigkeit jeder einzelnen Komponente genau zu klären und die Abhängigkeiten zu bestimmen. Auf Grund der Abhängigkeiten werden im Anschluss Schnittstellen definiert, über welche die einzelnen Komponenten Informationen austauschen können.
 
@@ -39,7 +45,7 @@ Der Austausch von Informationen und das Aufrufen von externer Funktionalität ko
 
 \subsubsection{Interaktionsorientierte Systeme}
 
-Interaktionsorientierte Systeme zeichnen sich dadurch aus, dass sie den Fokus auf die Interaktion zwischen Mensch und Maschine legen \parencite[vlg.][S. 124]{starke_effektive_2015}.
+Interaktionsorientierte Systeme zeichnen sich dadurch aus, dass sie den Fokus auf die Interaktion zwischen Mensch und Maschine legen \parencite[vgl.][S. 124]{starke_effektive_2015}.
 Ein viel verwendeter Vertreter hiervon ist der Model-View-Controller Ansatz. Hierbei werden die einzelnen Komponenten in drei unterschiedliche Kategorien eingeteilt, von dem jeweils ein Repräsentant vorhanden sein muss. Eingeteilt wird in die drei Kategorien: Model, View und Controller, unterdessen jede Gattung eine eigene Funktion besitzt.
 
 So kümmert sich das Model um die Datenspeicherung, den Datenabruf und Verarbeitung von Informationen und ist eine Verbindung zwischen dem Speichermedium und der Anwendung (siehe \cref{fig:mvc-cm-kommunikation} und \cref{fig:mvc-vm-kommunikation} Punkt 4 und 5 bzw. Punkt 5 und 6). Da jegliche Speicherung ausschließlich über das Model abläuft, wird dadurch das Speichern, sowie das Abrufen einheitlich geregelt.

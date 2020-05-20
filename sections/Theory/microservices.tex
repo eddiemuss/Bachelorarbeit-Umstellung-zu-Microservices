@@ -1,10 +1,41 @@
 \subsection{Microservices}
 
-%	Todo Literatur finden und Abgrenzung schreiben. Es gab in dem Buch von Newman einen schnitt über die Geschichte und somit auch die Entwicklung des Begriffs.
+Nachdem nun die einzelne Architekturstile vorgestellt wurden und das System von PluraPolit eingeordnet wurde, wird nun Microservices vorgestellt.
 
-%Todo der erste Satz muss noch einmal überprüft werden. Er kann so nicht richtig sein.
-Der Begriff Microservices wird mehrdeutig verwendet. So wird je nach Perspektive entweder eine Softwarearchitektur oder eine Komponente einer solchen Architektur beschrieben. Eng verbunden mit diesem Begriff sind auch dynamische Systeme und Konzeptionierung von Unternehmensstrukturen. Demnach sieht Eberhard Wolf unter Microservices ein Modellierungskonzept, welches dazu dient größere Softwaresysteme in kleinere Einheiten zu teilen \parencite[vgl.][Kap. 1.1]{wolff_microservices_2018}. Dabei hat die Aufteilung Auswirkungen auf die Organisation als auch auf die Entwicklungsprozesse.
+Dabei handelt es sich um eine Architekturstil, der ein Vertreter der verteilten Systeme ist und sich historisch aus der Service Orientierten Architektur abgeleitet hat. (Siehe Zielstellung)
 
-Zusammenfassend lässt sich sagen, dass der Begriff Microservices nicht einheitlich definiert ist und es sich zwei unterschiedliche Perspektiven ergeben. Zum einen beschreibt es ein Modellierungskonzept, welches Auswirkungen auf Unternehmenssturkur und Managemententscheidungen hat und zum anderen kennzeichnet es eine Software-Architektur, die in eigenständige Komponente geteilt ist.
+Eberhard Wolff beschreibt Microserivces als Ansatz Software in einzelne Module zu teilen und definiert es als Modularisierungskonzept, welches Einfluss auf die Unternehmesorganisation und Software-Entwicklungsprozess hat. Dabei ist jedes Module ein eigenes Programm.
 
-In dieser Arbeit werden beiden Ansichten beleuchtet, um infolgedessen eine umfassende Einschätzung für PluraPolit zu geben.
+Sam Newman schließt sich Wolff an und beschreibt Microservices als voneinander unabhängig einsetzbare Dienste, die um eine Geschäftsdomäne herum modelliert sind.
+
+Somit beschreiben beide Microservices als ein System aus einzelnen unabhängigen Services, die sich an ein Geschäftsdomäne richten. Insbesondere die Abhängigkeit zum Geschätsprozess wird nachfolgend näher beschrieben.
+
+% Todo Literaturnachweis einfügen
+
+\subsubsection{Zusammenhang und Verknüpfung}
+
+In diesem Abschnitt möchte ich diese beiden Begriffe erklären und noch einmal den Zusammenhang zwischen Funktionlität hervorheben. Es soll klar werden wie Microservices geteilt werden und was es bedeutet Logig hinter definierten Schnitstellen zu verstecken.
+
+Abschließend zu diesem Abschnitt soll die dritte Bedingung für Microservices erstellt werden: \textbf{eine in teamsgeteilte, gemischte Unternehmensstruktur}
+
+\subsubsection{Conway's Law}
+
+Die Abhängigkeit der Kommunikationsstruktur im Unternehmen zur verwendeten Software Architektur.
+
+\begin{itemize}
+	\item Begriff erklären
+	\item Auswirkungen für die Teamstruktur beschreiben
+\end{itemize}
+
+\subsubsection{Bounded Contexts}
+
+An diesem Punkt sollte eine Definition des Begriffes Bounded Contexts gegeben werden. Dies ist insbesondere wichtig, da Domain Driven Design darauf aufbaut und Bounded Contexts umsetzt.
+
+\subsubsection{Domain Driven Design}
+
+\begin{itemize}
+	\item Was ist DDD?
+	\item Was sind Bounded Contexts?
+	\item 	Bespiele dazu.
+	\item Schlussfolgerung für PluraPolit
+\end{itemize}
