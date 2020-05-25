@@ -10,6 +10,8 @@ Sam Newman schließt sich Wolff an und beschreibt Microservices als voneinander 
 
 Somit beschreiben beide Microservices als ein System aus einzelnen unabhängigen Services, die sich an ein Geschäftsdomäne richten. Insbesondere die Abhängigkeit zum Geschäftsprozess wird nachfolgend näher beschrieben.
 
+% Todo Einfügen, dass ein einzelner Microservice eine eigene Darstellung, DB, Verarbeitung hat.
+
 \subsubsection{Zusammenhang und Verknüpfung}
 
 Wenn es um das aufteilen von Software geht, ist es wichtig zu verstehen wie die einzelnen Funktionen und Klassen zusammenhängen und welche Verknüpfungen es zwischen ihnen gibt.
@@ -22,20 +24,27 @@ Insbesondere in monolithischen Systemen können viele Verknüpfungen entstehen, 
 
 Für ein Microservicesarchtektur ist jedoch das Bestreben klare Abgrenzung zu erlangen, und einzelne stabile Services zu etablieren. Diese sollen soweit es geht von einander entkoppelt funktionieren. Somit ist das Ziel für eine Microservicearchitektur einen hohen Zusammenhang bei geringer Verknüpfung zu besitzen. Dabei ist dies nicht nur die Zielsetzung für Microservices allgemein, sondern ein generelles Bestreben für stabile Systeme.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[S. 43]{endres_handbook_2003}.} Für Microservices bedeutet dies Konkret, dass ein Services ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie zum Beispiel Datenbankstrukturen und Funktionsaufrufe, hinter klar definierten Schnittstellen versteckt sind.
 
-\subsubsection{Conway's Law}
+\subsubsection{Das Gesetz von Conway}
 
-Die Abhängigkeit der Kommunikationsstruktur im Unternehmen zur verwendeten Software Architektur.
+Wenn es um die Teamaufteilung in IT Projekten geht, wird in den meisten Fällen sich an die historischen Herangehensweise orientiert und die Entwickler hinsichtlich ihrer Spezifikation eingeteilt. So werden Datenbankexperten, Frontend- und Backendentwicklern in jeweils einzelne Teams aufgegliedert.
 
-\begin{itemize}
-	\item Begriff erklären
-	\item Auswirkungen für die Teamstruktur beschreiben
-\end{itemize}
+Entscheidet sich jedoch ein Unternehmen für eine Microservicearchitektur, bedeutet diese Aufteilung, dass für jeden einzelnen Service Absprachen zwischen den Teams entstehen. Folglich etabliert sich eine Menge an einzelnen Kommunikationsbeziehungen, welche die  Umsetzung von neuen Funktionen verlangsamt.
 
-\subsubsection{Bounded Contexts}
+Der amerikanische Mathematiker Melvin Edward Conway umschrieb das Dilemma wie folgt:
+\textit{\enquote{Organisationen, die Systeme designen, können nur solche entwerfen, welche die eigene Kommunikationsstruktur widerspiegelt.}}
+Er bezieht sich dabei auf die Tatsache, dass die Softwarearchitektur immer von den einzelnen Entwicklern mit entworfen wird und daher eingefahrene Kommunikationsstrukturen \footnote{Kommunikationsstrukturen ist dabei nicht zwingen gleich das Organigramm, da etabliere Kommunikationswege nicht zwingend von der Unternehmensstruktur abgebildet wurde.} sich in der Architektur wiederfinden lassen.
+
+Nach Conway ist somit die Architektur direkt mit der Kommunikationsstruktur verbunden. Folglich sollte ein Unternehmen, welches das Gesamtsystem in einzelne Module teilt auch die gleiche Aufteilung in der Kommunikationsstruktur einführen. Konkret bedeutet dies für ein Unternehmen, dass die Entwickler nicht nach Spezifikation, sondern nach Kontext des Service geteilt werden. Diese Teams besitzen dabei möglichst kurze Kommunikationswege und haben wenig Abhängigkeiten zu anderen Teams. Im genaueren Definiert sich die Verknüpfung zu anderen Teams über die Schnittstellen der Services.
+Um die Kommunikation für ein Service auf das Minimum zu reduzieren, sollte nur ein Team pro Dient verantwortlich sein, wobei ein Team auch mehrere Services betreuen kann. 
+
+Um nun folglich eine Microservicesarchitektur umzusetzen, muss zum einem die Anwendung so Komplex sein, dass sie sich in einzelne Services teilen lässt und zum anderen so viele Entwickler vorhanden sein, dass idealerweise jeder Dienst von einem Team betreut wird.
+
+\subsubsection{Domain Driven Design}
+
+Bounded Contexts
 
 An diesem Punkt sollte eine Definition des Begriffes Bounded Contexts gegeben werden. Dies ist insbesondere wichtig, da Domain Driven Design darauf aufbaut und Bounded Contexts umsetzt.
 
-\subsubsection{Domain Driven Design}
 
 \begin{itemize}
 	\item Was ist DDD?
