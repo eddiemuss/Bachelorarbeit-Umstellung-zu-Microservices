@@ -13,20 +13,18 @@ Somit beschreiben Beide Microservices als ein System aus einzelnen, unabhängige
 % Todo Einfügen, dass ein einzelner Microservice eine eigene Darstellung, DB, Verarbeitung hat.
 % Todo Geschätfsdomäne erklären
 
-\subsubsection{Zusammenhang und Verknüpfung}
-% Todo umbenennen zu Kohärenz und Kopplung
+\subsubsection{Kohärenz und Kopplung}
 
 Wenn es um das aufteilen von Software geht, ist es wichtig zu verstehen wie die einzelnen Funktionen und Klassen zusammenhängen und welche Verknüpfungen es zwischen ihnen gibt.
 
-Dabei bezieht sich der Zusammenhang auf die funktionale Abhängigkeit zweier Funktionen oder Klassen \parencite[vgl.][Kap. 2.3.1]{newman_monolith_2019}. Somit liegt ein hoher Zusammenhang vor, wenn der Quellcode anhand seiner logischen Zugehörigkeit geordnet ist. Eine konkrete Umsetzung dieses Bestreben ist im Abschnitt zum Model-View-Controller-Ansatz zu finden.
+Dabei bezieht sich Kohärenz auf die funktionale Abhängigkeit zweier Funktionen oder Klassen \parencite[vgl.][Kap. 2.3.1]{newman_monolith_2019}. Somit liegt ein hoher Kohärenz vor, wenn der Quellcode anhand seiner logischen Zugehörigkeit geordnet ist. Eine konkrete Umsetzung dieses Bestreben ist im Abschnitt zum Model-View-Controller-Ansatz zu finden.
 % Das Beispiel zu logisch Zugehörig ist noch nicht ganz klar.
 
-Verknüpfung hingegen beschreibt in welchem Maß, Funktionen und Klassen verbunden sind, ohne dass sie logisch zusammen gehören \parencite[vgl.][Kap. 2.3.2]{newman_monolith_2019}. Somit bezieht sich Verknüpfung ausschließlich auf eine technisch vorliegende Kopplung. Ein typisches Beispiel hier für ist, wenn ein Datenabruf an mehreren Stellen direkt über das Datenbankschema abläuft. Dadurch entsteht eine Abhängigkeit auf das Schema, sodass falls sich das Schema ändert auch die jeweiligen Aufrufe geändert werden müssen.
+Kopplung hingegen beschreibt in welchem Maß, Funktionen und Klassen verbunden sind, ohne dass sie logisch zusammen gehören \parencite[vgl.][Kap. 2.3.2]{newman_monolith_2019}. Somit bezieht sich Kopplung ausschließlich auf eine technisch vorliegende Verknüpfung. Ein typisches Beispiel hier für ist, wenn ein Datenabruf an mehreren Stellen direkt über das Datenbankschema abläuft. Dadurch entsteht eine Abhängigkeit auf das Schema, sodass falls sich das Schema ändert auch die jeweiligen Aufrufe geändert werden müssen.
 
-Insbesondere in monolithischen Systemen können viele Verknüpfungen entstehen, da keine festen Abgrenzungen zwischen einzelnen logischen Bereiche definiert sind. Somit kann es sein, dass ein Monolith, welches historisch wächst, keine klare Struktur aufzeigt. Es entsteht hieraus ein System, welches anfällig für Veränderungen ist.
-% Todo Anfälligkeit für Veränderungen noch genauer beschreiben, was gemeint ist
+Insbesondere in monolithischen Systemen können viele Kopplungen entstehen, da keine festen Abgrenzungen zwischen einzelnen logischen Bereiche definiert sind. Somit kann es sein, dass ein Monolith, welches historisch wächst, keine klare Struktur aufzeigt. Es entsteht hieraus ein System, welches bei kleinen Veränderung viele ungewollte Fehler erzeugt, die ggf. weitere Anpassungen erfordern.
 
-Für ein Microservicesarchtektur ist jedoch das Bestreben klare Abgrenzung zu erlangen, und einzelne stabile Services zu etablieren. Diese sollen soweit es geht von einander entkoppelt funktionieren. Somit ist das Ziel für eine Microservicearchitektur einen hohen Zusammenhang bei geringer Verknüpfung zu besitzen. Dabei ist dies nicht nur die Zielsetzung für Microservices allgemein, sondern ein generelles Bestreben für stabile Systeme.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[S. 43]{endres_handbook_2003}.} Für Microservices bedeutet dies Konkret, dass ein Services ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie zum Beispiel Datenbankstrukturen und Funktionsaufrufe, hinter klar definierten Schnittstellen versteckt sind.
+Für ein Microservicesarchtektur ist jedoch das Bestreben klare Abgrenzung zu erlangen, und einzelne stabile Services zu etablieren. Diese sollen soweit es geht von einander entkoppelt funktionieren. Somit ist das Ziel für eine Microservicearchitektur einen hohen Kohärenz bei geringer Kopplung zu besitzen. Dabei ist dies nicht nur die Zielsetzung für Microservices allgemein, sondern ein generelles Bestreben für stabile Systeme.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[S. 43]{endres_handbook_2003}.} Für Microservices bedeutet dies Konkret, dass ein Services ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie zum Beispiel Datenbankstrukturen und Funktionsaufrufe, hinter klar definierten Schnittstellen versteckt sind.
 
 \subsubsection{Das Gesetz von Conway}
 
