@@ -1,34 +1,27 @@
 \subsection{Microservice}
+% Todo Literaturnachweis einfügen
 
-%In diesem Abschnitt möchte ich Microservice definieren und die einzelnen Merkmale benennen.
-%Es sollen zwei Eigenschaften deutlich als solche hervorstechen: Eigenständige Komponente und standatiesierte Kommunikation.
+Wie aus dem vorhergehenden Abschnitt hervor geht sind Microservices einzelne, unabhängige Services, die um eine Geschäftsdomäne modelliert sind, welche auf Grundlage der klaren Schnittstellen entkoppelt und durch einzelne Kontext begrenzt sind. Die Kontexte ermöglichen das Verwenden von Service internen Terminologie und Verwendung ausschließlich benötigter Daten. Abschließend hat \cref{sec:conway} gezeigt, dass nur ein Team für ein Service zuständig ist.
 
-Nach Sam Newman ist ein Microservice ein \textit{\enquote{eigenständige ausführbare Softwarekomponente, die innerhalb eines Anwendungssystems mit anderen Softwarekomponenten kollaboriert}} \parencite[][Kap. 2.1]{newman_monolith_2019}. Sie zeichnet sich durch das kommunizieren über definierte Netzwerkschnittstellen aus und formt in Vereinigungen eine Microservices-Architektur. Ein Microservice umfasst dabei die Datenspeicherung, Datenverarbeitung und Datendarstellung und besitzt eine gut definierte Benutzeroberfläche \parencite[vgl.][Kap. 2.1]{newman_monolith_2019}.
+In seinem Buch Monolith to Microservices geht Newman darauf ein, dass wohl die wichtigste Eigenschaft von einem Microservice die unabhängige Einsetzbarkeit ist. Er sieht darin die Verkörperung von Unabhängigkeit und eigenständigen Teams, welche durch die Kommunikation der Services durch standardisierte Schnittstellen ermöglicht wird. Die meist verbreitete Art der Schnittstelle ist die nach dem REST-Standard, welche sich an eine Kommunikation über HTTP richtet (siehe \cref{sec:rest}).
 
-Ergänzend dazu schreibt Wolf, dass sich das Konzept der Microservices-Architektur aus der Philosophie vom Unix Betriebssystem ableitet, welches nach Peter H. Salus folgende drei Leitpunkte umfasst \parencites{salus_quarter_1994}[vgl.][Kap. 1.1]{wolff_microservices_2018}:
-\begin{itemize}
-	\item Schreibe Programme, sodass sie nur eine Aufgabe erledigen und diese gut.
-	\item Schreibe Programme, die zusammen arbeiten.
-	\item Schreibe Programme, welche über definierte Schnittstellen (Textstream) kommunizieren.
-\end{itemize}
+Da viele Programmiersprachen den Informationsaustausch über HTTP ermöglichen, ist ein Microservice unabhängig einer bestimmten Technologie. Somit kann jedes Team eigenständig entscheiden, welche Programmiersprache sie verwenden wollen. Dadurch können Sprachen nach Präferenz und Problemstellen gewählt werden, ohne dass eine Inkompatibilität zum Rest des Systems entsteht.
 
-Nach James Lewis sind Microservices kleine Anwendungen, die unabhängig bereitgestellt, getestet und skaliert werden. Ebenfalls wie Wolf beschreibt er diese Programme, als einfach zu verstehen, die nur eine Aufgabe übernehmen.
+Vielmehr ermöglicht der Austausch über standardisierten Kommunikationswege, dass Services erstellt werden, die austauschbar sind. Somit können zum Beispiel einige Services durch kommerzielle Dienste ausgeführt werden und Entwicklungskosten gespart werden. Außerdem wird dadurch die Möglichkeit geschaffen auf bestehender Logik aufzubauen und ältere Systeme mit modernen Technologien zu verbinden.
 
-\subsubsection{Eigenständige Komponente}
+% Todo change kommerziell zu externen Services
 
-In diesem Abschnitt möchte ich detalierter auf die Eigenschaft als eigenständige Komponente eingehen. Ich möchte beschreiben, welche Vorteile es für das einsetzen ergibt und was sich weitere Merkmale sich dadruch ergeben.
+\cref{sec:ddd} hat gezeigt das Kontextgrenzen Microservices es ermöglicht Daten nach eigenem ermessen zu benennen und zu verwalten. Konkret besitzt jeder Dienst eine eigene Datenspeicherung, in Form zum Beispiel eines File-Storage-Systems oder einer Datenbank. Für das Gesamtsystem bedeutet dies, dass keine einheitliche Datenspeicherung vorliegt, sondern jeder Service die notwendigen Informationen verwaltet. Um jedoch die Funktionalität des gesamten Systems zu erhalten, müssen im Vorfeld bestimmt werden, wie der Informationsaustausch zwischen den Services abläuft. Hierfür ist es wichtig zu bestimmen, welche Services welche Informationen verwalten und falls Abhängigkeiten zu anderen Diensten bestehen, die Schnittstellen festzulegen. Insbesondere die genauen Endpunkt und die zu erwarteten Informationen müssen bestimmt werden. Die Handhabung innerhalb eines Services, ist dann wieder dem einzelnem Team überlassen. 
 
-Benennen möchte ich dabei:
-\begin{itemize}
-	\item deployment
-	\item technology
-	\item max ein Team ist verantwortlich
-	\item DB
-	\item Feature bezogen (nach UNIX Philo)
-	\item wenige Abhängigkeiten -> bleibende Produktivität
-	\item leichter Einstieg
-	\item bedarf angepasste skalierung
-\end{itemize}
+Gibt es ein Service, der Informationen von einem anderen Dienst benötigt, fordert dieser die Daten über öffentliche Schnittstellen aktive an. Dies führt jedoch dazu, dass gleiche Informationen von mehrere Diensten verwaltet werden und es zu unterschieden Datenständen kommt. Es entsteht die Herausforderung Informationen zwischen Services Konsistent zu halten (siehe \cref{sec:cap}).
 
-Zum Ende des Kapitels möchte ich darauf eingehen, dass dies auch mit sich führt, dass der Aufwand fürs Refaktoren insbesondere bei Veränderungen über mehrere Services hinweg aufwendig ist. Die Aufwand steigt im vergleich zu unverteilten Systemen. Es stellt sich somit als ein deutlicher Nachteil heraus Funktionalität später großflächig zu ändern.
-Somit ist als Bedingung festzuhalten erst ein Produktmarketfit zu besitzen.
+Volle Unabhängigkeit eines Microservice kann nur erreicht werden, wenn dieser auch für die Benutzeroberfläche verantwortlich ist. In der Praxis ist dies jedoch schwierig, da eine Webseite  Inhalte von mehreren Services anzeigt. Insbesondere nachdem 2010 Angular.js veröffentlicht wurde, gibt es immer mehr JavaScript Frameworks die um die Benutzererfahrung zu verbessern mehr Logik in das Frontend legen. React.js ist eines dieser Frameworks. Die Beliebtheit hinter diesen Frameworks, liegt darin, dass jede einzelne Webseite nicht mehr als einzelne Seite betrachtet wird, sondern Informationen zwischen Benutzeroberflächen hinweg verwaltet werden. Dadurch kann ein Datenabruf über mehrere Webseiten geteilt werden und somit die Performance verbessern. Erreicht wird dies, indem das Routing zwischen den Webseiten durch das Framework verwaltet wird. Dieser Ansatz wird als Single-Page-Application (SPA) bezeichnet und unterscheidet sich von der Idee des Model-View-Controller aus \cref{sec:mvc}, da die nötigen Informationen aktive von der View geladen werden.
+
+Da in der Praxis viele Webseiten Single-Page-Applicationen einsetzen, um eine gute Benutzererfahrung zu liefern, sollte in diesen Fällen über mögliche Aufteilungen nachgedacht werden. Insbesondere wenn es sich um Applikationen handelt, die von mehrere Teams verwaltet werden. Ist dies nämlich der Fall, kann darunter die Unabhängigkeit der Teams leiden.
+
+Auch kann es vorkommen, dass ein Microservices keine graphische Darstellung benötigt, da dieser zum Beispiel nur E-Mails verschickt oder die beliebtesten Filme ermittelt. Somit gibt es keine absolute Aussage darüber, ob ein Microservice eine Benutzeroberfläche haben sollte.
+
+Insbesondere in puncto Skalierung bieten Microservices viele Vorteile. So lassen sich individuell, intensiv genutzte Services unabhängig vom Gesamtsystem skalieren. Dies kann ein großer Kostenvorteil sein, da nur ein einzelner Teil und nicht das gesamte System mehr Ressourcen zu geteilt werden muss. Auch können auf Basis der eingeteilten Teams weitere Entwickler angestellt werden und das Unternehmen hinsichtlich der Angestellten wachsen.
+
+Während Microservices Skalierungen begünstigen, erschweren sie serviceübergreifende Veränderungen. Somit ist es auf Grund der technologischen Freiheit aufwendiger, Entwickler von einem Service zu einem Anderen zu überführen. Dies wird dadurch verstärkt, dass unterschiedliche Daten gespeichert und verschiedene Terminologien verwendet werden. Auch eine technologische Überführung von Funktionen wird erschwert, wenn verschiedene Programmiersprachen eingesetzt werden. Äquivalent ist das zusammenführen von Datenschemata, welches durch die unterschiedlichen Attributbezeichnungen boykottiert wird. Dies führt dazu, dass ein Zusammenschluss nur durch einen großen Aufwand erreicht werden kann.
+

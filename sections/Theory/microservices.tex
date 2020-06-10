@@ -1,17 +1,15 @@
-\subsection{Microservices}
+\subsection{Microservicesarchitektur}
+\label{sec:microservices}
 
 Nachdem nun die einzelne Architekturstile vorgestellt wurden und das System von PluraPolit eingeordnet wurde, wird nun Microservicesarchitektur vorgestellt.
 
-Dabei handelt es sich um eine Architekturstil, der ein Vertreter der verteilten Systeme ist und sich historisch aus der Service Orientierten Architektur abgeleitet hat (siehe \cref{sec:Zielsetzung}).
+Dabei handelt es sich um eine Architekturstil, der ein Vertreter der verteilten Systeme ist und sich historisch aus der Service Orientierten Architektur abgeleitet hat (siehe \cref{sec:zielsetzung}).
 
 Eberhard Wolff beschreibt Microserivces als Ansatz Software in einzelne Module zu teilen und definiert es als Modularisierungskonzept, welches Einfluss auf die Unternehmesorganisation und Software-Entwicklungsprozess hat \parencite[vgl.][Kap. 1.1]{wolff_microservices_2018}. Dabei ist jedes Module ein eigenes Programm.
 
 Sam Newman stützt die Aussage von Wolff und beschreibt Microservices als voneinander unabhängig einsetzbare Dienste, die um eine Geschäftsdomäne herum modelliert sind \parencite[vgl.][Kap. 2.1]{newman_monolith_2019}.
 
-Somit beschreiben Beide Microservices als ein System aus einzelnen, unabhängigen Services, die sich an ein Geschäftsdomäne richten. Insbesondere die Abhängigkeit zum Geschäftsprozess wird nachfolgend näher beschrieben.
-
-% Todo Einfügen, dass ein einzelner Microservice eine eigene Darstellung, DB, Verarbeitung hat.
-% Todo Geschätfsdomäne erklären
+Somit beschreiben Beide Microservices als ein System aus einzelnen, unabhängigen Services, die sich an ein Geschäftsdomäne richten. Insbesondere die Abhängigkeit zum Geschäftsprozess wird im \cref{sec:ddd} näher beschrieben.
 
 \subsubsection{Kohärenz und Kopplung}
 
@@ -27,6 +25,7 @@ Insbesondere in monolithischen Systemen können viele Kopplungen entstehen, da k
 Für ein Microservicesarchtektur ist jedoch das Bestreben klare Abgrenzung zu erlangen, und einzelne stabile Services zu etablieren. Diese sollen soweit es geht von einander entkoppelt funktionieren. Somit ist das Ziel für eine Microservicearchitektur einen hohen Kohärenz bei geringer Kopplung zu besitzen. Dabei ist dies nicht nur die Zielsetzung für Microservices allgemein, sondern ein generelles Bestreben für stabile Systeme.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[S. 43]{endres_handbook_2003}.} Für Microservices bedeutet dies Konkret, dass ein Services ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie zum Beispiel Datenbankstrukturen und Funktionsaufrufe, hinter klar definierten Schnittstellen versteckt sind.
 
 \subsubsection{Das Gesetz von Conway}
+\label{sec:conway}
 
 Wenn es um die Teamaufteilung in IT Projekten geht, wird in den meisten Fällen sich an die historischen Herangehensweise orientiert und die Entwickler hinsichtlich ihrer Spezifikation eingeteilt. So werden Datenbankexperten, Frontend- und Backendentwicklern in jeweils einzelne Teams aufgegliedert.
 
@@ -34,7 +33,7 @@ Entscheidet sich jedoch ein Unternehmen für eine Microservicearchitektur, bedeu
 
 Der amerikanische Mathematiker Melvin Edward Conway umschrieb das Dilemma wie folgt:
 \textit{\enquote{Organisationen, die Systeme designen, können nur solche entwerfen, welche die eigene Kommunikationsstruktur widerspiegelt.}}
-Er bezieht sich dabei auf die Tatsache, dass die Softwarearchitektur immer von den einzelnen Entwicklern mit entworfen wird und daher eingefahrene Kommunikationsstrukturen \footnote{Kommunikationsstrukturen ist dabei nicht zwingen gleich das Organigramm, da etabliere Kommunikationswege nicht zwingend von der Unternehmensstruktur abgebildet wurde.} sich in der Architektur wiederfinden lassen.
+Er bezieht sich dabei auf die Tatsache, dass die Softwarearchitektur immer von den einzelnen Entwicklern mit entworfen wird und daher eingefahrene Kommunikationsstrukturen\footnote{Kommunikationsstrukturen ist dabei nicht zwingen gleich das Organigramm, da etabliere Kommunikationswege nicht zwingend von der Unternehmensstruktur abgebildet wurde.} sich in der Architektur wiederfinden lassen.
 
 Nach Conway ist somit die Architektur direkt mit der Kommunikationsstruktur verbunden. Folglich sollte ein Unternehmen, welches das Gesamtsystem in einzelne Module teilt auch die gleiche Aufteilung in der Kommunikationsstruktur einführen. Konkret bedeutet dies für ein Unternehmen, dass die Entwickler nicht nach Spezifikation, sondern nach Kontext des Service geteilt werden. Diese Teams besitzen dabei möglichst kurze Kommunikationswege und haben wenig Abhängigkeiten zu anderen Teams. Im genaueren Definiert sich die Verknüpfung zu anderen Teams über die Schnittstellen der Services.
 Um die Kommunikation für ein Service auf das Minimum zu reduzieren, sollte nur ein Team pro Dient verantwortlich sein, wobei ein Team auch mehrere Services betreuen kann. 
@@ -42,15 +41,24 @@ Um die Kommunikation für ein Service auf das Minimum zu reduzieren, sollte nur 
 Um nun folglich eine Microservicesarchitektur umzusetzen, muss zum einem die Anwendung so Komplex sein, dass sie sich in einzelne Services teilen lässt und zum anderen so viele Entwickler vorhanden sein, dass idealerweise jeder Dienst von einem Team betreut wird.
 
 \subsubsection{Domain Driven Design}
+\label{sec:ddd}
+% Todo Quellen einfügen, Marcel korrektur lesen lassen
 
-Bounded Contexts
+Wie aus dem \cref{sec:conway} hervorgeht, ist es das Ziel der Microservicesarchitektur möchglichst autonome Teams zu etablieren und unnötige Absprachen zu reduzieren. Um dies zu erreichen und gleichzeitig die hohe Kohärenz bei geringer Kopplung zu besitzen, bauen Microservices auf der Idee des Domain Driven Designs auf, welche von Eric Evans in seinem gleichnamigen Buch publiziert wurde. Es handelt sich dabei um eine Herangehensweise bzw. Denkweise zur Modellierung komplexer Systeme, bei der, dass Gesamtsystem anhand der einzelnen Geschäftsprozesse geteilt wird.
 
-An diesem Punkt sollte eine Definition des Begriffes Bounded Contexts gegeben werden. Dies ist insbesondere wichtig, da Domain Driven Design darauf aufbaut und Bounded Contexts umsetzt.
+Domain Driven Design ist dabei nicht exklusiv für Microserivces gedacht, sondern beschreibt vielmehr den Ansatz Softwareentwicklung und Geschäftsfunktion zu vereinen, welche in verschiedenen Architekturen umgesetzt werden kann. Nichtsdestoweniger ist Domain Driven Design wesentlich für die Bestimmung der Grenzen eines Services und somit entscheidet für Microservices.
 
+Ein Hauptbestandteil des Domain Driven Designs ist der Gedanke des Kontextes bzw. der Kontextgrenze. Eine Kontextgrenze ist dabei die Abgrenzung eines logischen Abschnittes (Kontext) innerhalb eines Unternehmens. Dadurch wird der Ansatz verfolgt, dass einzelne Funktionen und Inhalte nur innerhalb eines gewissen Bereiches Sinn ergeben. So ist zum Beispiel in einem E-Commerce Unternehmen bei der Bestellung von Ware die Anzahl, die Größe und das Gewicht entscheidend, während bei der Buchung Preis und Steuersatz wichtig sind. Des Weiteren kann je nach Kontext ein Begriff, wie Preis, unterschiedliche Bedeutungen haben. So bezieht sich dieser beim Bestellen von neuer Ware auf den Einkaufspreis, während er beim Verkaufen den Verkaufspreis meint. Somit hängt die Bedeutung des Wortes Preis vom dem zu lösenden Geschäftsprozess ab, in diesem Fall Bestellen von Ware oder Verkaufen von Produkten. Dies ist zwar nur ein einzelnes Beispiel, lässt sich jedoch auf Weitere übertragen. Demnach empfiehlt Domain Driven Design  Kontextgrenzen so zu setzen, dass sie ein Geschäftsprozess umschließen und idealerweise genau ein spezifisches Problem lösen.
 
-\begin{itemize}
-	\item Was ist DDD?
-	\item Was sind Bounded Contexts?
-	\item 	Bespiele dazu.
-	\item Schlussfolgerung für PluraPolit
-\end{itemize}
+% Todo add Beschreibung von Wolff nachdem sich Microservices an den single responsebility richtet.
+
+Wie eingangs beschrieben, handelt es sich jedoch bei Domain Driven Design nur um eine Herangehensweise und nicht um klare Regeln. Daher liegt es im Ermessen jedes Unternehmens die Granularität der Kontexte zu setzen.
+
+Der Fokus auf ein spezifische Problemstellung, ermöglicht jedoch eine einheitliche Sprache innerhalb eines Kontexts einzufügen, sowie eine enge Verbindung zwischen Geschäftslogik und technische Entwicklung zu erzeugen. Somit vertritt Domain Driven Design den Ansatz, dass technische Modelle und Prozessbeschreibungen die gleiche Terminologie besitzen. Dadurch soll die Kommunikation zwischen Fachexperten und Softwareentwickler gestärkt werden.
+% Todo ggf. anderes Wort für Fachexperte
+
+Konkret für die Einteilung von Microservices bedeutet dies, dass ein Microservices ein Kontext abbildet, welche an ein Geschäftsprozess orientiert ist. Diese Eigenschaft deckt sich mit der von Sam Newman beschriebenden Definition, dass Microservices \textit{\enquote{um eine Geschäftsdomäne herum modelliert sind}} (\cref{sec:microservices}). Des Weiteren fordert Domain Driven Design, dass ein Team, welches für ein Service verantwortlich ist, auch Personen aus der Geschäftsabteilung hat und dass das Modell, durch ein fachlich diverses Team entsteht.
+% Geschäftsabteilung zu etwas anderen unbenennen.
+In der strengsten Umsetzung von Domain Driven Design, besteht folglich ein Team aus Fachexperten, sowie Softwareentwicklern und besitzt einen engen Kontakt zu Usern. Nun handelt es sich bei Domain Driven Design jedoch um eine Ansatz, welcher nicht immer absolut umgesetzt wird.
+
+Die Umsetzung des Domain Driven Design hat wiederum einige Vorteile. So wird durch das abgrenzen in einzelne Kontexte, die Autonomität des Teams weiter bestärkt und der Austausch zwischen Fachexperten und Softwareentwicklern durch die einheitliche Sprache verstärkt. Dadurch entstehen eigenständige Services, die hinsichtlich ihrer verwendeten Daten, als auch der verwendeten Terminologie, entkoppelt sind. Eingeteilt wird anhand von Geschäftsprozessen.
