@@ -1,24 +1,30 @@
 \subsection{Start-up}
+\label{sec:start-up}
 %Korrektur lesen lassen von Marcel
 
-Obwohl im Zentrum dieser Arbeit die notwendigen Bedingungen für eine Microservicearchitektur stehen, lässt sich das volle Maß der Umstellung nur verstehen, wenn auch die Situation eines Start-up verstanden wird. Insbesondere \cref{sec:ddd} hat gezeigt, dass Software Architektur und Geschäftsprozesse eng mit einander verbunden sind. Demnach sollten \textit{\enquote{hard zu veränderte Entscheidungen}}\footnote{Direkter Bezug zur Definition von Martin Fowler aus \cref{sec:software-architect-definition}.} stets im Kontext der Unternehmenssituation getroffen werden. Demzufolge wird anschließend der Begriff Start-up definiert und einige Eigenschaften näher beschrieben.
+Obwohl im Zentrum dieser Arbeit die notwendigen Bedingungen für eine Microservicearchitektur stehen, lässt sich das volle Maß der Umstellung nur verstehen, wenn auch die Situation eines Start-up verstanden wird. Insbesondere \cref{sec:ddd} hat gezeigt, dass Software Architektur und Geschäftsprozesse eng mit einander verbunden sind. Demnach sollten \textit{\enquote{hart zu verändernde Entscheidungen}}\footnote{Direkter Bezug zur Definition von Martin Fowler aus \cref{sec:software-architect-definition}.} stets im Kontext der Unternehmenssituation getroffen werden. Demzufolge wird anschließend der Begriff Start-up definiert und einige Eigenschaften näher beschrieben.
 
 Nach dem Wirtschaftslexikon Gabler ist ein Start-up, oder auch Start-up-Unternehmen, ein junges, noch nicht etabliertes Unternehmen, welches eine innovative Geschäftsidee verwirklichen möchte \parencite[vgl.][]{achleitner_start-up_2018}. Folglich agiert ein Start-up in einem jungen oder noch nicht existierenden Markt und muss erst ein funktionierendes Geschäftsmodell entwickeln. Wurde ein solches gefunden und implementiert, gilt das Unternehmen allgemein nicht mehr als Start-up \parencite[vgl.][]{wiki_start-up-unternehmen_2020}.
 
 Ein funktionierendes Geschäftsmodell zu finden, ist jedoch nicht trivial und eine Mehrheit der Start-ups melden nach nur wenigen Jahren Insolvenz an. Konkret scheitern neun von zehn Unternehmen innerhalb der ersten drei Jahre \parencite[vgl.][]{patel_startups-fail_2015}.
 
-Erfolgreiche Start-ups zeichnen sich dabei durch adaptives Verhalten her aus. So änderten Zweidrittel der erfolgreichen Start-ups drastisch ihre ursprüngliche Geschäftsidee \parencite{mullins_getting_2009}. Demnach lässt sich einen signifikanter Zusammenhang, zwischen Erfolg und Flexibilität erkennen. Um folglich mit einem Start-up erfolgreich zu sein, muss dieses dynamisch und fokussiert arbeiten, sowie schnell neue Erkenntnisse über die Bedürfnisse von Kunden sammeln können.
+Erfolgreiche Start-ups zeichnen sich daher durch adaptives Verhalten aus. So änderten Zweidrittel der erfolgreichen Start-ups drastisch ihre ursprüngliche Geschäftsidee \parencite{mullins_getting_2009}. Demnach lässt sich einen signifikanter Zusammenhang, zwischen Erfolg und Flexibilität erkennen. Um erfolgreich mit einem Start-up zu sein, muss dieses also dynamisch und fokussiert arbeiten und schnell neue Erkenntnisse über die Bedürfnisse von Kunden sammeln.
 
-Wie sich aus der Definition ableitet, ist es das Ziel eines Start-up ein Produkt zu entwickeln, welches einen lukrativen Absatzmarkt besitzt und folglich ein Produkt-Market Fit zu erreichen. Dabei ist jedes Junge Unternehmen versucht einen Mehrwert für den Benutzer zu generieren, welcher auf der einen Seite verlangt wird und auf der anderen Seite monetarisiert werden kann.
+Wie sich aus der Definition ableitet, ist es das Ziel eines Start-ups ein Produkt zu entwickeln, welches einen lukrativen Absatzmarkt besitzt. Demnach versucht jedes junge Unternehmen für den Kunden einen Mehrwert zu generieren, sodass er für diesen Geld bezahlt.
 
-Um dies zu erreichen geht ein Start-up durch drei gesonderte Phasen: Problem-Lösung Fit, Produkt-Market Fit und Skalierung \parencite[vgl.][S. 8 f.]{maurya_running_2012}.
+Um dies zu erreichen durchläuft ein Start-up drei gesonderte Phasen \parencite[vgl.][S. 8 f.]{maurya_running_2012}: 
+\begin{enumerate}
+	\item Problem-Lösung Fit
+	\item Produkt-Market Fit
+	\item Skalierung
+\end{enumerate}
 
-In der ersten Phase (Problem-Lösung Fit) wird ermitteln, ob ein Problem vorliegt, welches Wert ist, gelöst zu werden. Um dies zu beantworten werden qualitative Kundenbefragungen und Kundeninterviews durch geführt \parencite[vgl.][S. 170 ff.]{croll_lean_2013}.
+In der ersten Phase (Problem-Lösung Fit) wird ermittelt, ob ein Problem vorliegt, welches Wert ist, gelöst zu werden. Um dies zu beantworten werden qualitative Kundenbefragungen und Kundeninterviews durchgeführt \parencite[vgl.][S. 170 ff.]{croll_lean_2013}.
 
-Anschließend wird in der zweiten Phase (Produkt-Market Fit)  aus den Erkenntnissen der ersten Phase der minimale Funktionsumfang bestimmt und umgesetzt. Dieses sogenannte Minimum Viable Product (MVP) wird daraufhin für Anwendertests verwendet. Die Ergebnisse aus den Tests, werden abermals zur Anpassung des MVPs genommen, welches für weitere Kundentests eingesetzt wird. Dieser Prozess wird solange wiederholt bis ein Produkt entwickelt wurde, welches das ursprüngliche Problem löst, oder Geld und Ressourcen aus gehen \parencite[vgl.][S. 28]{croll_lean_2013}.
+Anschließend wird in der zweiten Phase (Produkt-Market Fit) aus den Erkenntnissen der ersten Phase der minimale Funktionsumfang bestimmt und umgesetzt. Dieses sogenannte Minimum Viable Product (MVP) wird daraufhin für Anwendertests verwendet. Die Ergebnisse aus den Tests, werden abermals zur Anpassung des MVPs genommen, welches für weitere Kundentests eingesetzt wird. Dieser Prozess wird solange wiederholt bis ein Produkt entwickelt wurde, welches das ursprüngliche Problem löst, oder Geld und Ressourcen ausgehen \parencite[vgl.][S. 28]{croll_lean_2013}.
 
-In Phase Drei (Skalierung) wird das Start-up hinsichtlich Technologie, Struktur und Produkt angepasst, dass es hinsichtlich Kundenaufruf, Personal und Funktionsumfang ideal wachen kann \parencite[vgl.][S. 9]{maurya_running_2012}.
+In Phase Drei (Skalierung) wird das Start-up hinsichtlich Technologie, Struktur und Produkt angepasst, dass es hinsichtlich Kundenbedarf, Personal und Funktionsumfang ideal wachsen kann \parencite[vgl.][S. 9]{maurya_running_2012}.
 
-Insbesondere Phase Eins und Zwei zeichnen sich durch schnelles fokussiertes Lernen aus, welches in kontinuierlichen Anpassungen des Geschäftsmodells endet. Folglich kommt es in diesen beiden Phasen zu ständigen Änderungen des Geschäftsprozess. Erst nach dem erlangen des Produkt-Market Fit stabilisiert sich das Produkt und der Fokus wird auf Skalierung gelegt.
+Insbesondere Phase Eins und Zwei zeichnen sich durch schnelles fokussiertes Lernen aus, welches in kontinuierlichen Anpassungen des Geschäftsmodells endet. Folglich kommt es in diesen beiden Phasen zu ständigen Änderungen des Produkts und Geschäftsprozesses. Erst nach dem erreichen des Produkt-Market Fits stabilisiert sich das Produkt und der Fokus wird auf Skalierung gelegt.
 
-Im Gegensatz zu den meisten Start-ups, ist PluraPolit ein gemeinnütziges Unternehmen, sodass der Fokus nicht auf dem erwirtschaften von Gewinn liegt, sondern auf der Maximierung der Kundeninteraktion. Da Interaktion sich ebenfalls aus der Akzeptanz der Anwender ergibt, ist folglich PluraPolit ebenfalls daran bestrebt ein Produkt-Market Fit zu erreichen. Zum aktuellen Stand befindet es sich jedoch noch in Phase Zwei.
+Im Gegensatz zu den meisten Start-ups, ist PluraPolit ein gemeinnütziges Unternehmen, sodass der Fokus nicht auf dem erwirtschaften von Gewinn liegt, sondern auf der Maximierung der Kundeninteraktion. Da Interaktion sich ebenfalls aus der Akzeptanz der Anwender ergibt, ist PluraPolit ebenfalls daran bestrebt ein Produkt-Market Fit zu erreichen. Zum aktuellen Zeitpunkt befindet es sich jedoch noch in Phase Zwei.

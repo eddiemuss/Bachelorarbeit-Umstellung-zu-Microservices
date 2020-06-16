@@ -1,24 +1,18 @@
 \subsection{Kommunikation von Services}
 \label{sec:kommunikation}
+%Todo Literatur einfügen
 
-In diesem Abschnitt möchte ich darauf eingehen welche anforderungen eine entkoppelte Infrastuktur an das Netztwerk und an die Kommunikation über standards hat.
+Aus \cref{sec:microservices} geht hervor, dass eine Microservice-Architektur aus einzelnen, unabhängigen Services besteht, welche voneinander entkoppelt sind. Um jedoch gleichzeitig die Funktionalität des Gesamtsystems zu gewährleisten, ist es notwendig, dass die einzelnen Services untereinander im Austausch stehen. Demzufolge stellt die Kommunikation eine Grundvoraussetzung für das Implementieren einer Microservice-Architektur dar und setzt voraus, dass ein Kommunikationsfähiges Netzwerk vorhanden ist.
 
-Ich möchte die unterschiedlichen Standards vorstellen und die zweite Anforderung für Microservices hinsichtlich des Netzwerks stellen.
+Im Vergleich zu einem monolithen System hat jedoch der Austausch von einzelnen Services über ein Netzwerk einige Nachteile. So ist es Aufwendiger ein Systems aus einzelnen Komponenten richtig abzusichern, als ein einzelnen Rechner vor Angriffen zu schützen. Des Weiteren ist jede Schnittstelle, die öffentlich dem Netzwerk zur verfügung steht ein Risiko für potentielle Angriffe. Demzufolge erhöht die Umsetzung einer Microservice-Architektur die Gefahr für ein Angriff und ist gleichermaßen aufwendiger zu sichern. Anschließend ist der Aufruf über das Netzwerk langsamer und mit geringerer Bandbreite als ein Aufruf innerhalb eines Prozesses \parencite[vgl.][Kap. 6.1]{wolff_microservices_2018}.
 
-Es sollen auf folgende Kommunikationsmethoden eingegangen werden.
-\begin{itemize}
-	\item Request / Response
-	\item REST
-	\item HTTP-Operationen (GET, PUT, PATCH, POST, DELETE)
-	\item gRPC (habe selbst keine Ahnung was das ist)
-\end{itemize}
+Auch wenn bis lang nur auf die Kommunikation über den REST-Standard in dieser Ausarbeitung eingegangen wurde, ist es nicht die einzige Möglichkeit Schnittstellen zwischen Services zu definieren. So gibt es neben REST noch weitere Arten der Kommunikation, wie zum Beispiel GraphQL \parencite{graphql_docs} und gRPC \parencite{grpc_docs}. Beides sind Ansätze, welche in den letzten Fünf Jahren entwickelt wurden und deutlich andere Schwerpunkte setzen.
 
-\subsubsection{CAP - Theorem}
-\label{sec:cap}
+Im Unterschied zu REST muss bei GraphQL nicht für jeden Individuellen Client eine extra Schnittstelle geschrieben werden, sondern der Client gibt beim Aufruf die Informationen mit, welche er erhalten möchte \parencite[vgl.][]{graphql_docs}. Dabei wird im Vorfeld über ein Schema festgelegt, welche Informationen der Server zur Verfügung stellt. Auch können über GraphQL nicht nur Informationen von einer Relation (Tabelle) abgerufen werden, sondern über Verbindungen zwischen Relationen, auf Daten von anderen Tabellen zugegriffen werden. Auch hier wird die Spezifikation der Inhalte vom Client beim Aufrufen der Schnittstelle mitgegeben. Folglich entstehen wenige Programmschnittstellen, die jedoch eine Vielzahl Anforderungen bedienen können. Dies ist insbesondere für Aggregierte Informationen aus mehreren Tabellen wichtig, sowie für Systeme, in denen mehrere Clients unterschiedliche Informationen vom selben Service abrufen.
 
-System, Konsistenz, Verfügbarkeit und Partitionstoleranz können in einem verteilten System nicht gleichzeitig erfüllt sein.
-Die einzelnen Begriffe erklären \begin{itemize}
-	\item Konsistenz
-	\item Verfügbarkeit
-	\item Partitionstoleranz
-\end{itemize}
+gRPC auf der anderen Seite ermöglicht es einem Client, Funktionen eines Servers übers Netzwerk aufzurufen, als währen sie in der gleichen Codebase. Hierbei ist gRPC Programmiersprachen unabhängig, sodass ein in Java geschriebener Client auf ein Python-Server zugreifen kann. Während REST explizit für Web-Anwendungen erstellt wurde, wurde gRPC speziell für den Austausch unter Services entwickelt. So werden zum Beispiel keine Statuscodes oder andere Meta-Daten verschickt, sodass die Geschwindigkeit im Vergleich zum REST-Standard schneller ist. Des Weiteren ermöglicht gRPC unteranderem das Monitoren der Kommunikation zwischen Services, um auftretende Fehler schnell erkennen zu können. Auch nutzt gRPC den moderneren HTTP/2 Standard, durch welchen der Datenaustausch beschleunigt und optimiert wird.
+
+%Todo Noch einmal überprüfen, ob es wirklich 2003 war
+Auch wenn 2003 Peter Rodgers Microservice-Architektur als ein System aus einzelnen REST-Services beschrieben hat, haben sich seitdem neue Technologien zur Kommunikation zwischen Services entwickelt. Insbesondere gRPC besitzt auf Grund der moderneren Technik bedeutende Vorteile hinsichtlich der Geschwindigkeit. Nichtsdestoweniger ist die Kommunikation zwischen entkoppelten Services langsamer, als Aufrufe innerhalb eines Prozesses und bringen einige Nachteile mit sich.
+
+Demnach muss neben der Auswahl des Kommunikationsstandards ein Netzwerk vorliegen, welches einen hohen Durchsatz, als auch eine hohe Geschwindigkeit ermöglicht und vor Angriffe gesichert werden kann.

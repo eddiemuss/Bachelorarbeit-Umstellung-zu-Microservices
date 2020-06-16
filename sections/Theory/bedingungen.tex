@@ -1,3 +1,43 @@
 \subsection{Bedingungen ableiten}
 
-Die Bedingungen aus den vorhergehenden Kapiteln einführen und zusammenfügen.
+Nachdem in den vorangegangen Abschnitten ein Verständnis von Microservicearchitektur, sowie Software Architektur im allgemeinen geschaffen wurde, werden nun die Erkenntnisse in Bedingungen zusammen getragen. Bei den Bedingungen handelt es sich um Kernaussagen aus den einzelnen Abschnitte und dienen als Leitfaden für die Entscheidung von PluraPolit. Im nächsten Gliederungspunkt werden diese von Experten qualitativ bewertet.
+
+Wie \cref{sec:conway} gezeigt hat, ist das Ziel einer Microservice-Architektur,  dass Teams möglichst unabhängig von einander Arbeiten können. Erreicht wird dies, indem die Verantwortung eines Services nur einem Team gegeben wird und Absprachen zwischen Teams sich auf die Festlegung der Schnittstellen begrenzen. Daraus ergeben sich zwei Bedingungen an das Unternehmen:
+
+\begin{enumerate}
+	\item Es ist möglich die Verantwortung für ein Geschäftsprozess an ein Team zu geben und
+	\item Die Services greifen ausschließlich auf Ressourcen zu, die über die Schnittstellen erreicht werden können.
+\end{enumerate}
+
+Anschließend zeigte der Abschnitt über Domain Driven Design, dass Microservices die Komplexität eines Unternehmens reduziert, indem die Geschäftsprozesse in Services geteilt werden. Dieser Ansatz der Trennung Anhang der Geschäftsdomainen fördert die Fähigkeit, dass Services unabhängig von einander wachsen können und gleichzeitig eine klare Verantwortung besteht. Es ergeben sich die Bedingungen, dass ein System vorliegt:
+
+\begin{enumerate}
+	\item welches zum einen eine gewisse Komplexität aufweist und
+	\item zum anderen Geschäftsabläufe besitzt, die sich trennen lassen.
+\end{enumerate}
+
+Aus \cref{sec:kommunikation} wird klar, das neben der Einteilung in einzelne Komponenten auch Bedingungen an das Netzwerk gestellt werden. So ergeben sich hinsichtlich des Netzwerks folgende Anforderungen:
+
+\begin{enumerate}
+	\item Es muss möglich sein, dass Services untereinander kommunizieren können,
+	\item Zugriffen von Unbefugten verhindert werden und
+	\item Eine möglichst hohe Datengeschwindigkeit vorliegen.
+\end{enumerate}
+
+Weiterführend setzt \cref{sec:kommunikation} voraus, dass die Services Programmierschnittstellen aufweisen, die Server zu Server Kommunikation erlauben.
+
+Neben der Betrachtungen hinsichtlich der Umsetzung einer Microservice-Architektur hat \cref{sec:start-up} die Situation eines Start-ups betrachtet. Es wurde deutlich, dass ein Start-up in einem noch nicht existierenden Markt operiert und dadurch besonders dynamisch agieren muss. Daraus ergibt sich die Anforderung, dass erst eine Microservice-Architektur umgesetzt werden kann, wenn ein Produkt-Market Fit vorliegt.
+
+Zusammenfassend ergeben sich aus der Literaturrecherche folgende neun Bedingungen:
+
+\begin{enumerate}
+	\item Es ist Möglich die Verantwortung für ein Geschäftsprozess an ein eigenständiges Team zu geben.
+	\item Die Services greifen ausschließlich auf Ressourcen zu, die über die Schnittstellen erreicht werden können.
+	\item Das System weist eine gewisse Komplexität auf.
+	\item Die Geschäftsabläufe lassen sich von einander trennen.
+	\item Das Netzwerk ermöglicht die Kommunikation zwischen den Services.
+	\item Der Zugriff aufs Netzwerk ist vor Unbefugten gesichert.
+	\item Das Netzwerk hat ein hohen Datendurchsatz.
+	\item Die Services verfügen über Schnittstellen, die Server zu Server Kommunikation ermöglichen.
+	\item Es liegt ein Produkt-Market Fit vor.
+\end{enumerate}
