@@ -1,0 +1,114 @@
+\section{Interviewtranskripte}
+
+\subsection{Interview mit Christoph Rahles}
+Interviewpartner: Christoph Rahles \\
+Datum: 18. Juni 2020 um 18 Uhr \\
+Medium: Zoom
+
+Interviewt wurde Christoph Rahles, weiterführend als R gekennzeichnet. Interviewt hat Edgar Muss, weiterführend als E gekennzeichnet.
+
+E: Chris, darf ich dich aufnehmen und die Inhalte im Rahmen der Bachelorarbeit veröffentlichen?
+
+R: Darfst du.
+
+E: Dann würde ich gerne das Interview mit der ersten Frage starten.
+
+E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluralPolit erfüllen sollte, bevor es Ihre Softwarearchitektur zu einer Microservicearchitektur umstellt?
+
+R: Ja.
+
+E: Welche Bedingungen empfindest du als wichtig?
+
+R: Zwei Dimensionen. Die eine Dimension ist ganz klar das Alter der Firma bzw. damit einher gehen der Reifegrad des Geschäftsmodells. Wie grundlegend sind Iteration zu erwarten, in Form von Softwarearchitektonischen Änderungen, was das Geschäftsmodell angeht oder wie man sie abbildet. Das ist der eine Punkt und auf der anderen Seite immer auch die Frage: Microservicearchitektur eröffnet ein Flexibilität, aber eben auch im gleichen Maß Komplexität. Das heißt es muss immer jemanden geben, der die Verbindungen zwischen den Anwendungen beherrscht, monitor, administriert und aufsetzt und sich die Frage stellt: Ist es wirtschaftlich, Ja oder Nein?
+
+R: Deswegen würde ich im Moment Nein sagen. Denn gerade im Fall eines jungen Unternehmens sollte man das Ziel haben, eine hohe Iterationsgeschwindigkeit zu besitzen, anstatt eine ausgeklügelten Architektur. Was jedoch nicht heißt, dass man die Qualität des Codes an sich vernachlässigen sollte.
+
+E: Okay es wurde viel vorgegriffen. Was völlig okay ist. Vielleicht springen wir einmal zur Frage vier, da vieles was du bereits gesagt hast, darauf angespielt.
+
+E: Ein Startup zeichnet sich dadurch aus, dass es insbesondere in der Anfangsphase zu vielen Veränderungen der ursprünglichen Geschäftsidee kommt. Microservices auf der anderen Seite zeichnen sich dadurch aus, dass sie feste Schnittstellen und Kontextgrenzen besitzen. Meinst du, dass trotzdem Microservices in einem dynamischen Umfeld eingesetzt werden sollten?
+
+E: Teilweise hast du es schon beantwortet. Was ich vielleicht noch genauer wissen möchte, bezieht sich auf die Iteration. Wann sollte sich ein Start-up mit Microservices auseinandersetzen? Also wann wäre denn der Zeitpunkt? Gibt es ein richtigen Zeitpunkt? 
+
+R: Deswegen habe ich am Anfang gesagt, dass es zwei Dimensionen gibt, die man betrachten muss, die auch zu unterschiedlichen Zeitpunkten auftreten.
+
+R: Wann sollte man es im Blick haben? Um vielleicht die Frage zu beantworten.
+
+R: Da gibt es, glaube ich kein Richtig und Falsch. Man sollte sich immer die Fragen stellen: Aus einer rein technologisch, wirtschaftlich Perspektive macht es im Moment Sinn, ein Microservice auszugliedern? Weil das ist es im Moment.
+Meistens ist es so, dass man mit einem Monolithen anfängt und irgendwann an ein Punkt kommt, wo es entweder sehr drückend wird oder wo man sagt: “Es macht Sinn Dinge auszulagern”.
+
+R: Dann muss man sich die Frage stellen macht es Sinn und habe ich die Men-Power bzw. das Knowhow, um diese Komplexität zu verwalten. Was nicht heißt, dass ich das Wissen im Haus haben muss. Ich kann mir genauso gut Dienstleister suchen, die mich beim Aufbau der Infrastruktur unterstützt. Aber da ist eben immer die Frage: Kann ich auf das Knowhow zurückgreifen? Weil das ist meine Erfahrung nach, der größte Tod den Unternehmen sterben, die zu schnell sagen: “Ich musste in Microservices rein” und die an ihrer Infrastruktur und der Komplexität der Architektur zu viel Zeit verlieren und im Gegensatz zu einem Mitbewerber nicht so schnell iterieren können. 
+
+E: Okay, also gibt es keinen festen Zeitpunkt und es ist eher eine Entscheidung aus der Expertise des CTO?
+
+R: Ja, ich würde gar nicht sagen, dass es zwingend von der Expertise des CTO abhängt. Dazu gehörte auch die Strategie der Firma, sowie die Ausrichtung der Produkte und folgende Fragen: 
+Welche Ziele hat das Unternehmen? Welche Ziele hat zum Beispiel der Sales-Bereich? Möchte dieser in neue Märkte expandieren, heißt das unter Umständen, dass es mit unterschiedlichen Skalierungseffekten rechnen muss.
+
+R: Also wir haben unterschiedliche Lastszenarien für einen Teil der Applikation, sagen wir mal Deutschland, versus Indien zum Beispiel. Oder gibt es, auch wieder am selben Beispiel genommen, Latenzprobleme, die auftreten da man sagt: “Alles wird an einer Stelle gespeichert.” Dann habe ich das Problem, dass für den indischen Kunden nicht mehr in der richtigen Geschwindigkeit bereitgestellt wird. Oder wenn ich die Applikation nach Indien Verlage, dass es für den deutschen Kunden nicht mehr richtig dargestellt wird. Gerade solche Probleme kann man natürlich durch Microservices lösen, aber es ist immer im gesamt Kontext der Firma zu sehen. Natürlich ist der CTO dabei eine treibend Kraft. Es ist die Person mit der Expertise, aber es steht und fällt immer mit der Ausrichtung des Geschäfts bzw. mit dem Rest Unternehmens. So macht es keinen Sinn, wenn ich jetzt sage, ich fange an, irgendwelche Komponenten raus zu brechen, wenn absehbar ist, dass am Ende des Jahres auf diesen Part kein Fokus mehr gelegt wird.
+
+R: So beispielsweise wenn ich jetzt eine Komponente der Anwendung auf Konsumenten auslege, und es absehbar ist, dass ab nächstem Jahr sich hauptsächlich auf Unternehmenskunden konzentriert wird. Dann würde ich nicht sagen, dass das eine sinnvolle Entscheidung ist. Auch wenn es aus dem rein architektonischen Ansatz Sinn ergibt.
+
+E: Ja, da gehe ich absolut mit. Weil du einmal die Unabhängigkeit von Teams angesprochen hast würde ich gerne auf Frage zwei eingehen.
+
+E: Microservices ermöglichen es Teams, unabhängig voneinander an unterschiedlichen Services zu arbeiten. Welche Rahmenbedingungen sehen Sie als notwendig, dass Teams separat voneinander arbeiten kann?
+
+R: Gute Frage, ich wäre da ein bisschen vorsichtig. Unabhängig voneinander arbeiten, Ja. Unterschiedlich, ich würde es eher sagen in unterschiedlich schnellen Iterationsschritten. Auch diese Teams gehören zu einem Unternehmen. Diese Teams tragen zu einem Gesamtunternehmen bei, das heißt unabhängig voneinander sind sie nie.
+Also ja, es kann sein, dass ein Service mal nicht mit einem anderen Microservice redet, aber in der Regel ist das ja das große Feature von Microservices, dass ich Microservices über definierte Schnittstellen miteinander verbinden kann.
+
+R: Welche Rahmenbedingungen notwendig sind? Also die Teams müssen auf der einen Seite so interdisziplinär aufgestellt sein, dass sie wirklich unabhängig voneinander arbeiten können. Einfach skill technisch. Ich brauche jemanden, der sich um Infrastruktur, Softwareentwicklung und Qualität kümmern kann.
+
+R: Ich denke, es macht nur dann Sinn, wenn Microservices einen ganz klaren eigenen Fokus haben, Das heißt wenn die Schnittstelle oder die Schnittmenge zwischen den Microservices in der Regel sehr klein ist. Das heißt, jeder kann in seinem Microservice Entscheidungen und Aussagen treffen, ohne abhängig von anderen Person zu sein.
+
+R: Also für diese Business Domänen natürlich. 
+
+E: Ja.
+
+R: Also wenn ich mit Daten aus anderen Microservices arbeite, ist es natürlich klar, dass ich eine Schnittstelle von dem anderen Team brauche, durch welche ich mir die entsprechenden Daten hier hole. Aber innerhalb meiner Business Domäne, muss ich der Owner sein, ohne Abhängigkeit zu einem anderen Team zu haben.
+
+E: Okay, wie wertes du, dass Teams eigene Entscheidungen treffen können?
+
+R: Das Team muss Owner von dieser Business Domänen sein, sonst macht es keinen Sinn.
+
+R: Wie der Entscheidungsfindungsprozess ist, ist sehr unterschiedlich und hat mit der Softwareentwicklung eigentlichen wenig zu tun. Es gibt Teams, die funktionieren hervorragend mit Wasserfallplanung. Es gibt Teams, die funktionieren hervorragend agile. Es gibt Teams, die funktionieren hervorragend mit irgendwas dazwischen und es gibt genauso viele Teams, die scheitern bei jeder dieser Arten.
+
+R: Das ist glaube ich einfach sinnvoll zu gucken, dass die Firmen bzw. die Teams entsprechend des Projektmanagements richtig aufgestellt ist. Was heißt natürlich, dass sie über ihre Domäne selber entscheiden. Ob das aber das Team aus Softwareentwicklern selbst ist, oder ob es ein  Produktowner an die Seite gestellt bekommen, ist glaube ich eine Sache der Aufstellung und irrelevant für die Architektur.
+
+R: Also man kann das genauso gut in den Sand setzen, wenn ein Team mit einem Monolithen  fremdbestimmt durch andere Business Owner arbeit. Das kann bei einem Monolithen genauso schief gehen wie bei Microservices.
+
+E: Du hattest einmal eine technische Anforderung mit angerissen. Da würde ich jetzt in Frage Drei gerne detaillierter eingehen wollen. 
+
+E: Gibt es in deinen Augen irgendwelche technischen Anforderungen, die PluraPolit erfüllen sollte, bevor es die Softwarearchitektur von einer monolithen Architektur zu einer Microservicearchitektur umstellt? 
+
+R: Auf der rein technischen Ebene würde ich die heutzutage geltende Best Practices als Anforderung sehen. Es sollten immer automatische Tests, sowie ein automatischer Integration- und Deployment-Prozess vorhanden sein und funktionieren. Des Weiteren sollte hinten raus ein vernünftiges Monitoring gegeben sein.
+
+R: Man kann so weit gehen, dass es ein separates infrastruktur Team gibt, welches wiederum von Unternehmen abhängt. Je nachdem würde ich dann dazu raten, dass es ein automatisches Konfigurationsmanagement gibt. Das heißt, dass ich automatisch Infrastruktur ausrollen, bzw. ändern und replizieren kann.
+
+R: Also ich denke die technischen Anforderungen sind, dass das was man in IT schon immer gesagt hat:  “Automatisierung, Automatisierung, Automatisierung.”
+
+R: Das heißt je mehr unabhängige skalierung ich vornehmen möchte, desto mehr brauche ich eine Dokumentation in Programmcode: In automatisierten Prozessen, die das ermöglichen.
+Weil sonst verliert man eben wieder diese ganze Zeit beim Ausetzten des Systems, beim finden von Fehler, beim mündlichen Weitergaben von irgendwelchen Besonderheiten. 
+
+R: Monitoring ist das A und O. Das heißt mit Anstieg der Komplexität, muss ich sicher sein, dass ich auch diese Komplexität hinreichend überblicken kann.
+
+E: Ja, okay. Sind deiner Meinung nach innerhalb einer Microservicearchitektur Sicherheit und Datengeschwindigkeit besonders wichtig?
+
+R: Sicherheit gehört für mich zu den Grundvoraussetzungen. Egal über welche Architektur wir reden. Das ist auch wieder eine Sache, die hat für mich nichts mit Architektur zu tun. Ich möchte  die Infrastruktur eines Monolithen genauso sicher haben wie bei meinem Microservices. 
+
+R: Davon losgelöst wenn man darüber nachdenkt, dass es vielleicht mehr als ein und hat zwei Anwendungen erstellt werden, dann kommen Aspekte wie Betriebssicherheit dazu. Also welche LSAs, bzw. welche Garantien geben sich Anwendungen, nicht nur für Schnittstellenkonformität, auf der einen Seite, sondern auch für Uptime, Erreichbarkeit und Geschwindigkeit. Sprich wie viele Requests kann ich machen bevor irgendwelche Lastspitzen erreicht werden. Habe ich die Möglichkeit, mit einem exponential backoff auch Request zurückzunehmen oder zu sagen: “Du darfst jetzt erstmal nicht mehr mit mir reden”, ohne das ganze System auseinander bricht? Das sind Dinge, die ich nicht mehr unter Sicherheit sehe, sondern eher als Betriebssicherheit zähle. Auch stellt sich die Frage ob Services untereinander so abgestimmt, dass eine Team, im Zweifel weiß das nur 1000 Requests pro Sekunde auf ein anderen Service gesendet werden darf und danach vielleicht ein Fehlercode kurz bekommt. Sind diese Überlastungssicherheitsmaßnahmen eingeführt oder nicht?
+
+E: Das Klingt ziemlich komplex.
+
+R: Ja, das ist der Punkt. Mit zunehmenden Anzahl an Applikationen steigt die Komplexität, weil jeder untereinander miteinander redet.
+
+R: Auch muss man sich immer vergewissern, dass trotz einer schnellen Iteration, innerhalb meines Services, mich das nicht entbindet in meinem Ökosystem zu schauen. Wie ist den die Architektur aller Anwendungen? Was heißt das, denn wenn ich jetzt plötzlich die Datenbank  mehr auslasste? Dann habe ich unter Umständen ein Impact auf 20 andere Anwendungen, die ihrerseits wiederum Kollabieren. Ja, ich kann in meinem kleinen Service sicherlich schneller iterieren, ich muss aber dafür eine verantwortliche Person haben, die im Großen auf das Gesamtsystem schaut.
+
+E: Ok, dann würde ich jetzt die letzte Frage stellen. 
+Mit ihrem aktuellen Wissensstand: Welche Softwarearchitektur würden Sie PluraPolit empfehlen?
+
+R: Monolithen
+
+E: Woran machen Sie Ihre Antwort fest?
+
+R: Weil das Team: a) Nicht groß genug ist und b) Weil ich glaube, dass es keine separate Business Domain gibt, wo man sagt: “Die muss zwangsläufig ausgelagert werden”.
+Moment gibt es keine, unabhängigen Teile, die ich sehe, wo es wirtschaftlich Sinn ergibt, sie auszulagern. Microservices oder letztendlich jegliche Software ist ja kein Selbstzweck, sondern dient immer den Ertrag des Unternehmens und solange Microservices nicht den Ertrag steigern, macht es in meinen Augen keinen Sinn.
+
+E: Das waren sehr schöne letzte Worte mit denen ich das Gespräch beende möchte und ich bedanke mich vielmals für die Zeit, die Sie sich genommen haben.
