@@ -1,0 +1,170 @@
+
+\subsection{Interview mit Sebastian Schlaak}
+\label{appendix:schlaak}
+
+Interviewpartner: Sebastian Schlaak (S) \\
+Interviewee: Edgar Muss (E) \\
+Datum: 24. Juni 2020 um 10 Uhr \\
+Medium: Zoom
+
+E: Sebastian, ist es für dich okay, dass ich dich im Rahmen meiner Bachelorarbeit befrage und anschließend die Inhalt in der Arbeit veröffentliche?
+
+S: Ja, das ist für mich in Ordnung.
+
+E: Dann würde ich gerne das interview mit der ersten Frage beginnen. 
+
+E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor es ihre Softwarearchitekt zu einer Microservicearchitektur umstellt?
+
+S: Vielleicht erst einmal meine grundsätzliche Meinung zum Sachverhalt Monolith versus Microservices. Oft wird geraten das Microservices das non plus ultra ist und dass man von vornherein mit Microservices starten sollte. Davon bin ich allerdings nicht der Meinung.
+
+ \label{appendix:s-1}  \label{appendix:s-2}
+S: Ich denke dass es sinnvoll ist, aus Kosten gründen mit einem Monolith zu starten und erst später, bei Bedarf, einzelne Teile in Microservices auszugliedern. 
+
+S: Ich sag auch ganz bewusst auszugliedern und nicht die ganze Anwendung zu refactoren. Du hast aber konkret nach Bedingungen gefragt. Wo ich bei Käufer Portal angefangen habe, war das ja ein gewaltiges IT Konstrukt. Das heißt es bestand im Großen und Ganzen aus einem Monolithen, wobei einzige Services ausgelagert waren.
+
+ \label{appendix:s-3}
+S: Das hatte aber mehr damit zu tun, dass man festgestellt hatte, das es bestimmte neue Funktionen gab, die man benötigt hat, die nicht mehr in diesen alten Monolithen reingepasst haben. 
+
+S: Allerdings benötigte es die Daten aus dem Monolithen. Das heißt der Monolith hat eine Datenbank, wo alles abgespeichert wurde: Kundendaten, Unternehmensdaten und etc.
+
+ \label{appendix:s-4}
+S: Und diese neue Anwendung muss auf diese Daten zurückgreifen. Das war einer der ersten Zeitpunkte, wo man sich über Microservices Gedanken machen musste.
+
+ \label{appendix:s-5}
+S: Und ich glaube, dass wäre eine Bedingungen, wenn man sagt: “Ok ich habe etwas, was nicht mehr in den Monolithen passt, da es komplett unabhängig ist, bzw. ein ganz anderen Zweck erfüllt und es kaum Überschneidungen gibt.
+
+ \label{appendix:s-6}  \label{appendix:s-7}
+S: Dann aber trotzdem irgendeine Form von Kommunikation stattfindet, da ja auch Bestandsdaten ausgetauscht werden muss.
+
+S: Einer der ersten Ansätze ist, dass man eine zweite Anwendung erstellt und ein Database-sharing oder was vergleichbares integriert. Das ist aber etwas, was allgemein als Anti-pattern betrachtet wird, da man damit die Kontrolle verliert, was in die Datenbank geschrieben wird.
+
+ \label{appendix:s-8}
+S: So kann es sein, dass eine Anwendung bestimmte Validierungen hat, die verhindern dass zum Beispiel leere E-Mailadressen gespeichert werden, da die Anwendung davon ausgeht, dass E-Mailadressen immer gesetzt sein muss. Die anderen Anwendung hat aber vielleicht keine Validierung, da es für sie völlig okay ist, dass die leere E-Mailadressen gespeichert werden. Nutzen die Anwendungen nun die selben Daten, dann kann es sein das die ganze Anwendung bringt. Das heißt zu diesem Zeitpunkt macht es durchaus Sinn, dass man darüber nachdenkt, wie eine Microservicearchitektur aussieht. Zum Beispiel ein Service, der die Daten bereitstellt, und zwei Services, die die Daten konsumieren und ihren Teil erfüllen.
+
+ \label{appendix:s-9}
+S: Das heißt die erste Bedingung ist, dass ich irgendeine Anwendung habe die komplett andere Aufgaben erledigen, als der Monolith.
+
+ \label{appendix:s-10}  \label{appendix:s-11}
+S: Was natürlich auch immer ein Thema ist, wenn du den Punkt hast, dass du bestimmte Aufgaben auslagern möchte. An zum Beispiel ein externes Entwicklerteam, oder den Zugriff auf den Code beschränken möchtest, machen Microservices Sinn.
+
+ \label{appendix:s-12}
+S: Aber auch hier hast du den Punkt die Kommunikation genau zu dokumentieren und anzugeben.
+
+S: Das heißt zweite Bedingungen wäre, dass man bestimmten Entwickler keinen Zugriff auf dem Monolith geben möchte, aber trotzdem externe Teams integrieren möchte.
+
+E: Okay, dann würde ich gerne zur zweiten Frage übergehen.
+Microservices ermöglichen es Teams, unabhängig voneinander an unterschiedlichen Services zu arbeiten. Welche Rahmenbedingungen sehen Sie als notwendig, das Teams separat voneinander arbeiten können? 
+
+ \label{appendix:s-13}
+S: Ganz wichtig ist, dass die Schnittstellen der Services entsprechend gut beschrieben sind und dass die Schnittstellen robust sind.
+
+ \label{appendix:s-14}  \label{appendix:s-15}
+S: Das heißt, dass die Schnittstellen die eingehenden Daten überprüfen und validieren und bei invaliden Daten ein sinnvollen Fehlercode zurück gibt.
+
+S: Dies ist grade bei externen Teams besonders wichtig, da sie natürlich davon ausgehen, dass  ordentliche Antworten zurück geschickt werden.
+
+S: Das heißt die Beschreibung der Schnittstellen müssen sauber sein, sie müssen gut konzipiert sein, sie müssen sinnvolle Fehlercodes zurückgehen und sie müssen idealerweise auch dokumentiert sein.
+
+E: Dann würde ich zur Frage Drei übergeben. 
+
+E: Gibt es in Ihren Augen irgendwelche technischen Anforderungen, die PluraPolit erfüllen sollte? 
+
+ \label{appendix:s-16}
+S: Ein klassisches Themen ist Skalierung. Ein großer Nachteil von einem Microservicearchitektur im Vergleich zu einem Monolithen, ist dass ein nicht skalierter Microservice die ganze Architektur ausbremsen kann. Anders ist es bei einem Monolithen, da bei diesem alles auf einem Rechner implementiert ist und wenn das ganze System skaliert wird.
+
+E: Ok, also siehst du gewisse Risiko beim Einsatz von Microservices im Vergleich zum Monolithen. 
+
+ \label{appendix:s-17}
+S: Ja, es sind unterschiedliche Risiken. Beim Monolithen hast du den Nachteil, dass wenn du einen Fehler machst, dann bricht das gesamte System.
+
+ \label{appendix:s-18}
+S: Bei einer Microservicearchitektur bzw. bei unabhängig Services ist das Risiko geringer. Die Services müssen nur Robust implementiert sein und ggf. vernünftige Fehlermeldung zurück geben und idealerweise auf gecachte Inhalte zurückgreift. Also die Services müssen weitestgehend autark sind.
+
+E: Dann gehen wir zur Frage vier.
+
+E: Ein Startup zeichnet sich dadurch aus, dass es insbesondere in der Anfangsphase zu vielen Veränderungen in der ursprünglichen Geschäftsidee gekommen. Microservices auf der anderen Seite zeichnen sich dadurch aus, dass sie feste Schnittstellen und Kontextgrenzen besitzen. Meinen Sie das trotzdem Microservices in einem dynamischen Umfeld eingesetzt werden sollten?
+
+ \label{appendix:s-19}
+S: Also ich glaube, dass man mit einem Monolithen am Anfang deutlich schneller ist, das ist einfach so einfach, weil man sich nicht um die Schnittstellen kommen muss.
+
+ \label{appendix:s-20}
+S: Ich sag auch, es kommt drauf an. Das bezieht sich hauptsächlich auf Schnittstellen, die früher eingesetzt wurden wie REST und JSON beispielsweise. Bei moderneren Technologien wie GraphQL besteht diese Problematik fast kaum noch, weil die Schnittstellen absolut flexibel sind und jederzeit angepasst werden können.
+
+ \label{appendix:s-21}  \label{appendix:s-22}
+S: Es ist schon so, dass man mit einem Monolithen eine höhere Geschwindigkeit erreichen kann, besonders am Anfang und erst in der späteren Skalierungsphase die Vorteile von Microservices so richtig zum tragen kommen.
+
+E: Okay, aber gibt es da irgendeinen Zeitpunkt, wann sich ein Start-up mit Microservices auseinandersetzen sollte?
+
+ \label{appendix:s-23}
+S: Das kommt immer darauf an, wie viele Sachen das Unternehmen tut.
+
+ \label{appendix:s-24}
+S: Wenn du ein Start-up hast, welches nur eine Sache tut und sich auf eine Sache fokussiert, dann reicht wahrscheinlich auch erstmal ein Monolith, aber oft ist das ja nicht der Normalfall.
+
+ \label{appendix:s-25}
+S: Oft kuckt man ja noch links und rechts nach möglichen andere Funktionen an, die man dem Benutzer zur Verfügung stellen kann, die eigentlich gar nichts mehr mit dem Kerngeschäft zu tun haben und ab diesem Zeitpunkt ist es wahrscheinlich gar mehr so clever, dass sie ein Monolithen noch rein zu packen. 
+
+S: Also es hängt von der Struktur her ab.
+
+E: Okay, also spielst du auf die Komplexität der Geschäftsidee bzw. auf die Komplexität der Geschäftsprozesse an?
+
+S: Ja, eine Klasse bzw. eine Funktion sollte immer nur eine Sache machen und diese ziemlich gute.
+
+ \label{appendix:s-26}
+S: Dies lässt sich auch auf ein Business übertragen, sodass ein Business auch nur eine Sache machen sollte, aber dieses richtig gut. Ist dies der Fall, dann lässt sich dein Geschäftsprozess wahrscheinlich sehr gut mit einem Monolithen abbilden.
+
+ \label{appendix:s-27}
+S: Aber in dem Moment, wo du etwas zusätzliches baust, was eigentlich völlig unabhängig ist, beispielsweise wenn du dir ein Management System für Hardware noch dazu baust, dann macht es keinen Sinn das in ein Monolithen zu packen. Es würde wahrscheinlich von vielen so gemacht werden, aber es würde  wahrscheinlich kein Sinn machen. Wenn du dir ein CRM anfängst selber zu bauen, ist es vielleicht auch sinnvoller ein anderen Service zu nutzen.
+
+ \label{appendix:s-28}
+S: Es läuft darauf hinaus: In dem Moment wo du etwas hast, was nicht mehr so zu sagen, in deine Anwendung wirklich reinpasst, also von den Prozessen.
+
+ \label{appendix:s-29}
+S: Zu dem Zeitpunkt sollte man entweder ein externen Service nutzt, den man sich eingekauft, oder wenn man halt selber einen implementiert. Zu dem Zeitpunkt muss man den ersten Schritt zu Microservices machen. 
+
+ \label{appendix:s-30}
+S: Es gibt aber auch hier keine strikte Trennung. Das heißt das der Übergang von einem Monolithen zu einer Microservicearchitektur fließend sein kann, indem der Monolith erste Schnittstellen bereit stellt, die von ausgelagerten Services konsumiert wird.
+
+
+E: Ein sehr guter Einwand. Dann würde ich jetzt gerne zur letzten Frage gehen.
+
+E: Mit ihrem aktuellen Wissenstand, welches Softwarearchitektur empfehlen Sie PluraPolit?
+
+ \label{appendix:s-31}
+S:  Also womit ich sehr gute Erfahrungen gemacht habe, ist tatsächlich eine Architektur, die im Backend schon eine große Anwendung nutzt. Die also nicht nur die Daten bereitstellt, sondern auch so Backoffice Tätigkeit zulässt. Also wie zum Beispiel das Management von irgendwelchen Daten oder so weiter, aber eher für die Schnittstellen, die die Mitarbeiter nutzten und nicht Endkunden.
+
+ \label{appendix:s-32}
+S: Dieses Backend gibt die Daten dann über eine sehr flexible API heraus. Aktuell bin ich ein riesen Fan von GraphQL. Ich hab es in vier Projekten hintereinander eingesetzt und bin noch nicht an irgendwelche Probleme gestoßen. An ein paar Unschönheiten aber im Vergleich zu REST ist es unfassbar angenehm. 
+
+ \label{appendix:s-33}
+S: Ja und dann ein modernes JavaScript Framework im Frontend, welches von einer breiten Community unterstützt wird. Da fallen mir nur Vue und React ein. Im Backend, bin ich relativ frei. Das ist natürlich eine reine Geschmackssache. Ich selber baue immer noch gerne Monolithen mit Rails, bin nutze aber auch gerne zwei JavaScript Alternativen. Das eine wäre Node basiert, das andere wäre tatsächlich dann eher eine Serverless-Architektur, wo man dann ein bestehenden Service wie Contentful einsetzt. 
+
+ \label{appendix:s-34}
+S: Wenn es möglich ist, würde ich gerade bei kleineren Projekten fast komplett auf das Backend verzichten.
+
+E: Also empfiehlst du eine Trennung zwischen Backend und Frontend?
+
+ \label{appendix:s-35}
+S: Ja, würde ich machen.
+
+ \label{appendix:s-36}
+S: Also insbesondere würde ich den Teil trennen, wo die Endkunden die Statements hören und den Teil den ihr sozusagen fürs Backoffice nutzt. Besonders aus Sicherheitsgründen.
+
+E: Woran machen Sie Ihre Antwort fest? 
+
+ \label{appendix:s-37}
+S: Ein wichtiger Grund sind Security Gründe. Das heißt, wenn du einfach nur eine API zur verfügung stellt, dann musste du nur die APIs einmal sauber durch testen. Dann bestehen eigentlich nur Security Risiken im Frontend.
+
+ \label{appendix:s-38}
+S: Was auch ganz schön ist, ist das ihr das Backend und Frontend flexiblem austauschen könnt. Zum Beispiel bei einem Projekt, habe ich mit Contentful begonnen und als die Anforderungen an das Backend gestiegen sind, konnte ich es ohne weiteres einfach wechseln.
+
+S: Und das gleiche ist auch fürs Frontend denkbar. Das heißt das wenn man irgendwann sagt Ich habe meinetwegen mit React begonnen, bin aber der Meinung das Vue das geeignetere Framework ist, dann kann ich das halt auch einfach machen.
+
+E: Also die Flexibilität in dem Austauschen vom Backend und dem Frontend.
+
+ \label{appendix:s-39}
+S: Genau. Wenn wir diese saubere Trennung zwischen Backend und Frontend haben, könnten einfach Frontend Entwickler einsetzen werden, die günstiger sind und ausschließlich Erfahrung im Frontend haben. Das kann somit auch Kostengünstiger für die Entwicklung sein.
+
+E: Das waren sehr schöne Antworten.
+
+E: Ich bedanke mich sehr für ihre Zeit und würde hiermit erst einmal die Aufnahme und das Interview beenden.

@@ -38,6 +38,13 @@
 
 %Um auf ein Bild innerhalb eines Textes referieren zu können
 \usepackage[ngerman]{cleveref}
+\newcommand{\combref}[1]{%
+  {%
+    \crefformat{page}{S. ##2##1##3}%
+    \Cref{#1}, \cpageref{#1}%
+    \crefformat{page}{Seite ##2##1##3}%
+  }%
+}
 
 \addbibresource{references.bib}
 

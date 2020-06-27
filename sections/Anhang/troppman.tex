@@ -1,0 +1,179 @@
+\subsection{Interview mit Alexander Troppman}
+\label{appendix:troppman}
+
+Interviewpartner: Alexander Troppman (T) \\
+Interviewee: Edgar Muss (E) \\
+Datum: 21. Juni 2020 um 19 Uhr \\
+Medium: Zoom
+
+E: Die Aufnahme ist gestartet. Ist es für dich, Alex, okay, dass ich dich aufnehme und dich im Rahmen meiner Bachelorarbeit verwende.
+
+T: Das ist okay.
+
+E: Dann lass uns mit der ersten Frage beginnen.
+
+E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor sie ihre Softwarearchitekt zum einer Microservicearchitektur umstellt? 
+
+T: Zuerst denke ich mal, dass sich eine Microservicearchitektur erst lohnt, wenn es die Applikation erfordert. Das sehe jetzt bei PluraPolit Applikation und nichts. Aus meiner Sicht kann man das auch weiter als Monolith belassen.  Also aus Business Sicht fällt mir nur ein,  dass man vielleicht die Verarbeitung der Sound-Dateien in ein Microservice auslagert. Das die vielleicht in verschiedene Formate konvertiert werden. Das wäre ein Anwendungsfall für Microservices. 
+
+T: Monolith sind ja nicht schlecht und solange man nicht, würde ich auch nicht zwangsläufig sagen man muss unbedingt zu einer Microservicearchitektur umstellen.
+
+T: Technische Voraussetzungen, die vorhanden sein müssen, sind: Der Monolith muss in sich schon Umbaufähig sein, sonst endet man in einer neuen Implementierung. Es sollte eine Modulare Struktur schon vorhanden sein, zum Beispiel das verschiedene Entities getrennt verarbeitet werden. So könnte zum Beispiel ein Microservice um die User und ein anderer um  die Kommentare kümmern. Wenn die logischen Schnitte vorhanden sind, kann man aus Gründen, eine Microservicearchitektur umsetzten. 
+
+\label{appendix:t-1} \label{appendix:t-2}
+T: Also wie gesagt ich brauche eine technische Trennung, die schon vorhanden sein muss und ich mussten ein Business Case haben das sich das auch lohnt.
+
+E: Ok bei der technischen Trennung bzw. bei der Trennung allgemein, ist ja nicht immer der fall gegeben, dass schon Trennung vorliegt, sondern dass man sich bewusst dafür entscheidet. Um dies näher zu besprechen würde ich Frage vier vorgreifen.
+
+E: Ein Start-up zeichnet sich dadurch aus, dass es insbesondere in der Anfangsphase zu vielen Veränderungen in der ursprünglichen Geschäftsidee kommen. Microservices auf der anderen Seite zeichnen dadurch aus, dass sie feste Schnittstellen und Kontextgrenzen besitzen. Meine Sie das trotzdem Microservices in einem dynamischen Umfeld eingesetzt werden sollten?
+
+E: Schon eine Rückfrage vorgenommen: Wann denkst du, ist der Zeitpunkt für ein Start-up gekommen, um Microservices umzusetzen? Gibt es überhaupt ein Zeitpunkt? 
+
+\label{appendix:t-3}
+T: Microservices Ja oder nicht, hat eigentlich nichts mit einem Start-up zu tun.
+
+\label{appendix:t-4}
+T: In der Frage ist die Rede, dass ich Microservices feste Schnittstellen und Kontextgrenzen besitzen. Das ist natürlich richtig, aber das zeichnet auch ein guten Monolithen aus.
+
+\label{appendix:t-5}
+T: Ich kenne viele Start-ups, die von Anfang Microservices eingesetzt haben, weil gerade Microservices so sind, dass man verschiedene Services austauschen kann. Also gerade im dynamischen Umfeld machen Microservices Sinn.
+
+T: Nur mal ein konkretes Beispiel: Was ich in einem Monolithen nicht machen kann ist mehreren Programmiersprachen verwenden. Dies kann ich aber in einer Microservicearchitektur tun, sodass ich ein Polyglott aufbaue. Das heißt ich kann zehn Entwickler haben, die ich von extern zugekaufte habe und Experten in Java sind, genau so gut einsetzen wie fünf Entwickler, die ich aus einer anderen Firma übernommen habe. Da habe ich Entwickler übernommen, die können kein Java, sie können nur PHP und Symfony und kommen aus dem Frontend.
+
+T: Was ich jetzt machen kann, ist zu sagen, dass sie in ihrer gewohnten PHP Umfeld bleiben können.
+
+\label{appendix:t-6}
+T: Das heißt ich habe da die Möglichkeit in dem dynamischen Umfeld verschiedene Entwickler-Ressourcen zu nutzen.
+
+T: Heutzutage ist es ja so, dass man gar nicht so viele Entwickler bekommt, wie man eigentlich bräuchte. So hat man mit Microservices den Vorteil, dass ich eben Teams verwenden kann, welches in ihrer gewohnten Programmiersprachen arbeiten können. Dies ist sehr gut vereinbar mit einer Microservicearchitektur. Schwerer ist es an dieser Stelle mit einem Monolithen. Monolith heißt ja immer es müssen alle Entwickler die gleiche Programmiersprache können, die gleichen Frameworks, den gleichen Coding-Style können und arbeiten auf der gleichen Codebase.
+
+T: Das ist natürlich schwierig, wenn ich viele Entwickler habe, die ein unterschiedlichen Wissensstand haben und sie in kurzer Zeit alle auf eine Linie zu bringen muss.
+
+\label{appendix:t-7}
+T: Bei einer Microservicearchitektur habe ich die Möglichkeit zu sagen, dass ihr diesen Service baut. Ich kann sogar in verschiedenen Geschwindigkeiten und Codequalitäten arbeiten.
+
+T: Ich kann zum Beispiel bewusst sagen: “Den einen Service, den Prototypen wir jetzt in der Sprache X und schaffen erst einmal die Basis Funktionalität.” Wir wissen, dass es noch nicht unsere finale System, aber das tauschen wir später einfach mit einer besseren Implementierung aus.
+
+\label{appendix:t-8}
+T: Also gerade im dynamischen Umfeld machen Microservices besonders Sinn.
+
+\label{appendix:t-9}
+T: Gleichzeitig entsteht dadurch ein Problem. Man holt sich dadurch ein extremen Overhead rein. Den es ist nicht einfach Teams zu synchronisieren. Also ja theoretisch habe ich feste Schnittstellen und Kontextgrenzen.
+
+\label{appendix:t-10}
+T: In der Praxis sieht es so aus, dass ein gut Teil der Zeit dafür verwendet wird, dass die Teams sich untereinander abstimmen müssen. Das heißt sie müssen sich absprechen, da sie gemeinsam an einem Feature arbeiten. Projektmanagementmethodiken, wie Scrum und oder andere agile Vorgehensweise supporten solche Vorgehensweisen eigentlich.
+
+\label{appendix:t-11} \label{appendix:t-12}
+T: Jetzt ist hier die Frage: Kann man Microservices in einem dynamischen Umfeld einsetzen?  Ja. Man erreicht eine höhere Flexibilität, was die technische Seite der Entwicklung angeht, aber man hat im auch ein höheren Managementfaktor. Das darf man nicht außer acht lassen.
+
+T: Es ist auch nicht so, dass man durch Microservices schneller implementiert. Die meisten Architekturen die auf Microservices bestehen, sind langsam in der implementierung, da sie eine höhere Komplexität besitzen, die man nicht auf den ersten Blick sieht.
+
+\label{appendix:t-13}
+T: Es lohnt sich erst mittel bis langfristig.
+
+E: Okay, aber sollte dann jedes Start-up Microservices in betracht ziehen?
+
+\label{appendix:t-14}
+T: Nein, das hängt ganz von dem Business Case ab. Also normalerweise macht man für die Entwicklung der Softwarearchitektur ein Brainstorming, indem man sich überlegt was der Kunde erreichen will. Man identifiziert dabei sogenannte Architektur-Treiber.
+
+T: Architektur-Treiber müssen nicht technisch sein. Das können triviale Dinge sein, wie zum Beispiel: Der Kunde will, dass die Webseite besonders modern aussieht oder es können auch nicht funktionale Antworten sein, wie: Der Kunde will, dass die eingesetzte Technik auf dem neusten Stand ist. Es können auch Softskill Faktoren sein, dass der Kunde will, das Entwickler das Projekt umsetzen, die ein gewisses Denkweise haben, oder eine exotische Programmiersprache verwenden. 
+
+\label{appendix:t-15}
+T: Aber meistens hat man Business-Treiber, wie zum Beispiel dass der Prototype in drei Monaten fertig sein muss. Was man anschließend macht, sind alle diese Architektur-Treiber zu bewerten. Denn es kann auch sein, dass manche Treiber wichtiger sind als andere. Wie zum Beispiel, dass ich in drei Monate fertig sein muss. 
+
+\label{appendix:t-16}
+T: In diesem Beispiel wäre meiner Meinung nach, es sinnvoll Microservices einzusetzen. Denn in den drei Monaten kann ich nicht alles zu 100 Prozent umsetzen, kann aber ein Teil zu 30 Prozent entwickeln und andere Abschnitte zu 70 Prozent umsetzen. Ich prototype also ein großen Teil, sodass es funktioniert, um es in der Implementierung durch bessere Microservices auszutauschen. 
+
+T: Insofern denke ich, hilft es an dieser Stelle Microservices einzusetzen.
+
+\label{appendix:t-17}
+T: Ich glaube es gibt nicht viele Dinge wo man heutzutage sagt: “Ich brauche Microservices nicht.”
+
+\label{appendix:t-18}
+T: Es ist hat die Frage in welcher Komplexität und Ausbaustufe.
+
+E: Okay, weil Sie es grade angebracht haben, dass Teams separat auch in unterschiedlichen Programmiersprachen arbeiten, würde ich gerne zu Frage zwei übergehen.
+
+E: Microservices ermöglicht es Teams unabhängig voneinander an unterschiedlichen Service zu arbeiten. Welche Rahmenbedingungen sehen Sie als notwendig, dass Teams separat voneinander arbeiten können?
+
+\label{appendix:t-19}
+T: Also da gibt es mehr Dinge, die man beachten sollte. Microservices kommunizieren untereinander auf eine bestimmte Art. Das heißt, die Teams müsste sich einig sein über welche Schnittstelle die Services kommunizieren. Wird zum Beispiel eine REST-API verwendet, oder ein GraphQL-Schnittstelle?
+ 
+ \label{appendix:t-20}
+T: Oder wird zum Beispiel ein Event getriebene Architektur verwendet?
+
+ \label{appendix:t-21}
+T: Es kann also sein, dass das solche Entscheidungen auch Aspekte auf der Business Seite beeinflusst. Es gibt zum Beispiel im finanziellen Bereich System, die nachvollziehbar sein müssen. Wenn man zum Beispiel an Banktransaktionen denkt. An dieser Stelle macht ein Events getriebenes System absolut Sinn.
+
+T: Dann gibt es aber auch Fälle da macht es keinen Sinn ein Event basiertes System umzusetzen, da es zu komplex ist. Es muss ja auch noch Testbar sein. Das wird dann sehr schwierig, da Eventbasierte Systeme massiv nebenläufige sind, was das Testen sehr schnell gruselig machen lässt.
+
+ \label{appendix:t-22}
+T: Man muss sich auf ein Modell einig und das dann beibehalten oder zumindest benötigt man eine Strukturen, sodass man weiß, was wie abläuft. Schnittstellen nach außen müssen geklärt sein.
+
+ \label{appendix:t-23}
+T: Im Grunde ist es so, dass ein Team eigenständig für sich arbeiten. Das Problem ist halt, dass sie so die restlichen Teams ausblenden. Das sollen das Team einerseits tun, aber andererseits braucht es auch die Kommunikation zwischen den Teams.
+
+ \label{appendix:t-24}
+T: So sprechen zum Beispiel Abgesandte aus dem Teams alle zwei Wochen miteinander und definieren übergreifende Schnittstellen. Das heißt in größeren Projekten ist es üblich, dass man neben den Teams ein weiteres Team hat, welches quasi übergeordnete Schnittstellen festlegt.
+
+ \label{appendix:t-25}
+T: Es entsteht also ein Mehraufwand in der Kommunikation und Dokumentation.
+
+\label{appendix:t-26}
+T: Demnach wird die Angelegenheit komplexer.
+
+ \label{appendix:t-27}
+T: Meiner Meinung nach, machen Microservices die Komplexität mehr beherrschbar. So grenzen klaren Strukturen die Verantwortung klar ab und ich kann mit klaren Abläufen Probleme im kleinem Rahmen lösen.
+
+E: Das sind interessante Punkte.
+
+E: Aus meiner Literaturrecherche habe ich herausgefunden, dass es in erster Line möglich sein muss den Teams das Vertrauen geben zu kann eigenständig an einem Service zu arbeiten. Als wie relevant siehst du diesen Punkt?
+
+ \label{appendix:t-28}
+T: Vertrauen ist in das in der heutigen Art und Weise, wie man Software entwickelt, immer relevant. Das Schöne an Scrum und den anderen agilen Vorgehensweisen ist, dass der Entwickler wieder als Mensch akzeptiert wird. Wenn ich mich daran erinnere, wie man vor 20 Jahren Software entwickelt hat, dann ist es heute schon ganz anders. Heutzutage hat man verstanden, dass Entwickler Menschen sind und das Softwareentwicklung ein sehr kreativer Prozess ist.
+
+ \label{appendix:t-29}
+T: Auf der einen Seite ist es so, dass man den  Einzelnen vertrauen muss, aber auch, dass sich das Team untereinander vertraut.
+
+ \label{appendix:t-30}
+T: Deshalb ist es wichtig, dass eine positive Feedback-Kultur integriert ist, über welche das Team sich kennenlernen kann und sich gegenseitig unterstützt. So lernt der einzelne Entwickler, dass es okay ist, wenn er etwas nicht weiß und kann trotzdem sein Wissen einbringen ohne Angst zu haben.
+
+E: Ok, dass sind alles sehr gut Inhalte. Sie sind vorhin schon einmal auf die technischen Anforderungen eingegangen. Diese würde ich gerne anschließend weiter vertiefen.
+
+E: Gibt es in Ihren Augen irgendwelche technischen Anforderungen, die PluraPolit erfüllen sollte? 
+
+T: Microservices sind, aus meiner Sicht, eine immer sehr große und komplexe Softwarearchitektur, da sehr viele unterschiedliche Faktoren eine Rolle spielen.
+
+ \label{appendix:t-31}
+T: Wenn man Microservices umsetzen möchte, sollte man das Wissen über bestimmte Rollen verfügen, damit man so erfolgreich um zusetzen kann.
+
+ \label{appendix:t-32}
+T: Das andere ist ich muss jemand im DevOps haben. Microservices setzten eine schon sehr technisch komplexe Infrastruktur voraus.
+
+ \label{appendix:t-33}
+T: Demnach braucht es einen Entwickler, der sich mit dem Aufbau der Infrastruktur auskennt.
+
+ \label{appendix:t-34}
+T:  Das Dritte ist es braucht ein Systemarchitekten, oder einen der die Rolle übernimmt. Dieser hat die Aufgabe die Einhaltung der Schnittstellen sicherzustellen, sowie mit Weitblick und Voraussicht geplant werden. Diese Person hat den gesamten Überblick hat.
+
+ Das sind die drei minimum Rollen, die ich als notwendig erachte das Microservices technisch umgesetzt werden können. 
+
+ \label{appendix:t-35}
+T: Natürlich kann man die in einer Person abdecken aber auf kurz oder lang sollten es getrennte Personen sein, da die Arbeit zu viel für ein Person allein wird. 
+
+E: Dann kommen wir vielleicht zur fünften Frage.
+E: Mit ihrem aktuellen Wissensstand, welche Software Architekturen empfehlen Sie PluraPolit? 
+
+ \label{appendix:t-36}
+T: Da würde ich ganz klar dabei Monolithen bleiben.
+
+E: Woran machen Sie Ihre Antwort fest?
+
+ \label{appendix:t-37}
+T: Ich sehe da vom fachlichen her nichts, was einem Microservicearchitektur rechtfertigt.
+
+ \label{appendix:t-38}
+T: Beziehungsweise Frontend und Backend von einander Trennen, um auch beide Komponenten einfacher auszutauschen und das Backend gegebenenfalls für eine Mobile-App nutzen.
+
+E: Okay, das waren sehr gut Antworten. Da würde ich an dieser Stelle das Interview erst einmal beenden und bedanke mich ganz herzlich für Ihre Zeit.
+
