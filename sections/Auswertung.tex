@@ -1,9 +1,46 @@
-\section{Auswertung der Interviews und Anwendung auf PluraPolit}
+\section{Diskussion der Interviewergebnisse}
 \label{sec:auswertung}
 
-\begin{itemize}
-	\item Public subscribe pattern
-	\item SOA 
-\end{itemize}
+Um die Bedingungen aus \cref{sec:bedingungen} zu bestätigen oder zu widerlegen, wurden drei Interviews mit Experten aus dem Start-up-Branche geführt.
 
-Da die Implementierung einer Microservicearchitektur, serviceübergreifende Veränderungen erschwert und diese nur durch hohen Aufwand erreicht werden kann, sollte gewährleistet sein, dass kaum Änderungen dieser Art auftreten. Für die Einteilung der Services bedeutet dies, dass Kontextgrenzen so gesetzt werden, dass Veränderungen, die mehrere Services umfassen, ausgeschlossen sind. Wie Abschnitt … zeigt, orientieren sich diese Grenzen an den Geschäftsprozessen, sodass folglich eine Stabilität des Geschäftsabschlaufs Grundlage für eine statische Einteilung der Services ist.
+Die Interviewergebnisse zeigen, dass Microservices eine zugrundeliegende inhaltliche Trennung benötigt (siehe \cref{sec:frage1}) und die Vielseitigkeit des Unternehmens die Entscheidung zur Umstellung beeinflusst. Dieses Ergebnis bestätigt sich, da aufgrund der mangelten separaten Geschäftsdomäne, ausschließlich eine monolithische Architektur empfohlen wurde (siehe \cref{sec:frage5}).
+
+Aus der Literaturrecherche geht hervor, dass Services anhand der Geschäftsprozesse geteilt werden, welches sich aus dem Domain Driven Design ableitet (siehe \cref{sec:ddd}). Folglich bedarf eine Microservicearchitektur eine Vielzahl an trennbaren Geschäftsprozessen.
+
+Damit bekräftigen die Interviewergebnisse die Annahme, dass Microservices anhand der Geschäftsprozesse geteilt werden und bestätigen den Ansatz, dass ein System eine gewisse Vielseitigkeit benötigt, bevor es in einzelne Services geteilt werden kann.
+
+Die Interviewergebnisse zeigen, dass eine Microservicearchitektur eine komplexe Angelegenheit ist. So nannten die Experten Monitoring, Fehlermanagement und ein automatischen Integrations- und Deployment-Prozess 
+Vorraussetzungen für die Umsetzung. Auch fügte Christoph Rahles in seinem Interview hinzu, dass wenn \textit{\enquote{mehr als ein oder zwei Anwendungen [hinzukommen], [...] Aspekte wie Betriebssicherheit [wichtiger werden]}} (siehe \combref{appendix:r-33}). Er zählte darunter SLAs\footnotemark und Garantien zur Uptimes, Erreichbarkeiten und Geschwindigkeit von Services.
+\footnotetext{SLA steht für Server-Level-Agreement und bezeichnet den Rahmenvertrag zwischen Auftraggeber und Dienstleister für Dienstleistungen und wird vor allem bei Outsourcing-Projekten verwendet \parencite{service-level-agreement_2020}.}
+
+Die Ergebnisse spiegeln den Anstieg der Komplexität wieder, welcher in \cref{sec:verteilte-systeme} über verteilte Systeme angesprochen wird. Der Vergleich zwischen den Architekturstilen aus \cref{sec:monolith} zeigt, dass monolithische Systeme besonders den Bereitstellungsprozess, das Fehlermanagement und die systemübergreifende Tests vereinfachen. Daraus lässt sich schlussfolgern, dass eine Microservicearchitektur im Vergleich zu einem Monolithen komplexer ist, welches sich mit der Empfehlung zu einem Monolithen deckt (siehe \cref{sec:frage5}).
+
+Der Anstieg der Komplexität impliziert, dass ein tieferes Verständnis über das Erstellen und Managen der Infrastruktur vorhanden sein muss.
+
+Aus den Interviews geht hervor, dass wie für jedes Netzwerk Sicherheit eine Grundvoraussetzung ist, sowie die Fähigkeit Nachrichten zwischen Services auszutauschen. Dies bestätigt die angenommene Vorraussetzungen an das Netzwerk (sieht \cref{sec:bedingungen}). Datendurchsatz wurde von keinem Experten angesprochen. Dies kann darauf zurück zu führend sein, dass wie Sicherheit, es als Grundvoraussetzung gesehen wurde. Gleichwohl entkräftet es die Bedeutung des Datendurchsatz als Bedingung.
+
+Die Ergebnisse aus den Interviews wiesen deutlich darauf hin, dass der wirtschaftliche Nutzen ein wesentliche Voraussetzung ist (siehe \cref{sec:frage1}) und die Umstellung im Kontext der wirtschaftlichen Situation entscheiden werden sollte (siehe \cref{sec:frage4}). Somit bestätigen die Aussagen die ursprüngliche Annahme, dass die Wirtschaftliche Situation die Entscheidung beeinflusst (siehe \cref{sec:start-up}).
+
+Aus der Literaturrecherche geht hervor, dass eine Microservicearchitektur erst nach dem Produkt-Market-Fit umgesetzt werden sollte. Die Interviews zeigten, dass auch Start-ups Microservices einsetzen, um flexibel einzelne Services auszutauschen (siehe \cref{sec:frage4}). Aus der Tatsache heraus, dass sich Microservices an Geschäftsprozesse richten, kann geschlussfolgert werden, dass angenommen wird, dass die ursprüngliche Geschäftsprozesse bestehen bleiben und ausschließlich der Services verändert wird. Wie jedoch \cref{sec:start-up} zeigt, agiert ein Start-up in einem unbestimmten Markt, sodass nicht davon auszugehen ist, dass Geschäftsprozesse bestehen bleiben. Demnach widerspricht der Ansatz des dynamischen Geschäftsprozessen der Verwendung von Microservices. Eine Annahme, die durch die Empfelung eine monolitischen Softwarearchitektur bestätigt wurde (siehe \cref{sec:frage5}).
+
+Gleichwohl bleibt die Aussage bestehen, dass es Situationen gibt, in denen trotz Ungewissheit der Geschäftsidee einen wirtschaftlich Mehrwert gibt, eine Microservicearchitektur einzufügen. Eine dieser Szenarien wurde von Alexander Troppman angesprochen. Er beschrieb die Situation, in der Microservices gewählt wurden, um vorhandene Entwickler effizient einzusetzen (siehe \combref{appendix:t-6}).
+
+Die Interviewergebnisse verwerfen somit den Gedanken, dass ein Produkt-Market-Fit vorhanden sein muss und relativeren es auf den wirtschaftlichen Mehrwert.
+
+Wie die Interviewergebnisse zeigten ist die Komplexität eines Systems die größte Motivation dieses in Microservices umzustellen. Um jedoch eine erfolgreiche Umstellung zu vollziehen, bedarf es Kenntnisse über den Aufbau der Infrastruktur und Verwaltung dieser. Auf der einen Seite können abhängig der Ressourcen des Unternehmens dadurch Kosten entstehen, wobei auf der anderen Seite durch den die Umstellung ein Mehrwert generiert wird.
+
+Übertrifft der prognostizierte Mehrwert die Kosten der Umstellung, ist es sicher zu sagen, dass sich die Umstellung zu Microservices wirtschaftlich lohnt.
+
+Aus den Antworten zu Frage fünf geht hervor, dass alle drei Experten in erster Line ein Monolithen empfehlen. Weiterführend schlugen Herr Schlaak und Herr Troppman die Trennung zwischen Front- und Backend vor.
+Da es sich jedoch nur solange um ein Monolithen handelt, wie ein einheitlicher Depolyment-Prozess vorhanden ist, sprechen Herr Schlaak und Herr Troppman nicht mehr über einen Monolith.
+Microservices auf der anderen Seite liegen erst vor, wenn die Services eigenständig sind. \cref{sec:microservices} entsprechend ist dies erst der Fall, wenn der Services eine eigene Datenverwaltung besitzt.
+
+Bei der angesprochenden Trennung ist dies jedoch auch nicht der Fall. Folglich handelt es sich bei dem Vorschlag weder um ein Monolithen noch um ein Microservice. Es handelt sich um ein verteiltes System bestehend aus zwei Komponenten, die voneinander abhängigen.
+
+Bei der Auswertung der Ergebnisse muss berücksichtigt werden, dass sich diese ausschließlich auf Start-ups und PluraPolit fokussiert wurde. Würden etablierte Firmen oder Vereinen beleuchtet, wären die Ergebnisse möglicherweise anders. Aus diesem Grund kann keine generelle Aussage der notwendigen Bedingungen getroffen werden.
+
+Auch wurden die Bedingungen aus einer Literaturrecherche erstellt, demnach wurden diese ausschließlich aus der Theory abgeleitet. Die Erfahrungen der Experten brachten Kenntnisse aus der Praxis ein und validierten die Bedingungen. 
+Gleichwohl handelte es sich um theoretisch abgeleitete Bedingungen.
+Würde eine qualitative Untersuchung der Bedingungen an Unternehmen durchgeführt, die ihre Softwarearchitektur umgestellt haben, könnten andere Ergebnisse gefunden werden.
+
+Empfehlungen für weitere Forschungen sind daher, eine ähnliche qualitative Untersuchung bei anderen Unternehmensarten durchzuführen und mit Hilfe einer Rekonstruktion Bedingungen von Unternehmen zu ermitteln, die Softwarearchtektur umgestellt haben.

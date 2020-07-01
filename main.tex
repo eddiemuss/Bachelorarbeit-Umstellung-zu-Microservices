@@ -25,6 +25,15 @@
       justification=RaggedRight,
       singlelinecheck=false]
      {caption}
+    
+% Zum Einfügen von leeren Seiten
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
   
 % Inhaltsverwaltung wird eingefügt
 \usepackage[style=authortitle, citestyle=authoryear]{biblatex}
@@ -62,6 +71,7 @@
 \newpage
 
 \tableofcontents
+\afterpage{\blankpage}
 
 \newpage
 \pagenumbering{arabic}
@@ -82,7 +92,7 @@
 
 \newpage
 
-\section{Fazit}
+\input{sections/Fazit}
 
 \newpage
 
@@ -94,6 +104,7 @@
 
 % Literaturverzeichnis
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+%Todo überprüfe warum die Urls aus der Seite gehen
 \printbibliography[title=Literaturverzeichnis]
 
 \newpage
@@ -105,5 +116,7 @@
 \newpage
 
 \input{sections/eidesstattliche}
+
+\afterpage{\blankpage}
 
 \end{document}

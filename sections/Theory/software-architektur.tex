@@ -33,6 +33,7 @@ Da die unterschiedlichen Architekturstile nicht im  Fokus dieser Bachelor Thesis
 %Korrektur von Anne R. wurde bis hier eingefügt
 
 \subsubsection{Verteilte Systeme}
+\label{sec:verteilte-systeme}
 
 Nach Andrew Tanenbaum werden verteilte Systeme als eine Menge unabhängiger Computer bezeichnet, die dem Benutzer wie ein einzelnes, kohärentes System erscheinen \parencite{tanenbaum_verteilte_2007}. Weiterführend beschreibt Gernot Starke die einzelnen Komponenten als entweder Verarbeitungs-, oder Speicherbausteine, die über definierte Schnittstellen innerhalb eines Kommunikationsnetz zusammenarbeiten \parencite[vlg.][S. 116]{starke_effektive_2015}. Im Gegensatz zur Definition von Softwarearchitektur grenzt sich das verteilte System dadurch ab, dass von unabhängigen Computern geredet wird. Dadurch entstehen einige Vorteile. So lassen sich auf Grund der Unabhängigkeit, diese einzelnen Rechner unterschiedlich skalieren. Es entsteht dadurch ein Netzwerk an heterogenen Computern. Somit kann je nach Anforderung der einzelnen Komponenten, eine entsprechende Rechenleistung genutzt werden. Des Weiteren gibt es auf Grund der Verteilung eine gewisse Ausfallsicherheit. Diese entsteht, weil das Gesamtsystem nicht durch eine, sondern durch mehrere Maschinen getragen wird. Es können einzelne Computer ausfallen ohne, dass das Anwendungssystem ausfällt. Jedoch kann dadurch ein Teil der gesamten Funktionalität wegfallen, der ggf. für das System notwendig ist. Um dies zu verhindern, sollten geeignete Maßnahmen getroffen werden, indem z. B. nicht allein ein Computer für die Funktionalität verantwortlich ist, sondern mehrere.
 
@@ -96,6 +97,7 @@ Die Antwort des Servers erfolgt durch Repräsentationen der Daten, wovon es für
 Verwendet wird die REST-Architektur ausschließlich für Anwendungen im Internet, da es auf die Anwendung des Hypertext Transfer Protokoll\footnote{Weitere Informationen zum Hypertext Transfer Protokoll kann unter folgender Literatur gefunden werden \parencite{leach_hypertext_2020}.} (HTTP) angewiesen ist. Dabei findet der Architekturstil sowohl Anwendung für ganze Systeme, als auch in komplexen Anwendungen mit einer Vielzahl einzelner Services.
 
 \subsubsection{Monolithe Architektur}
+\label{sec:monolith}
 
 Der Begriff \textit{\enquote{Monolith}} leitet sich vom altgriechischen \textit{\enquote{monólithos}} ab und bedeutet \textit{\enquote{aus einem Stein}} \parencites[vgl.][]{duden_nodate}[vgl.][]{dwds_nodate}. In der Gesteinskunde wird damit ein natürlich entstandener Gesteinsblock bezeichnet, der komplett aus einer Gesteinsart besteht \parencite[vgl.][]{dwds_nodate}.
 
