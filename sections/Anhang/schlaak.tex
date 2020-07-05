@@ -13,7 +13,7 @@ S: Ja, das ist für mich in Ordnung.
 
 E: Dann würde ich gerne das interview mit der ersten Frage beginnen. 
 
-E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor es ihre Softwarearchitekt zu einer Microservicearchitektur umstellt?
+E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor es ihre Softwarearchitekt zu einer Microservice-Architektur umstellt?
 
 S: Vielleicht erst einmal meine grundsätzliche Meinung zum Sachverhalt Monolith versus Microservices. Oft wird geraten das Microservices das non plus ultra ist und dass man von vornherein mit Microservices starten sollte. Davon bin ich allerdings nicht der Meinung.
 
@@ -39,7 +39,7 @@ S: Dann aber trotzdem irgendeine Form von Kommunikation stattfindet, da ja auch 
 S: Einer der ersten Ansätze ist, dass man eine zweite Anwendung erstellt und ein Database-sharing oder was vergleichbares integriert. Das ist aber etwas, was allgemein als Anti-pattern betrachtet wird, da man damit die Kontrolle verliert, was in die Datenbank geschrieben wird.
 
  \label{appendix:s-8}
-S: So kann es sein, dass eine Anwendung bestimmte Validierungen hat, die verhindern dass zum Beispiel leere E-Mailadressen gespeichert werden, da die Anwendung davon ausgeht, dass E-Mailadressen immer gesetzt sein muss. Die anderen Anwendung hat aber vielleicht keine Validierung, da es für sie völlig okay ist, dass die leere E-Mailadressen gespeichert werden. Nutzen die Anwendungen nun die selben Daten, dann kann es sein das die ganze Anwendung bringt. Das heißt zu diesem Zeitpunkt macht es durchaus Sinn, dass man darüber nachdenkt, wie eine Microservicearchitektur aussieht. Zum Beispiel ein Service, der die Daten bereitstellt, und zwei Services, die die Daten konsumieren und ihren Teil erfüllen.
+S: So kann es sein, dass eine Anwendung bestimmte Validierungen hat, die verhindern dass zum Beispiel leere E-Mailadressen gespeichert werden, da die Anwendung davon ausgeht, dass E-Mailadressen immer gesetzt sein muss. Die anderen Anwendung hat aber vielleicht keine Validierung, da es für sie völlig okay ist, dass die leere E-Mailadressen gespeichert werden. Nutzen die Anwendungen nun die selben Daten, dann kann es sein das die ganze Anwendung bringt. Das heißt zu diesem Zeitpunkt macht es durchaus Sinn, dass man darüber nachdenkt, wie eine Microservice-Architektur aussieht. Zum Beispiel ein Service, der die Daten bereitstellt, und zwei Services, die die Daten konsumieren und ihren Teil erfüllen.
 
  \label{appendix:s-9}
 S: Das heißt die erste Bedingung ist, dass ich irgendeine Anwendung habe die komplett andere Aufgaben erledigen, als der Monolith.
@@ -70,7 +70,7 @@ E: Dann würde ich zur Frage Drei übergeben.
 E: Gibt es in Ihren Augen irgendwelche technischen Anforderungen, die PluraPolit erfüllen sollte? 
 
  \label{appendix:s-16}
-S: Ein klassisches Themen ist Skalierung. Ein großer Nachteil von einem Microservicearchitektur im Vergleich zu einem Monolithen, ist dass ein nicht skalierter Microservice die ganze Architektur ausbremsen kann. Anders ist es bei einem Monolithen, da bei diesem alles auf einem Rechner implementiert ist und wenn das ganze System skaliert wird.
+S: Ein klassisches Themen ist Skalierung. Ein großer Nachteil von einem Microservice-Architektur im Vergleich zu einem Monolithen, ist dass ein nicht skalierter Microservice die ganze Architektur ausbremsen kann. Anders ist es bei einem Monolithen, da bei diesem alles auf einem Rechner implementiert ist und wenn das ganze System skaliert wird.
 
 E: Ok, also siehst du gewisse Risiko beim Einsatz von Microservices im Vergleich zum Monolithen. 
 
@@ -78,7 +78,7 @@ E: Ok, also siehst du gewisse Risiko beim Einsatz von Microservices im Vergleich
 S: Ja, es sind unterschiedliche Risiken. Beim Monolithen hast du den Nachteil, dass wenn du einen Fehler machst, dann bricht das gesamte System.
 
  \label{appendix:s-18}
-S: Bei einer Microservicearchitektur bzw. bei unabhängig Services ist das Risiko geringer. Die Services müssen nur Robust implementiert sein und ggf. vernünftige Fehlermeldung zurück geben und idealerweise auf gecachte Inhalte zurückgreift. Also die Services müssen weitestgehend autark sind.
+S: Bei einer Microservice-Architektur bzw. bei unabhängig Services ist das Risiko geringer. Die Services müssen nur Robust implementiert sein und ggf. vernünftige Fehlermeldung zurück geben und idealerweise auf gecachte Inhalte zurückgreift. Also die Services müssen weitestgehend autark sind.
 
 E: Dann gehen wir zur Frage vier.
 
@@ -123,7 +123,7 @@ S: Es läuft darauf hinaus: In dem Moment wo du etwas hast, was nicht mehr so zu
 S: Zu dem Zeitpunkt sollte man entweder ein externen Service nutzt, den man sich eingekauft, oder wenn man halt selber einen implementiert. Zu dem Zeitpunkt muss man den ersten Schritt zu Microservices machen. 
 
  \label{appendix:s-30}
-S: Es gibt aber auch hier keine strikte Trennung. Das heißt das der Übergang von einem Monolithen zu einer Microservicearchitektur fließend sein kann, indem der Monolith erste Schnittstellen bereit stellt, die von ausgelagerten Services konsumiert wird.
+S: Es gibt aber auch hier keine strikte Trennung. Das heißt das der Übergang von einem Monolithen zu einer Microservice-Architektur fließend sein kann, indem der Monolith erste Schnittstellen bereit stellt, die von ausgelagerten Services konsumiert wird.
 
 
 E: Ein sehr guter Einwand. Dann würde ich jetzt gerne zur letzten Frage gehen.

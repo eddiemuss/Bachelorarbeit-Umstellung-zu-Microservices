@@ -3,16 +3,16 @@
 
 Um die Bedingungen aus \cref{sec:bedingungen} zu bestätigen oder zu widerlegen, wurden drei Interviews mit Experten aus der Start-up-Branche geführt.
 
-Die Interviewergebnisse zeigen, dass Microservices eine zugrundeliegende inhaltliche Trennung benötigen (siehe \cref{sec:frage1}) und die Vielseitigkeit des Unternehmens die Entscheidung für eine Umstellung beeinflusst. Bestätigt wurde dies, da Herr Rahles und Herr Troppman den Mangel einer separaten Geschäftsdomäne betonten (siehe \cref{sec:frage5}).
+Die Interviewergebnisse zeigen, dass Microservices eine zugrundeliegende inhaltliche Trennung benötigen (siehe \cref{sec:frage1}) und die Vielseitigkeit des Unternehmens die Entscheidung für eine Umstellung beeinflusst. Bestätigt wurde dies, da Herr Rahles und Herr Troppmann den Mangel einer separaten Geschäftsdomäne betonten (siehe \cref{sec:frage5}).
 
 \label{sec:vielseitigkeit}
 Damit bekräftigen die Interviewergebnisse die Annahme, aus \cref{sec:ddd}, dass Services anhand der Geschäftsprozesse geteilt werden und bestätigen den Ansatz, dass ein System eine gewisse Vielseitigkeit benötigt, bevor es in einzelne Services geteilt werden kann.
 
-Die Interviewergebnisse zeigen weiter, dass eine Microservicearchitektur eine komplexe Angelegenheit ist. So setzten die Experten Monitoring, Fehlermanagement und ein automatischen Integrations- und Deployment-Prozess 
+Die Interviewergebnisse zeigen weiter, dass eine Microservice-Architektur eine komplexe Angelegenheit ist. So setzten die Experten Monitoring, Fehlermanagement und ein automatischen Integrations- und Deployment-Prozess 
  für die Umsetzung voraus. Auch fügte Christoph Rahles in seinem Interview hinzu, dass wenn \textit{\enquote{mehr als ein oder zwei Anwendungen [hinzukommen], [...] Aspekte wie Betriebssicherheit [wichtiger werden]}} (siehe \combref{appendix:r-33}). Er zählte darunter SLAs\footnotemark und Garantien zur Uptimes, Erreichbarkeiten und Geschwindigkeit von Services.
 \footnotetext{SLA steht für Server-Level-Agreement und bezeichnet den Rahmenvertrag zwischen Auftraggeber und Dienstleister für Dienstleistungen und wird vor allem bei Outsourcing-Projekten verwendet \parencite{service-level-agreement_2020}.}
 
-Die Ergebnisse belegen den Anstieg der Komplexität, welcher in \cref{sec:verteilte-systeme} über verteilte Systeme angesprochen wird. Der Vergleich zwischen den Architekturstilen aus \cref{sec:monolith} zeigt, dass monolithische Systeme besonders den Bereitstellungsprozess, das Fehlermanagement und die systemübergreifende Tests vereinfachen. Daraus lässt sich schlussfolgern, dass eine Microservicearchitektur im Vergleich zu einem Monolithen komplexer ist. Dies deckt sich mit den Empfehlungen der Experten (siehe \cref{sec:frage5}).
+Die Ergebnisse belegen den Anstieg der Komplexität, welcher in \cref{sec:verteilte-systeme} über verteilte Systeme angesprochen wird. Der Vergleich zwischen den Architekturstilen aus \cref{sec:monolith} zeigt, dass monolithische Systeme besonders den Bereitstellungsprozess, das Fehlermanagement und die systemübergreifende Tests vereinfachen. Daraus lässt sich schlussfolgern, dass eine Microservice-Architektur im Vergleich zu einem Monolithen komplexer ist. Dies deckt sich mit den Empfehlungen der Experten (siehe \cref{sec:frage5}).
 
 Der Anstieg der Komplexität schließt ein tieferes Verständnis über das Erstellen und Managen der Infrastruktur ein und fordert, abhängig des Wissenstands im Unternehmen, Weiterbildungen durchzuführen oder auf externe Fachkräften zurückzugreifen.
 
@@ -21,11 +21,11 @@ Aus den Interviews geht hervor, dass Sicherheit und der Austausch von Nachrichte
 
 Wiederum verdeutlichten die Interviewergebnisse den wirtschaftlichen Nutzen und forderten die Umstellung im Kontext der wirtschaftlichen Situation zu entscheiden (siehe \cref{sec:frage4}). Somit bestätigen die Aussagen die ursprüngliche Annahme, dass die wirtschaftliche Situation die Entscheidung beeinflusst (siehe \cref{sec:start-up}).
 
-Die Literaturrecherche belegt, dass eine Microservicearchitektur erst nach dem Produkt-Market-Fit umgesetzt werden sollte. Die Interviews zeigten jedoch, dass auch Start-ups Microservices einsetzen. Dies wird getan, um flexibel einzelne Services auszutauschen (siehe \cref{sec:frage4}). Aus der Tatsache heraus, dass sich Microservices an Geschäftsprozesse richten, kann geschlussfolgert werden, dass die ursprünglichen Geschäftsprozesse bestehen bleiben und ausschließlich der Services verändert wird.
+Die Literaturrecherche belegt, dass eine Microservice-Architektur erst nach dem Produkt-Market-Fit umgesetzt werden sollte. Die Interviews zeigten jedoch, dass auch Start-ups Microservices einsetzen. Dies wird getan, um flexibel einzelne Services auszutauschen (siehe \cref{sec:frage4}). Aus der Tatsache heraus, dass sich Microservices an Geschäftsprozesse richten, kann geschlussfolgert werden, dass die ursprünglichen Geschäftsprozesse bestehen bleiben und ausschließlich der Services verändert wird.
 
 Wie jedoch \cref{sec:start-up} zeigt, agiert ein Start-up in einem unbestimmten Markt, sodass nicht davon auszugehen ist, dass Geschäftsprozesse bestehen bleiben. Demnach widersprechen dynamische Geschäftsprozesse den Einsatz von Microservices. Eine Annahme, die durch die Empfehlungen der monolitischen Softwarearchitektur bestätigt wird (siehe \cref{sec:frage5}).
 
-Gleichwohl gibt es Situationen, in denen die Einführung von Microservices einen wirtschaftlich Mehrwert generieren kann, obwohl noch kein Produkt-Market-Fit vorliegt. Eine dieser Szenarien wurde von Alexander Troppman angesprochen. Er beschrieb die Situation, in der Microservices gewählt wurden, um vorhandene Entwickler effizient einzusetzen (siehe \combref{appendix:t-6}).
+Gleichwohl gibt es Situationen, in denen die Einführung von Microservices einen wirtschaftlich Mehrwert generieren kann, obwohl noch kein Produkt-Market-Fit vorliegt. Eine dieser Szenarien wurde von Alexander Troppmann angesprochen. Er beschrieb die Situation, in der Microservices gewählt wurden, um vorhandene Entwickler effizient einzusetzen (siehe \combref{appendix:t-6}).
 
 \label{sec:wirtschaftlich}
 Die Interviewergebnisse verwerfen somit den Gedanken, dass ein Produkt-Market-Fit vorhanden sein muss und relativeren es auf den zu erwartenden wirtschaftlichen Mehrwert.
@@ -34,7 +34,7 @@ Wie die Interviewergebnisse zeigen, ist die Komplexität eines Systems die grö�
 
 Aus den Antworten zur Frage fünf geht hervor, dass alle drei Experten in erster Line einen Monolithen empfehlen. Dies lässt sich darauf zurückführen, dass die Experten, aufgrund der geringen Komplexität von PluraPolit, keine Notwendigkeit sehen, Microservices umzusetzen und sie bei der geringen Anzahl an Entwickler eine verantwortungsvolle Verwaltung der Infrastruktur anzweifelen. Folglich bewerten sie die Umstellung für PluraPolit als nicht lukrativ.
 
-Neben der Empfehlung zu einem Monolithen schlugen Herr Schlaak und Herr Troppman die Trennung zwischen Front- und Backend vor.
+Neben der Empfehlung zu einem Monolithen schlugen Herr Schlaak und Herr Troppmann die Trennung zwischen Front- und Backend vor.
 Da es sich jedoch nur solange um ein Monolithen handelt, wie ein einheitlicher Depolyment-Prozess vorhanden ist, handelt es sich bei der vorgeschlagenden Architektur nicht mehr um einen Monolithen.
 %Wie kann es sein, dass die Experten es nicht wussten, dass es kein Monolith ist?
 Microservices auf der anderen Seite liegen erst vor, wenn die Services eigenständig sind. \cref{sec:microservices} entsprechend ist dies erst der Fall, wenn der Services eine eigene Datenverwaltung besitzen. Dies wiederum bei der angesprochenen Trennung nicht der Fall ist. Folglich handelt es sich bei dem Vorschlag weder um ein Monolithen, noch um ein Microservice, sondern um ein verteiltes System bestehend aus zwei Komponenten, die voneinander abhängig sind.

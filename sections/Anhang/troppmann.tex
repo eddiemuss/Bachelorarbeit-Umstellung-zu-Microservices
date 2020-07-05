@@ -1,7 +1,7 @@
-\subsection{Interview mit Alexander Troppman}
-\label{appendix:troppman}
+\subsection{Interview mit Alexander Troppmann}
+\label{appendix:troppmann}
 
-Interviewpartner: Alexander Troppman (T) \\
+Interviewpartner: Alexander Troppmann (T) \\
 Interviewee: Edgar Muss (E) \\
 Datum: 21. Juni 2020 um 19 Uhr \\
 Medium: Zoom
@@ -12,13 +12,13 @@ T: Das ist okay.
 
 E: Dann lass uns mit der ersten Frage beginnen.
 
-E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor sie ihre Softwarearchitekt zum einer Microservicearchitektur umstellt? 
+E: Haben Sie das Gefühl, dass es Bedingungen gibt, die PluraPolit erfüllen sollte, bevor sie ihre Softwarearchitekt zum einer Microservice-Architektur umstellt? 
 
-T: Zuerst denke ich mal, dass sich eine Microservicearchitektur erst lohnt, wenn es die Applikation erfordert. Das sehe jetzt bei PluraPolit Applikation und nichts. Aus meiner Sicht kann man das auch weiter als Monolith belassen.  Also aus Business Sicht fällt mir nur ein,  dass man vielleicht die Verarbeitung der Sound-Dateien in ein Microservice auslagert. Das die vielleicht in verschiedene Formate konvertiert werden. Das wäre ein Anwendungsfall für Microservices. 
+T: Zuerst denke ich mal, dass sich eine Microservice-Architektur erst lohnt, wenn es die Applikation erfordert. Das sehe jetzt bei PluraPolit Applikation und nichts. Aus meiner Sicht kann man das auch weiter als Monolith belassen.  Also aus Business Sicht fällt mir nur ein,  dass man vielleicht die Verarbeitung der Sound-Dateien in ein Microservice auslagert. Das die vielleicht in verschiedene Formate konvertiert werden. Das wäre ein Anwendungsfall für Microservices. 
 
-T: Monolith sind ja nicht schlecht und solange man nicht, würde ich auch nicht zwangsläufig sagen man muss unbedingt zu einer Microservicearchitektur umstellen.
+T: Monolith sind ja nicht schlecht und solange man nicht, würde ich auch nicht zwangsläufig sagen man muss unbedingt zu einer Microservice-Architektur umstellen.
 
-T: Technische Voraussetzungen, die vorhanden sein müssen, sind: Der Monolith muss in sich schon Umbaufähig sein, sonst endet man in einer neuen Implementierung. Es sollte eine Modulare Struktur schon vorhanden sein, zum Beispiel das verschiedene Entities getrennt verarbeitet werden. So könnte zum Beispiel ein Microservice um die User und ein anderer um  die Kommentare kümmern. Wenn die logischen Schnitte vorhanden sind, kann man aus Gründen, eine Microservicearchitektur umsetzten. 
+T: Technische Voraussetzungen, die vorhanden sein müssen, sind: Der Monolith muss in sich schon Umbaufähig sein, sonst endet man in einer neuen Implementierung. Es sollte eine Modulare Struktur schon vorhanden sein, zum Beispiel das verschiedene Entities getrennt verarbeitet werden. So könnte zum Beispiel ein Microservice um die User und ein anderer um  die Kommentare kümmern. Wenn die logischen Schnitte vorhanden sind, kann man aus Gründen, eine Microservice-Architektur umsetzten. 
 
 \label{appendix:t-1} \label{appendix:t-2}
 T: Also wie gesagt ich brauche eine technische Trennung, die schon vorhanden sein muss und ich mussten ein Business Case haben das sich das auch lohnt.
@@ -38,19 +38,19 @@ T: In der Frage ist die Rede, dass ich Microservices feste Schnittstellen und Ko
 \label{appendix:t-5}
 T: Ich kenne viele Start-ups, die von Anfang Microservices eingesetzt haben, weil gerade Microservices so sind, dass man verschiedene Services austauschen kann. Also gerade im dynamischen Umfeld machen Microservices Sinn.
 
-T: Nur mal ein konkretes Beispiel: Was ich in einem Monolithen nicht machen kann ist mehreren Programmiersprachen verwenden. Dies kann ich aber in einer Microservicearchitektur tun, sodass ich ein Polyglott aufbaue. Das heißt ich kann zehn Entwickler haben, die ich von extern zugekaufte habe und Experten in Java sind, genau so gut einsetzen wie fünf Entwickler, die ich aus einer anderen Firma übernommen habe. Da habe ich Entwickler übernommen, die können kein Java, sie können nur PHP und Symfony und kommen aus dem Frontend.
+T: Nur mal ein konkretes Beispiel: Was ich in einem Monolithen nicht machen kann ist mehreren Programmiersprachen verwenden. Dies kann ich aber in einer Microservice-Architektur tun, sodass ich ein Polyglott aufbaue. Das heißt ich kann zehn Entwickler haben, die ich von extern zugekaufte habe und Experten in Java sind, genau so gut einsetzen wie fünf Entwickler, die ich aus einer anderen Firma übernommen habe. Da habe ich Entwickler übernommen, die können kein Java, sie können nur PHP und Symfony und kommen aus dem Frontend.
 
 T: Was ich jetzt machen kann, ist zu sagen, dass sie in ihrer gewohnten PHP Umfeld bleiben können.
 
 \label{appendix:t-6}
 T: Das heißt ich habe da die Möglichkeit in dem dynamischen Umfeld verschiedene Entwickler-Ressourcen zu nutzen.
 
-T: Heutzutage ist es ja so, dass man gar nicht so viele Entwickler bekommt, wie man eigentlich bräuchte. So hat man mit Microservices den Vorteil, dass ich eben Teams verwenden kann, welches in ihrer gewohnten Programmiersprachen arbeiten können. Dies ist sehr gut vereinbar mit einer Microservicearchitektur. Schwerer ist es an dieser Stelle mit einem Monolithen. Monolith heißt ja immer es müssen alle Entwickler die gleiche Programmiersprache können, die gleichen Frameworks, den gleichen Coding-Style können und arbeiten auf der gleichen Codebase.
+T: Heutzutage ist es ja so, dass man gar nicht so viele Entwickler bekommt, wie man eigentlich bräuchte. So hat man mit Microservices den Vorteil, dass ich eben Teams verwenden kann, welches in ihrer gewohnten Programmiersprachen arbeiten können. Dies ist sehr gut vereinbar mit einer Microservice-Architektur. Schwerer ist es an dieser Stelle mit einem Monolithen. Monolith heißt ja immer es müssen alle Entwickler die gleiche Programmiersprache können, die gleichen Frameworks, den gleichen Coding-Style können und arbeiten auf der gleichen Codebase.
 
 T: Das ist natürlich schwierig, wenn ich viele Entwickler habe, die ein unterschiedlichen Wissensstand haben und sie in kurzer Zeit alle auf eine Linie zu bringen muss.
 
 \label{appendix:t-7}
-T: Bei einer Microservicearchitektur habe ich die Möglichkeit zu sagen, dass ihr diesen Service baut. Ich kann sogar in verschiedenen Geschwindigkeiten und Codequalitäten arbeiten.
+T: Bei einer Microservice-Architektur habe ich die Möglichkeit zu sagen, dass ihr diesen Service baut. Ich kann sogar in verschiedenen Geschwindigkeiten und Codequalitäten arbeiten.
 
 T: Ich kann zum Beispiel bewusst sagen: “Den einen Service, den Prototypen wir jetzt in der Sprache X und schaffen erst einmal die Basis Funktionalität.” Wir wissen, dass es noch nicht unsere finale System, aber das tauschen wir später einfach mit einer besseren Implementierung aus.
 
@@ -162,7 +162,7 @@ T:  Das Dritte ist es braucht ein Systemarchitekten, oder einen der die Rolle ü
 T: Natürlich kann man die in einer Person abdecken aber auf kurz oder lang sollten es getrennte Personen sein, da die Arbeit zu viel für ein Person allein wird. 
 
 E: Dann kommen wir vielleicht zur fünften Frage.
-E: Mit ihrem aktuellen Wissensstand, welche Software Architekturen empfehlen Sie PluraPolit? 
+E: Mit ihrem aktuellen Wissensstand, welche Softwarearchitektur empfehlen Sie PluraPolit? 
 
  \label{appendix:t-36}
 T: Da würde ich ganz klar dabei Monolithen bleiben.
@@ -170,7 +170,7 @@ T: Da würde ich ganz klar dabei Monolithen bleiben.
 E: Woran machen Sie Ihre Antwort fest?
 
  \label{appendix:t-37}
-T: Ich sehe da vom fachlichen her nichts, was einem Microservicearchitektur rechtfertigt.
+T: Ich sehe da vom fachlichen her nichts, was einem Microservice-Architektur rechtfertigt.
 
  \label{appendix:t-38}
 T: Beziehungsweise Frontend und Backend von einander Trennen, um auch beide Komponenten einfacher auszutauschen und das Backend gegebenenfalls für eine Mobile-App nutzen.
