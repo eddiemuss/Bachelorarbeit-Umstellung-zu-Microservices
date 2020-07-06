@@ -5,11 +5,11 @@ Nach der Vorstellung der einzelnen Architekturstile und der Einordnung des Syste
 
 Bei der Microservice-Architektur handelt es sich um ein Vertreter der verteilten Systeme, welcher sich historisch aus der Service-Orientierten-Architektur ableitet (siehe \cref{sec:zielsetzung}).
 
-Eberhard Wolff beschreibt Microserivces als Ansatz, Software in einzelne Module zu teilen und definiert es als Modularisierungskonzept, welches Einfluss auf die Unternehmensorganisation und den Software-Entwicklungsprozess hat \parencite[vgl.][Kap. 1.1]{wolff_microservices_2018}. Dabei ist jedes Modul ein eigenes Programm.
+Eberhard Wolff beschreibt Microservices als Ansatz, Software in einzelne Module zu teilen und definiert es als Modularisierungskonzept, welches Einfluss auf die Unternehmensorganisation und den Software-Entwicklungsprozess hat \parencite[vgl.][Kap. 1.1]{wolff_microservices_2018}. Dabei ist jedes Modul ein eigenes Programm.
 
 Sam Newman stützt diese Aussage und beschreibt Microservices als voneinander unabhängig einsetzbare Dienste, die um eine Geschäftsdomäne herum modelliert sind \parencite[vgl.][Kap. 2.1]{newman_monolith_2019}.
 
-Somit beschreiben beide Microservices als ein System aus einzelnen, unabhängigen Services, die sich an ein Geschäftsdomäne richten.
+Somit beschreiben sowohl Herr Wolff als auch Herr Newman Microservices als ein System, welches aus einzelnen, unabhängigen Services besteht und jeder Services eine Geschäftsdomäne modelliert.
 
 \subsubsection{Kohärenz und Kopplung}
 
@@ -17,18 +17,18 @@ Wenn es um das Aufteilen von Software geht, ist das Verständnis der Zusammenhä
 
 Kohärenz bezeichnet dabei die funktionale Abhängigkeit zweier Funktionen oder Klassen \parencite[vgl.][Kap. 2.3.1]{newman_monolith_2019}.
 Es liegt eine hohe Kohärenz vor, wenn der Quellcode anhand seiner logischen Zugehörigkeit geordnet ist.
-Dies ist der Fall, wenn alle Datenbankzugriffe durch eine kleine Anzahl von Funktionen ausgeführt werden und diese nahe beieinander definiert sind. Der Model-View-Controller-Ansatz ist eine Beispiel eines solchen Systems.
+Dies ist der Fall, wenn alle Datenbankzugriffe durch eine kleine Anzahl von Funktionen ausgeführt werden und diese nahe beieinander definiert sind. Der MVC-Ansatz ist eine Beispiel eines solchen Systems.
 
 Kopplung beschreibt, in welchem Maß Funktionen und Klassen verbunden sind, ohne dass sie logisch zusammengehören \parencite[vgl.][Kap. 2.3.2]{newman_monolith_2019}. So bezieht sich Kopplung ausschließlich auf eine technisch vorliegende Verknüpfung. Ein typisches Beispiel hierfür ist, wenn ein Datenabruf an mehreren Stellen direkt über das Datenbankschema abläuft. Dadurch entsteht eine Abhängigkeit auf das Schema. Falls sich das Schema ändert, müssen auch die jeweiligen Aufrufe geändert werden.
 
-Besonders in monolithischen Systemen können viele Kopplungen entstehen, da keine festen Abgrenzungen zwischen einzelnen logischen Bereichen definiert sind. Hieraus entsteht ein System, welches bei kleinen Veränderungen viele ungewollte Fehler erzeugt.
+Besonders in monolithischen Systemen können viele Kopplungen entstehen, da keine festen Abgrenzungen zwischen einzelnen logischen Bereichen definiert sind. Hieraus entsteht ein System, welches bei kleinen Veränderungen viele ungewollte Fehler erzeugen kann.
 
-Microservices auf der anderen Seite zielen darauf ab, durch klare Grenzen ein stabiles System zu erzeugen. Hierfür müssen die einzelnen Services weitestgehend voneinander entkoppelt sein. Das Ziel ist es, eine hohe Kohärenz bei geringer Kopplung zu besitzen. Dabei ist dies nicht allein die Zielsetzung von Microservices, sondern von allen stabilen Systemen.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[][S. 43]{endres_handbook_2003}.} Konkret bedeutet es für Microservices, dass ein Services ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie Datenbankstrukturen und Funktionsaufrufe, hinter Schnittstellen versteckt sind.
+Microservices auf der anderen Seite zielen darauf ab, durch klare Grenzen ein stabiles System zu erzeugen. Hierfür müssen die einzelnen Services weitestgehend voneinander entkoppelt sein. Das Ziel für eine Microservice-Architektur ist es deshalb, eine hohe Kohärenz bei geringer Kopplung zu besitzen. Dabei ist dies nicht allein die Zielsetzung von Microservices, sondern von allen stabilen Systemen.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[][S. 43]{endres_handbook_2003}.} Konkret bedeutet es für Microservices, dass ein Service ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie Datenbankstrukturen und Funktionsaufrufe, hinter Schnittstellen versteckt sind.
 
 \subsubsection{Das Gesetz von Conway}
 \label{sec:conway}
 
-Wenn es um die Teamaufteilung in IT Projekten geht, wird in den meisten Fällen sich an die historischen Herangehensweise orientiert \parencite[vgl.][Kap. 4.2]{wolff_microservices_2018}. Die Entwickler werden nach ihrer Spezifikation eingeteilt, Datenbankexperten, Frontend- und Backendentwicklern in jeweils einzelne Teams aufgegliedert.
+Wenn es um die Teamaufteilung in IT Projekten geht, wird sich in den meisten Fällen an die historische Herangehensweise orientiert, bei welcher die Entwickler anhand ihrer Spezifikation in einzelne Teams geteilt werden \parencite[vgl.][Kap. 4.2]{wolff_microservices_2018}.  Die Entwickler werden dabei nach Datenbankexperten, Frontend- und Backend-Entwickler gegliedert.
 
 Entscheidet sich jedoch ein Unternehmen für eine Microservice-Architektur, bedeutet diese Aufteilung, dass für jeden einzelnen Service Absprachen zwischen den Teams entstehen. Daraus etablieren sich eine Vielzahl an einzelnen Kommunikationsbeziehungen, welche die Umsetzung von neuen Funktionen verlangsamen.
 
@@ -41,25 +41,23 @@ Um die Kommunikation für ein Service auf ein Minimum zu reduzieren, sollte nur 
 
 Für die Umsetzung der Microservice-Architektur muss einerseits die Anwendung so komplex sein, dass sie sich in einzelne Services teilen lässt und andererseits müssen so viele Entwickler vorhanden sein, dass idealerweise jeder Dienst von einem Team betreut wird.
 
-\subsubsection{Domain Driven Design}
+\subsubsection{Domain-Driven Design}
 \label{sec:ddd}
 
-Wie im \cref{sec:conway} beschrieben, hat die Microservice-Architektur das Ziel, autonome Teams zu etablieren und unnötige Absprachen zu reduzieren. Um dies zu erreichen und gleichzeitig eine hohe Kohärenz bei geringer Kopplung zu besitzen, bauen Microservices auf der Idee des Domain Driven Designs auf, welche von Eric Evans in seinem gleichnamigen Buch publiziert wird \parencite[vgl.][Kap. 2.4]{newman_monolith_2019}. Hierbei handelt sich dabei um eine Herangehens- bzw. Denkweise zur Modellierung komplexer Systeme, bei der das Gesamtsystem anhand der einzelner Geschäftsprozesse geteilt wird \parencite[vgl.][S. xix ff.]{evans_domain-driven_2003}.
+Wie im \cref{sec:conway} beschrieben, hat die Microservice-Architektur das Ziel, autonome Teams zu etablieren und unnötige Absprachen zu reduzieren. Um dies zu erreichen und gleichzeitig eine hohe Kohärenz bei geringer Kopplung zu garantieren, bauen Microservices auf der Idee des Domain-Driven Designs auf, welche von Eric Evans in seinem gleichnamigen Buch publiziert wurde \parencite[vgl.][Kap. 2.4]{newman_monolith_2019}. Hierbei handelt sich dabei um eine Herangehens- bzw. Denkweise zur Modellierung komplexer Systeme, bei der das Gesamtsystem anhand der einzelner Geschäftsprozesse geteilt wird \parencite[vgl.][S. xix ff.]{evans_domain-driven_2003}.
 
-Domain Driven Design ist dabei nicht nur für Microserivces konzipiert, sondern beschreibt vielmehr den Ansatz, Softwareentwicklung und Geschäftsfunktion zu vereinen, die in verschiedenen Architekturen umgesetzt werden. Deshalb ist Domain Driven Design wesentlich für die Bestimmung der Grenzen eines Service und somit entscheidend für Microservices \parencite[vgl.][Kap. 4.3]{wolff_microservices_2018}.
+Domain-Driven Design ist dabei nicht nur für Microservices konzipiert, sondern beschreibt vielmehr den Ansatz, Softwareentwicklung und Geschäftsfunktion zu vereinen, die in verschiedenen Architekturen umgesetzt werden. Deshalb ist Domain-Driven Design wesentlich für die Bestimmung der Grenzen eines Service und entscheidend für Microservices \parencite[vgl.][Kap. 4.3]{wolff_microservices_2018}.
 
-Ein Hauptbestandteil des Domain Driven Designs ist die Idee des Kontextes bzw. der Kontextgrenze \parencite[vgl.][]{fowler_boundedContext_2014}. Die Kontextgrenze ist hier die Abgrenzung eines logischen Abschnittes (Kontext) innerhalb eines Unternehmens. Es wird der Ansatz verfolgt, dass einzelne Funktionen und Inhalte nur innerhalb eines gewissen Bereiches Sinn ergeben. So ist z. B. in einem E-Commerce Unternehmen bei der Bestellung von Ware die Anzahl, die Größe und das Gewicht entscheidend, während bei der Buchung die Wichtung auf Preis und Steuersatz liegt. Je nach Kontext kann deshalb ein Begriff, wie Preis, unterschiedliche Bedeutungen haben, beim Bestellen von neuer Ware ist damit der Einkaufspreis, beim Verkauf von Ware der Verkaufspreis gemeint \parencite[vgl.][S. 24 ff.]{evans_domain-driven_2003}. Die Bedeutung des Wortes Preis hängt somit von dem zu lösenden Geschäftsprozess ab. Domain Driven Design empfiehlt, Kontextgrenzen so zu setzen, dass sie einen Geschäftsprozess umschließen und idealerweise genau ein spezifisches Problem lösen \parencite[vgl.][Kap. 4.3]{wolff_microservices_2018}.
+Ein Hauptbestandteil des Domain-Driven Designs ist die Idee des Kontextes bzw. der Kontextgrenze \parencite[vgl.][]{fowler_boundedContext_2014}. Die Kontextgrenze ist hier die Abgrenzung eines logischen Abschnittes (Kontext) innerhalb eines Unternehmens. Es wird der Ansatz verfolgt, dass einzelne Funktionen und Inhalte nur innerhalb eines gewissen Bereiches Sinn ergeben. So ist z.~B. in einem E-Commerce Unternehmen bei der Bestellung von Ware die Anzahl, die Größe und das Gewicht entscheidend, während bei der Buchung der Fokus auf Preis und Steuersatz liegt. Je nach Kontext kann deshalb ein Begriff, wie Preis, unterschiedliche Bedeutungen haben. Beim Bestellen von neuer Ware ist damit der Einkaufspreis, beim Verkauf von Ware der Verkaufspreis gemeint \parencite[vgl.][S. 24 ff.]{evans_domain-driven_2003}. Die Bedeutung des Wortes Preis hängt somit von dem zu lösenden Geschäftsprozess ab. Domain-Driven Design empfiehlt, Kontextgrenzen so zu setzen, dass sie einen Geschäftsprozess umschließen und idealerweise genau ein spezifisches Problem lösen \parencite[vgl.][Kap. 4.3]{wolff_microservices_2018}.
 
-Wie anfangs beschrieben, handelt es sich bei Domain Driven Design nur um eine Herangehensweise und nicht um klare Regeln. Es liegt deshalb im Ermessen jedes Unternehmens die Granularität der Kontexte zu setzen.
+Wie anfangs beschrieben, handelt es sich bei Domain-Driven Design nur um eine Herangehensweise und nicht um klare Regeln. Es liegt deshalb im Ermessen jedes Unternehmens die Granularität der Kontexte zu setzen.
 
-Der Fokus auf ein spezifische Problemstellung ermöglicht es, eine einheitliche Sprache innerhalb eines Kontexts einzufügen, sowie eine enge Verbindung zwischen Geschäftslogik und technischer Entwicklung zu erzeugen. Domain Driven Design vertritt den Ansatz, dass technische Modelle und Prozessbeschreibungen die gleiche Terminologie besitzen \parencite[vgl.][S. 24 ff.]{evans_domain-driven_2003}. Die Kommunikation zwischen Fachkundigen und Softwareentwicklern sollen dadurch gestärkt werden.
+Der Fokus auf eine spezifische Problemstellung ermöglicht es, eine einheitliche Sprache innerhalb eines Kontextes einzufügen, sowie eine enge Verbindung zwischen Geschäftslogik und technischer Entwicklung zu erzeugen. Domain-Driven Design vertritt den Ansatz, dass technische Modelle und Prozessbeschreibungen die gleiche Terminologie besitzen \parencite[vgl.][S. 24 ff.]{evans_domain-driven_2003}. Die Kommunikation zwischen Fachkundigen und Softwareentwicklern soll dadurch gestärkt werden. Für die Einteilung von Microservices bedeutet dies, dass der Kontext eines Microservice genau ein Geschäftsprozess abbildet \parencites[vgl.][Kap. 4.3]{wolff_microservices_2018}[vgl.][Kap. 4]{newman_monolith_2019}.
 
-Das bedeutet für die Einteilung von Microservices, dass ein Microservices einen Kontext abbildet, der sich an einen Geschäftsprozess orientiert \parencites[vgl.][Kap. 4.3]{wolff_microservices_2018}[vgl.][Kap. 4]{newman_monolith_2019}.
+Diese Eigenschaft deckt sich mit der von Sam Newman beschriebenen Definition, dass Microservices \textit{\enquote{um eine Geschäftsdomäne herum modelliert sind}} (\cref{sec:microservices}). Weiterhin fordert Domain-Driven Design, dass ein Team fachlich divers ist und Expertinnen und Experten aus dem jeweiligen Fachgebiet einschließt \parencite[vgl.][S. 32 ff.]{evans_domain-driven_2003}. 
+Konsequent umgesetzt, besteht ein Team aus Fachkundigen und Softwareentwicklern und hält engen Kontakt zu den Endkunden \parencites[vgl.][Kap. 4.3]{wolff_microservices_2018}.
 
-Diese Eigenschaft deckt sich mit der von Sam Newman beschriebenen Definition, dass Microservices \textit{\enquote{um eine Geschäftsdomäne herum modelliert sind}} (\cref{sec:microservices}). Weiterhin fordert Domain Driven Design, dass ein Team fachlich divers ist und Experten und Expertinnen aus dem jeweiligen Fachgebiet einschließt \parencite[vgl.][S. 32 ff.]{evans_domain-driven_2003}. 
-Konsequent umgesetzt, besteht ein Team aus Fachkundigen und Softwareentwicklern und hält engen Kontakt zu den Usern \parencites[vgl.][Kap. 4.3]{wolff_microservices_2018}.
-
-Vorteile der Umsetzung von Domain Driven Design sind:
+Vorteile der Umsetzung von Domain-Driven Design sind:
 \begin{itemize}
 	\item Stärkung der Autonomie des Teams durch das Abgrenzen in einzelne Kontexte,
 	\item Verstärkter Austausch zwischen Fachkundigen und Softwareentwicklern durch eine einheitliche Sprache,

@@ -1,15 +1,15 @@
 \subsection{Bedingungen ableiten}
 \label{sec:bedingungen}
 
-Aus den Erkenntnissen und Kernaussagen der voran gegangenen Abschnitte lassen sich Bedingungen ableiten, die als Leitfaden für die Entscheidungen von PluraPolit dienen. Im nächsten Gliederungspunkt werden diese von Experten qualitativ bewertet.
+Aus den Erkenntnissen und Kernaussagen der vorangegangenen Abschnitte lassen sich Bedingungen ableiten, die als Leitfaden für die Entscheidungen von PluraPolit dienen. Im nächsten Gliederungspunkt werden diese von Experten qualitativ bewertet.
 
-Wie in \cref{sec:conway} beschrieben, hat eine Microservice-Architektur das Ziel, dass Teams möglichst unabhängig voneinander arbeiten können. Erreicht wird dies, indem die Verantwortung eines Service nur einem Team übertragen wird und sich Absprachen zwischen den Teams auf die Festlegung der Schnittstellen begrenzen. Daraus ergeben sich zwei Bedingungen an das Unternehmen:
+Wie in \cref{sec:conway} beschrieben, hat eine Microservice-Architektur das Ziel, Teams möglichst unabhängig voneinander arbeiten zu lassen. Erreicht wird dies, indem die Verantwortung eines Service nur einem Team übertragen wird und sich Absprachen zwischen den Teams auf die Festlegung der Schnittstellen begrenzen. Daraus ergeben sich zwei Bedingungen an das Unternehmen:
 \begin{enumerate}
 	\item Die Verantwortung für ein Geschäftsprozess muss an ein Team übergeben werden, und
 	\item Die Services greifen ausschließlich auf Ressourcen zu, die über die Schnittstellen erreicht werden können.
 \end{enumerate}
 
-Der Abschnitt über Domain Driven Design zeigt auf, dass Microservices die Komplexität eines Unternehmens reduziert, indem die Geschäftsprozesse in Services geteilt werden. Dieser Ansatz der Trennung der Geschäftsdomainen fördert die Fähigkeit, dass Services unabhängig voneinander wachsen können und gleichzeitig eine klare Verantwortung haben.
+Der Abschnitt über Domain-Driven Design zeigt auf, dass Microservices die Komplexität eines Unternehmens reduzieren, indem die Geschäftsprozesse in Services aufgeteilt werden. Dieser Ansatz der Trennung der Geschäftsdomänen fördert die Fähigkeit, dass Services unabhängig voneinander wachsen können und gleichzeitig eine klare Verantwortung haben.
 
 Es ergeben sich die Bedingungen zum Vorliegen eines Systems, welches:
 \begin{enumerate}
@@ -26,7 +26,7 @@ Neben der Einteilung in einzelne Komponenten werden auch Bedingungen an das Netz
 
 Wie in \cref{sec:kommunikation} vorausgesetzt, weisen die Services Programmierschnittstellen auf, die Server-zu-Server-Kommunikation erlauben.
 
-Bei der Beschreibung der Situation eines Start-ups in \cref{sec:start-up} wurde deutlich, dass es in einem noch nicht existierenden Markt operiert und dadurch besonders dynamisch agieren muss. Daraus ergibt sich die Anforderung, dass erst eine Microservice-Architektur umgesetzt werden kann, wenn ein Produkt-Market Fit vorliegt.
+Bei der Beschreibung der Situation eines Start-ups in \cref{sec:start-up} wurde deutlich, dass es in einem noch nicht existierenden Markt operiert und dadurch besonders dynamisch agieren muss. Daraus ergibt sich die Anforderung, dass erst eine Microservice-Architektur umgesetzt werden kann, wenn ein Product-Market Fit vorliegt.
 
 Aus der Literaturrecherche ergeben sich zusammenfassend neun Bedingungen:
 \begin{enumerate}
@@ -35,8 +35,8 @@ Aus der Literaturrecherche ergeben sich zusammenfassend neun Bedingungen:
 	\item Das System weist eine gewisse Komplexität auf.
 	\item Die Geschäftsabläufe lassen sich voneinander trennen.
 	\item Das Netzwerk ermöglicht die Kommunikation zwischen den Services.
-	\item Der Zugriff aufs Netzwerk ist vor Unbefugten gesichert.
+	\item Der Zugriff auf das Netzwerk ist vor Unbefugten gesichert.
 	\item Das Netzwerk hat ein hohen Datendurchsatz.
 	\item Die Services verfügen über Schnittstellen, die Server zu Server Kommunikation ermöglichen.
-	\item Es liegt ein Produkt-Market Fit vor.
+	\item Es liegt ein Product-Market Fit vor.
 \end{enumerate}
