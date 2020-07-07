@@ -1,24 +1,14 @@
 \section{Fazit}
-
-Diese Abhandlung hatte das Ziel, die Bedingungen für PluraPolit zu ermitteln, die für eine mögliche Umstellung von einer monolithischen auf eine Microservice-Architektur notwendig sind.
-%Todo noch einmal überarbeiten
-% und eine klare Bewertung für den Nutzen des Vorhabens abzugeben. 
+%Todo noch einmal überarbeiten und in zwei Sätze teilen
+Diese Abhandlung hatte das Ziel, die Bedingungen für PluraPolit zu ermitteln, die für eine mögliche Umstellung von einer monolithischen auf eine Microservice-Architektur notwendig sind und eine klare Bewertung für den Nutzen des Vorhabens abzugeben. 
  
  Zu diesem Zweck wurden erste Bedingungen aus einer Literaturrecherche abgeleitet und von Experten innerhalb eines quantitativen Leitfadeninterviews validiert.
 
 Die Ergebnisse zeigten, dass sechs von den neun Bedingungen, 
-welche aus der Literaturrecherche entnommen wurden, von den Experten bestätigt werden konnten.
-
-Während der Interviews kristallisierte sich die Bedingung der Profitabilität heraus. Obwohl dieser Punkt in der Literaturrecherche nicht speziell verdeutlicht wurde, muss ihm nach Meinung der Experten größte Priorität beigemessen werden. Die Profitabilität hängt vom zu erwartenden Mehrwert und den notwendigen Kosten ab. Entscheidend für den Mehrwert ist die Komplexität des Unternehmens. Die Kosten einer Umsetzung wurden zum einen an den zu verwendeten Ressourcen für die Infrastruktur festgehalten und zum anderen an dem Wissensstand der Mitarbeiter.
+welche aus der Literaturrecherche entnommen wurden, von den Experten bestätigt werden konnten. Während der Interviews kristallisierte sich die Bedingung der Profitabilität heraus. Obwohl dieser Punkt in der Literaturrecherche nicht speziell verdeutlicht wurde, muss ihm nach Meinung der Experten größte Priorität beigemessen werden. Die Profitabilität hängt vom zu erwartenden Mehrwert und den notwendigen Kosten ab. Entscheidend für den Mehrwert ist die Komplexität des Unternehmens. Die Kosten einer Umsetzung wurden zum einen an den zu verwendeten Ressourcen für die Infrastruktur festgehalten und zum anderen an dem Wissensstand der Mitarbeiter.
 
 Die Problemstellung der Arbeit verwiest darauf, dass aufgrund funktionaler Abhängigkeiten die Produktivität von PluraPolit abnimmt. Es wurde davon ausgegangen, dass Microservices dieses Problem am geeignetsten lösen.
-
-Wie die Ergebnisse jedoch zeigten, wird durch den Einsatz einer Microservice-Architektur die Komplexität der Infrastruktur sehr wahrscheinlich in solchem Maße steigen, dass es durch den Mehrwert nicht gerechtfertigt werden kann.
-
-Da ein monolithisches System in dieser Hinsicht wesentlich wirtschaftlicher ist, sollte dieser im Falle von PluraPolit bevorzugt werden.
  
-Wie die Ergebnisse jedoch zeigen, kann ebenfalls ein Monolith genutzt werden. Vielmehr steigt durch den Einsatz einer Microservice-Architektur die Komplexität und Aufwand zur Erstellung und Verwaltung der Infrastruktur.
-
 Die Ergebnisse haben schließlich gezeigt, dass vor der Umstellung folgende Bedingungen erfüllt sein müssen:
 \begin{enumerate}
 	\item Die Umstellung ist für ein Start-up lukrativ
@@ -27,9 +17,7 @@ Die Ergebnisse haben schließlich gezeigt, dass vor der Umstellung folgende Bedi
 	\item Es ist möglich, die Verantwortung für ein Geschäftsprozess an ein eigenständiges Team zu geben
 	\item Die Services können untereinander über Schnittstellen kommunizieren
 	\item Das Netzwerk ermöglicht die Kommunikation zwischen Services
-	\item Der Zugriff aufs Netzwerk ist vor Unbefugten gesichert
+	\item Der Zugriff auf das Netzwerk ist vor Unbefugten gesichert
 \end{enumerate}
 
-Da PluraPolit zum aktuellen Zeitpunkt weder eine ausreichende Komplexität, noch trennbare Geschäftsabläufe aufweist, ist die Notwendigkeit für eine Umstellung nicht erfüllt.
-Entgegen der Vorannahmen, dass Microservices eine schnelle Weiterentwicklung sicherstellt, konnten keine nachvollziehbaren Vorteile festgestellt werden. Gleichzeitig ist es absehbar, dass die Kosten für das Unternehmen aufgrund notwendiger Schulungen oder dem Einsatz externe Fachkräfte steigen werden.
-Demnach ist für PluraPolit eine Umstellung von einer monolithischen auf eine Microservice-Architektur zum aktuellen Zeitpunkt nicht zu empfehlen.
+Da PluraPolit zum aktuellen Zeitpunkt weder eine ausreichende Komplexität, noch trennbare Geschäftsabläufe aufweist, ist die Notwendigkeit für eine Umstellung nicht erfüllt. Entgegen der Vorannahmen, dass Microservices eine schnelle Weiterentwicklung sicherstellt, konnten keine nachvollziehbaren Vorteile festgestellt werden. Gleichzeitig ist es absehbar, dass die Kosten für das Unternehmen aufgrund notwendiger Schulungen oder dem Einsatz externe Fachkräfte steigen werden. Demnach ist für PluraPolit eine Umstellung von einer monolithischen auf eine Microservice-Architektur zum aktuellen Zeitpunkt nicht zu empfehlen.
