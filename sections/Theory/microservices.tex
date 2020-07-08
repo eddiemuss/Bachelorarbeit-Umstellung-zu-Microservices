@@ -15,15 +15,15 @@ Somit beschreiben sowohl Herr Wolff als auch Herr Newman Microservices als ein S
 
 Wenn es um das Aufteilen von Software geht, ist das Verständnis der Zusammenhänge zwischen den einzelnen Funktionen und Klassen und deren Verknüpfungen wichtig.
 
-Kohärenz bezeichnet dabei die funktionale Abhängigkeit zweier Funktionen oder Klassen \parencite[vgl.][Kap. 2.3.1]{newman_monolith_2019}.
-Es liegt eine hohe Kohärenz vor, wenn der Quellcode anhand seiner logischen Zugehörigkeit geordnet ist.
-Dies ist der Fall, wenn alle Datenbankzugriffe durch eine kleine Anzahl von Funktionen ausgeführt werden und diese nahe beieinander definiert sind. Der MVC-Ansatz ist eine Beispiel eines solchen Systems.
+Kohärenz bezeichnet dabei die funktionale Abhängigkeit zweier Funktionen oder Klassen \parencite[vgl.][Kap. 2.3.1]{newman_monolith_2019}. Es liegt eine hohe Kohärenz vor, wenn der Quellcode anhand seiner logischen Zugehörigkeit geordnet ist. Dies ist der Fall, wenn alle Datenbankzugriffe durch eine kleine Anzahl von Funktionen ausgeführt werden und diese nahe beieinander definiert sind. Der MVC-Ansatz ist ein Beispiel eines solchen Systems.
 
-Kopplung beschreibt, in welchem Maß Funktionen und Klassen verbunden sind, ohne dass sie logisch zusammengehören \parencite[vgl.][Kap. 2.3.2]{newman_monolith_2019}. So bezieht sich Kopplung ausschließlich auf eine technisch vorliegende Verknüpfung. Ein typisches Beispiel hierfür ist, wenn ein Datenabruf an mehreren Stellen direkt über das Datenbankschema abläuft. Dadurch entsteht eine Abhängigkeit auf das Schema. Falls sich das Schema ändert, müssen auch die jeweiligen Aufrufe geändert werden.
+Kopplung beschreibt, in welchem Maß Funktionen und Klassen verbunden sind, ohne dass sie logisch zusammengehören \parencite[vgl.][Kap. 2.3.2]{newman_monolith_2019}. So bezieht sich Kopplung ausschließlich auf eine technische Verknüpfung. Ein typisches Beispiel hierfür ist, wenn Datenabrufe an mehreren Stellen direkt über das Datenbankschema ablaufen. Dadurch entsteht eine Abhängigkeit zum Schema, sodass im Fall einer Änderung die Aufrufe geändert werden müssen.
 
-Besonders in monolithischen Systemen können viele Kopplungen entstehen, da keine festen Abgrenzungen zwischen einzelnen logischen Bereichen definiert sind. Hieraus entsteht ein System, welches bei kleinen Veränderungen viele ungewollte Fehler erzeugen kann.
+Da keine festen Abgrenzungen zwischen den einzelnen, logischen Bereichen definiert sind, können in einem monolithischem System viele Kopplungen entstehen.
 
-Microservices auf der anderen Seite zielen darauf ab, durch klare Grenzen ein stabiles System zu erzeugen. Hierfür müssen die einzelnen Services weitestgehend voneinander entkoppelt sein. Das Ziel für eine Microservice-Architektur ist es deshalb, eine hohe Kohärenz bei geringer Kopplung zu besitzen. Dabei ist dies nicht allein die Zielsetzung von Microservices, sondern von allen stabilen Systemen.\footnote{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[][S. 43]{endres_handbook_2003}.} Konkret bedeutet es für Microservices, dass ein Service ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie Datenbankstrukturen und Funktionsaufrufe, hinter Schnittstellen versteckt sind.
+Microservices zielen darauf ab, durch klare Grenzen ein stabiles System zu erzeugen und die einzelnen Services voneinander zu entkoppeln. Das Ziel für eine Microservice-Architektur ist es deshalb, eine hohe Kohärenz bei geringer Kopplung zu besitzen.\footnotemark Konkret bedeutet dies für Microservices, dass ein Service ausschließlich aus funktional abhängigem Quellcode besteht und technische Implementierungen, wie Datenbankstrukturen und Funktionsaufrufe, hinter Schnittstellen versteckt sind.
+
+\footnotetext{Dies bezieht sich auf das Gesetz von Constantine, welches besagt \textit{\enquote{A structure is stable if cohesion is strong and coupling is low.}} \parencite[][S. 43]{endres_handbook_2003}.}
 
 \subsubsection{Das Gesetz von Conway}
 \label{sec:conway}
@@ -32,7 +32,7 @@ Wenn es um die Teamaufteilung in IT Projekten geht, wird sich in den meisten Fä
 
 Entscheidet sich jedoch ein Unternehmen für eine Microservice-Architektur, bedeutet diese Aufteilung, dass für jeden einzelnen Service Absprachen zwischen den Teams entstehen. Daraus etablieren sich eine Vielzahl an einzelnen Kommunikationsbeziehungen, welche die Umsetzung von neuen Funktionen verlangsamen.
 
-Der amerikanische Mathematiker Melvin Edward Conway umschrieb das Dilemma wie folgt:
+Der amerikanische Mathematiker Melvin Edward Conway umschreibt das Dilemma wie folgt:
 \textit{\enquote{Organisationen, die Systeme designen, können nur solche entwerfen, welche die eigene Kommunikationsstruktur widerspiegelt}} \parencite{conway_conways_1968}.
 Er bezieht sich dabei auf die Tatsache, dass die Softwarearchitektur immer von den einzelnen Entwicklern mit entworfen wird und sich daher eingefahrene Kommunikationsstrukturen\footnote{Kommunikationsstrukturen sind dabei nicht zwingend gleich das Organigramm, da etablierte Kommunikationswege nicht zwingend von der Unternehmensstruktur abgebildet werden.} in der Architektur wiederfinden lassen.
 
@@ -44,7 +44,7 @@ Für die Umsetzung der Microservice-Architektur muss einerseits die Anwendung so
 \subsubsection{Domain-Driven Design}
 \label{sec:ddd}
 
-Wie im \cref{sec:conway} beschrieben, hat die Microservice-Architektur das Ziel, autonome Teams zu etablieren und unnötige Absprachen zu reduzieren. Um dies zu erreichen und gleichzeitig eine hohe Kohärenz bei geringer Kopplung zu garantieren, bauen Microservices auf der Idee des Domain-Driven Designs auf, welche von Eric Evans in seinem gleichnamigen Buch publiziert wurde \parencite[vgl.][Kap. 2.4]{newman_monolith_2019}. Hierbei handelt sich dabei um eine Herangehens- bzw. Denkweise zur Modellierung komplexer Systeme, bei der das Gesamtsystem anhand der einzelner Geschäftsprozesse geteilt wird \parencite[vgl.][S. xix ff.]{evans_domain-driven_2003}.
+Wie im \cref{sec:conway} beschrieben, hat die Microservice-Architektur das Ziel, autonome Teams zu etablieren und unnötige Absprachen zu reduzieren. Um dies zu erreichen und gleichzeitig eine hohe Kohärenz bei geringer Kopplung zu garantieren, bauen Microservices auf der Idee des Domain-Driven Designs auf, welche von Eric Evans in seinem gleichnamigen Buch beschrieben wird \parencite[vgl.][Kap. 2.4]{newman_monolith_2019}. Hierbei handelt sich dabei um eine Herangehens- bzw. Denkweise zur Modellierung komplexer Systeme, bei der das Gesamtsystem anhand der einzelner Geschäftsprozesse geteilt wird \parencite[vgl.][S. xix ff.]{evans_domain-driven_2003}.
 
 Domain-Driven Design ist dabei nicht nur für Microservices konzipiert, sondern beschreibt vielmehr den Ansatz, Softwareentwicklung und Geschäftsfunktion zu vereinen, die in verschiedenen Architekturen umgesetzt werden. Deshalb ist Domain-Driven Design wesentlich für die Bestimmung der Grenzen eines Service und entscheidend für Microservices \parencite[vgl.][Kap. 4.3]{wolff_microservices_2018}.
 

@@ -2,7 +2,7 @@
 
 Seitdem die ersten Großrechner gebaut wurden und ein Projekt nicht mehr von einem Team allein entwickelt werden konnte, entstand der Bedarf komplexe Systeme aufzuteilen und zu strukturieren. So war es schon in den 60er Jahren notwendig, die Entwicklung des Betriebssystems OS/360 von IBM auf mehrere Teams aufzuteilen und klare Schnittstellen zwischen den Teilen zu bestimmen \parencite{brooks_mythical_1995}. Es entwickelte sich daraus eine der ersten Anwendungen und Umsetzungen von Softwarearchitektur, welche erstmalig 1969 bei einer Softwaretechnik Konferenz in Rom auch als solche bezeichnet wurde \parencite[vgl.][S. 12]{buxton_software_1970}.
 
-In den darauffolgenden Jahren wuchs das Interesse an der Thematik und die Anwendungen der Teilung und Strukturierung von Software-Systemen. Hieraus entstand die im Jahr 2000 veröffentlichte Norm IEEE1471:2000, welche am 15. Juli 2007 als ISO/IEC 42010 übertragen wurde. In diesem Standard werden Anforderungen an die Beschreibung von System-, Software- und Unternehmensarchitekturen definiert \parencite{hilliard_isoiecieee_nodate}.
+Im Jahr 2000 erschien die IEEE1471:2000 Norm, welche am 15. Juli 2007 als ISO/IEC 42010 übertragen wurde und Softwarearchitektur erstmalig definierte. In dieser Norm werden Anforderungen an die Beschreibung von System-, Software- und Unternehmensarchitekturen genauer beschrieben \parencite{hilliard_isoiecieee_nodate}.
 
 \subsubsection{Definition}
 \label{sec:software-architect-definition}
@@ -37,16 +37,16 @@ Da die unterschiedlichen Architekturstile nicht im  Fokus dieser Bachelorarbeit 
 
 Nach Andrew Tanenbaum werden verteilte Systeme als eine Menge unabhängiger Computer bezeichnet, die dem Benutzer wie ein einzelnes, kohärentes System erscheinen \parencite{tanenbaum_verteilte_2007}.
 
-Weiterführend beschreibt Gernot Starke die einzelnen Komponenten als entweder Verarbeitungs-, oder Speicherbausteine, die über definierte Schnittstellen innerhalb eines Kommunikationsnetzes zusammenarbeiten \parencite[vgl.][S. 116]{starke_effektive_2015}.
+Weiterführend beschreibt Gernot Starke die einzelnen Komponenten als entweder Verarbeitungs- oder Speicherbausteine, die über definierte Schnittstellen innerhalb eines Kommunikationsnetzes zusammenarbeiten \parencite[vgl.][S. 116]{starke_effektive_2015}.
 
-Im Gegensatz zur Definition von Softwarearchitektur grenzt sich das verteilte System dadurch ab, dass von unabhängigen Computern geredet wird. Dadurch entstehen einige Vorteile. So lassen sich auf Grund der Unabhängigkeit, diese einzelnen Rechner unterschiedlich skalieren. Es entsteht ein Netzwerk an heterogenen Computern. Somit kann je nach Anforderung der einzelnen Komponenten, eine entsprechende Rechenleistung genutzt werden.
+Im Gegensatz zur Definition von Softwarearchitektur grenzt sich das verteilte System dadurch ab, dass von unabhängigen Computern geredet wird. Dadurch entstehen einige Vorteile. So lassen sich auf Grund der Unabhängigkeit, diese einzelnen Rechner unterschiedlich skalieren. Es entsteht ein Netzwerk an heterogenen Computern, da je nach Anforderung der einzelnen Komponenten, eine entsprechende Rechenleistung genutzt werden kann.
 
-Des Weiteren gibt es auf Grund der Verteilung eine gewisse Ausfallsicherheit. Diese entsteht, weil das Gesamtsystem nicht durch eine, sondern durch mehrere Maschinen getragen wird. Es können einzelne Computer ausfallen, ohne dass das Anwendungssystem ausfällt. Dies hängt natürlich von der ausgefallenen Funktionalität ab. So kann bei Ausfall eines kritischen Teils,  im schlechtesten Fall das gesamte Anwendungssystems funktionsunfähig sein. Um dies zu verhindern, sollten geeignete Maßnahmen getroffen werden und kritische Funktionen auf mehreren Computern implementiert sein.
+Des Weiteren gibt es auf Grund der Verteilung eine gewisse Ausfallsicherheit. Diese entsteht, da das Gesamtsystem nicht durch eine, sondern durch mehrere Maschinen getragen wird. Es können einzelne Computer ausfallen, ohne dass das Anwendungssystem ausfällt. Dies hängt natürlich von der ausgefallenen Funktionalität ab. So kann bei Ausfall eines kritischen Teils,  im schlechtesten Fall das gesamte Anwendungssystems funktionsunfähig sein. Um dies zu verhindern, sollten geeignete Maßnahmen getroffen werden und kritische Funktionen auf mehreren Computern implementiert sein.
 
-Jedoch entsteht mit der Verteilung auch ein Anstieg der Komplexität sowohl bei dem Konzipieren des Systems, als auch bei der Wartung und Verwaltung dessen. Außerdem muss nicht nur ein Rechner abgesichert werden, sondern ein ganzes Netzwerk. Dadurch entsteht ein höherer Aufwand zur Absicherung.
+Jedoch entsteht mit der Verteilung auch ein Anstieg der Komplexität sowohl bei dem Konzipieren des Systems, als auch bei der Wartung und Verwaltung dessen. Außerdem muss nicht nur ein Rechner abgesichert werden, sondern ein ganzes Netzwerk, was zu einem höheren Aufwand führt.
 
 Die einzelnen Computer können über verschiedene Mechanismen miteinander kommunizieren: Einerseits durch direkten Aufruf entfernter Funktionalität und andererseits durch indirekten Austausch von Informationen \parencite[vgl.][S. 116]{starke_effektive_2015}. Dabei kann der Transfer synchron oder asynchron ablaufen. Bei einem synchronen Aufruf, der nur direkt ausgelöst wird, führt ein Computer über das Netzwerk die Funktionalität eines anderen aus und wartet auf dessen Antwort \parencite{synchrone_2018}.
-Bei einem asynchronen Aufruf wird entweder direkt oder indirekt Logik eines anderen Computer aufgerufen, während der aufrufende Rechner, ohne auf die Antwort zu warten, weiter verarbeitet. Ist der aufgerufene Rechner fertig, gibt er das Resultat zurück, welches vom ersten Computer aufgenommen und verarbeitet wird \parencite{wiki_asynchrone_2019}.
+Bei einem asynchronen Aufruf wird entweder direkt oder indirekt Logik eines anderen Computer aufgerufen, während der aufrufende Rechner, ohne auf die Antwort zu warten, weiter Aufgaben abarbeitet. Ist der aufgerufene Rechner fertig, gibt er das Resultat zurück, welches vom ersten Computer aufgenommen und verarbeitet wird \parencite{wiki_asynchrone_2019}.
 
 Der Austausch von Informationen und das Aufrufen von externer Funktionalität kommt in einem System dauerhaft vor. Dadurch besteht das Risiko, dass einzelne Nachrichten zwischen den Komponenten verloren gehen und das System sicherstellen muss, dass dieser Datenverlust abgefangen wird.
 
@@ -60,7 +60,9 @@ Das Model kümmert sich um die Datenspeicherung, den Datenabruf und die Verarbei
 
 Davon getrennt sind die graphischen Darstellungen, welche durch Views definiert werden. Sie erhalten die Informationen vom Model. Dabei können die Daten entweder direkt von der View angefordert (siehe \cref{fig:mvc-vm-kommunikation} Punkt 4) oder indirekt vom Controller übergeben werden (siehe \cref{fig:mvc-cm-kommunikation} Punkt 3 und 7). Unabhängig vom Informationsfluss hilft es die Darstellung von der restlichen Logik zu trennen, um eine einheitliche Verantwortung zu wahren. Dies ist besonderes empfehlenswert, da Dateien zum beschreiben von Views, schnell unübersichtlich werden.
 
-Der Controller kümmert sich um die Verwaltung der Benutzereingabe und um das Aufrufen der Views (siehe \cref{fig:mvc-cm-kommunikation}, \cref{fig:mvc-vm-kommunikation} Punkt 2 und 7 bzw. Punkt 2 und 3). Er sorgt dafür, dass Events und Aktionen verarbeitet werden und führt entsprechende Datenverarbeitungen im Model aus. Falls notwendig, lädt er Informationen aus der Datenbank und übergibt sie der entsprechenden View, welche er abschließend rendert.
+Der Controller kümmert sich um die Verwaltung der Benutzereingabe und um das Aufrufen der Views (siehe \cref{fig:mvc-cm-kommunikation}, \cref{fig:mvc-vm-kommunikation} Punkt 2 und 7 bzw. Punkt 2 und 3). Er sorgt dafür, dass Events und Aktionen verarbeitet werden und führt entsprechende Datenverarbeitungen im Model aus. Falls notwendig, lädt er Informationen aus der Datenbank und übergibt sie der entsprechenden View, welche er abschließend rendert\footnotemark.
+
+\footnotetext{Das Rendern beschreibt im Fall der Webentwicklung den Prozess, indem der Browser die HTML-, CSS- und JavaScript-Datei in eine grafische Darstellung überführt \parencite[vgl.][]{html-renderer_2020}.}
 
 Da der MVC-Ansatz eine einheitliche Struktur etabliert und dadurch das System verständlicher wird, ist es ein Architekturstil, welcher oft in der Softwarearchitektur verwendet wird. Im Unterschied zu verteilten Systemen stellt dieser Stil keine Anforderungen an die Hardware, sondern beschreibt eine Möglichkeit, den Quellcode hinsichtlich seiner Funktionalität zu teilen. Dadurch kann der MVC-Ansatz auch innerhalb einer Komponente eingesetzt werden.
 
@@ -81,9 +83,8 @@ Da der MVC-Ansatz eine einheitliche Struktur etabliert und dadurch das System ve
 \subsubsection{REST-Architektur}
 \label{sec:rest}
 
-Neben den genannten Architekturstilen, gibt es eine Vielzahl von weiteren Strukturierungen, die sich erst in den letzten 20 Jahre entwickelt haben. Einer dieser Architekturstile ist die REST-Architektur, welche vom Miterfinder des HTTP-Standards, Roy Fielding, definiert wird \parencite[][S. 128]{starke_effektive_2015}. Er beschrieb diesen Stil in seiner Dissertation an der Universität von Kalifornien im Jahr 2000 und charakterisierte ihn als Architekturstil des Web.
+Neben den genannten Architekturstilen, gibt es eine Vielzahl von weiteren Strukturierungen, die sich erst in den letzten 20 Jahre entwickelten. Einer dieser Architekturstile ist die REST-Architektur, welche vom Miterfinder des HTTP-Standards, Roy Fielding, definiert wird \parencite[][S. 128]{starke_effektive_2015}. Er beschreibt diesen Stil in seiner Dissertation an der Universität von Kalifornien im Jahr 2000 und charakterisiert ihn als Architekturstil des Web.
 
-%Todo noch einmal überarbeiten. Es sieht mir nicht richtig aus. Besonders der Abschnitt, dass Rest ein verteilte Architektur ist.
 REST steht für \textit{Representational State Transfer}, welches einen Architekturstil beschreibt und der auf der Client-Server-Architektur aufbaut \parencite[][S. 76]{fielding_architectural_2000}.
 Die Client-Server-Architektur beschreibt eine Konzept um Aufgaben innerhalb eines Netzwerkes zu verteilen. Die Aufgaben werden von Programmen erledigt, die in Server und Clients unterteilt werden \parencite[][S. 117]{starke_effektive_2015}.\footnote{Dabei beziehen sich die Begriffe \textit{\enquote{Server}} und \textit{\enquote{Client}} auf Softwarekomponenten und auf den physischen Server und auf das Endgerät des Nutzers (Client). Des Weiteren grenzt sich der Architekturstil von der Mainframe Architektur ab, bei der über Terminals Anweisungen an einen Großrechner gestellt werden.}
 
@@ -93,7 +94,7 @@ Der Client konsumiert die Informationen des Servers und dient dem Benutzer als B
 
 Die REST-Architektur verwendet diese Aufteilung, um eine feste Trennung der Zuständigkeiten zu integrieren \parencite[vgl.][S. 78]{fielding_architectural_2000}.
 
-Des Weiteren stellt Herr Fielding die Bedingung auf, dass die Kommunikation zwischen Server und Client zustandslos, zu Englisch \textit{stateless}, abläuft \parencite[][S. 78]{fielding_architectural_2000}. Dies bedeutet, dass die Nachrichten, die zwischen Server und Client ausgetauscht werden, alle nötigen Informationen beinhalten \parencite[][S. 128]{starke_effektive_2015}. Der Server gibt auf Anfrage stets die gleiche Antwort zurück, egal ob dieser zum Ersten, oder zum wiederholten Mal angefragt wurde. Diese Entkopplung zwischen den Komponenten ermöglicht, dass die Aufgaben des Servers, sowie des Clients durch mehrere Computer verrichtet werden können und das System skalierbar ist \parencite[][S. 79]{fielding_architectural_2000}.
+Des Weiteren stellt Herr Fielding die Bedingung auf, dass die Kommunikation zwischen Server und Client zustandslos, zu Englisch \textit{stateless}, abläuft \parencite[][S. 78]{fielding_architectural_2000}. Dies bedeutet, dass die Nachrichten, die zwischen Server und Client ausgetauscht werden, alle nötigen Informationen beinhalten \parencite[][S. 128]{starke_effektive_2015}. Der Server gibt auf Anfrage stets die gleiche Antwort zurück, egal ob dieser zum Ersten, oder zum wiederholten Mal angefragt wird. Diese Entkopplung zwischen den Komponenten ermöglicht, dass die Aufgaben des Servers, sowie des Clients durch mehrere Computer verrichtet werden können und das System skalierbar ist \parencite[][S. 79]{fielding_architectural_2000}.
 
 Der Hauptunterschied zwischen der REST-Architektur und anderen Stilen, liegt in der genauen Bestimmung der zu verwendenden Kommunikationsschnittstellen. Die REST-Architektur bestimmt sehr explizit, welche Form der Kommunikation verwendet werden darf. So werden Methoden vom Server über HTTP-Standards aufgerufen. Konkret bedeutet dies, dass die einzelnen Dienste des Servers sich nach den HTTP-Methoden (GET, PUT, POST und DELETE) richten und es ein klares Mapping\footnotemark zwischen ihnen gibt. \parencite[vgl.][S. 128]{starke_effektive_2015}. Die REST-Architektur baut somit auf einem Kommunikationsstandard auf, der sich im Internet etabliert hat.
 
@@ -101,10 +102,13 @@ Der Hauptunterschied zwischen der REST-Architektur und anderen Stilen, liegt in 
 
 Auf Grundlage der standardisierten Kommunikation können zwischen Server und Client intelligente Zwischenstationen geschaltet werden, die dafür zuständig sind, häufig vorkommende Anfragen abzuspeichern \parencites[vgl.][S. 79 f.]{fielding_architectural_2000}[][S. 128]{starke_effektive_2015}.
 
-Die Antwort des Servers erfolgt durch Repräsentationen der Daten, wovon es für jede Ressource\footnotemark mehrere Formate gibt. So kann eine Schnittstelle abhängig vom Aufruf sowohl JSON, als auch XML oder HTML zurückgeben \parencite[vgl.][S. 128]{starke_effektive_2015}.
+Die Antwort des Servers erfolgt durch Repräsentationen der Daten, wovon es für jede Ressource\footnotemark mehrere Formate gibt.So kann eine Schnittstelle abhängig vom Aufruf sowohl JSON, als auch XML oder HTML zurückgeben \parencite[vgl.][S. 128]{starke_effektive_2015}.
+
 \footnotetext{Als Ressource werden die Informationen bezeichnet, die durch den Aufruf einer URL zurück gegeben werden. Ein Beispiel wäre der HTTP-Aufruf \textit{GET: https://api.plurapolit.de/api/users}, der alle Informationen der User zurück gibt.}
 
-Verwendet wird die REST-Architektur ausschließlich für Anwendungen im Internet, da diese auf das Hypertext Transfer Protokoll\footnote{Weitere Informationen zum Hypertext Transfer Protokoll kann unter folgender Literatur gefunden werden \parencite{leach_hypertext_2020}.} (HTTP) angewiesen ist. Der Architekturstil wird dabei zur Strukturierung sowohl eines ganzen Software-Systems, als auch einzelner Services verwendet.
+ Da die REST-Architektur auf dem Hypertext Transfer Protokoll\footnotemark (HTTP) aufbaut, wird diese ausschließlich für Anwendungen im Internet verwendet. Der Architekturstil wird dabei zur Strukturierung sowohl eines ganzen Software-Systems, als auch einzelner Services eingesetzt.
+
+\footnotetext{Weitere Informationen zum Hypertext Transfer Protokoll kann unter folgender Literatur gefunden werden \parencite{leach_hypertext_2020}.}
 
 \subsubsection{Monolithische Architektur}
 \label{sec:monolith}
@@ -121,7 +125,7 @@ Sam Newman unterteilt monolithische Systeme in drei Kategorien: Einzelprozess-Mo
 
 Der Einzelprozess-Monolith ist die gängigste Form und deckt sich mit der Definition von Rod Stephens. Es handelt sich um ein System, welches genau einen Prozess abbildet. Dies bedeutet, dass jegliche Funktionalität aufeinander aufbauend ist und dass nur eine Datenspeicherung für die gesamte Anwendung verwendet wird \parencite[vgl.][Kap. 2.2.1]{newman_monolith_2019}.
 
-Anders ist dies bei dem modularen Monolithen. Er zeichnet sich darin aus, dass die Funktionalität in einzelne Module geteilt wird, die eine separate Datenspeicherung besitzen können \parencite[vgl.][Kap. 2.2.2]{newman_monolith_2019}. Im Gegensatz zu verteilten Systemen, sind die einzelnen Module nicht auf separaten Computern verteilt, sondern werden durch einen einzelnen Rechner online gestellt, wodurch Abhängigkeiten zwischen den Modulen bestehen bleiben können.
+Anders ist dies beim modularen Monolithen. Er zeichnet sich darin aus, dass die Funktionalität in einzelne Module geteilt wird, die eine separate Datenspeicherung besitzen können \parencite[vgl.][Kap. 2.2.2]{newman_monolith_2019}. Im Gegensatz zu verteilten Systemen, sind die einzelnen Module nicht auf separaten Computern verteilt, sondern werden durch einen einzelnen Rechner online gestellt, wodurch Abhängigkeiten zwischen den Modulen bestehen bleiben können.
 
 Dies ist bei verteilten Monolithen anders, da die einzelnen Module komplett entkoppelt sind und Nachrichten ausschließlich über definierte Schnittstellen ausgetauscht werden \parencite[vgl.][S. 116]{starke_effektive_2015}. Ein verteilter Monolith erfüllt somit jegliche Anforderungen an ein verteiltes System mit der Ausnahme, dass alle Komponenten durch nur einen Prozess online gestellt werden.
 
@@ -175,7 +179,7 @@ Um eine neue Tonaufnahme einzupflegen, wird die entsprechende Webseite im Browse
 Dies geschieht, indem per Klick im CMS eine HTTP-Anfrage an den Controller geschickt wird. Der Controller speichert den Eintrag und bestätigt das erfolgreiche Abspeichern im View. Das Speichern geschieht dabei über das Model (siehe \cref{fig:plurapolit-save-sounddatei}).
 
 Die Tondatei selbst wird nicht in der Datenbank gespeichert, sondern lediglich ein Verweis darauf. 
-Die Datei wird vorher auf den Speicherservice von Amazon Web Services (S3) geschickt, welcher die Tonaufnahme über eine URL online zur Verfügung stellt. Nur die URL wird in der Datenbank hinterlegt (siehe \cref{fig:plurapolit-save-to-s3}).
+Die Datei wird vorher auf den Speicherservice von Amazon Web Services (S3) geladen, welcher die Tonaufnahme über eine URL online zur Verfügung stellt. Nur die URL wird in der Datenbank hinterlegt (siehe \cref{fig:plurapolit-save-to-s3}).
 
 \begin{figure}
 	\centering
@@ -205,6 +209,6 @@ Bei der Plattform für die Endkunden handelt es sich, um die selbe Anwendung wie
 
 \footnotetext{Eine React-Anwendung oder auch React-App ist eine Webanwendung, die in React.js programmiert ist \parencite{react-anwendung}.}
 
-Diese lädt eigenständig jegliche Informationen über HTTP-Anfragen und kümmert sich um interne Seitenaufrufe. Die Anfragen werden dabei asynchron an die Rails-Anwendung geschickt und vom Controller beantwortet. Über die Kommunikation von Controller und Model erhält die React-Anwendung den Content aus der Datenbank, der vorher eingepflegt wurde (siehe \cref{fig:plurapolit-react-data}).
+Die React-Anwendung lädt eigenständig jegliche Informationen über HTTP-Anfragen und kümmert sich um interne Seitenaufrufe. Die Anfragen werden dabei asynchron an die Rails-Anwendung geschickt und vom Controller beantwortet. Über die Kommunikation von Controller und Model erhält die React-Anwendung den Content aus der Datenbank, der vorher eingepflegt wurde (siehe \cref{fig:plurapolit-react-data}).
 
 Es gibt also eine Aufteilung bezüglich der graphischen Darstellung in Content-Management-System und Plattform. Die Datenspeicherung und Verwaltung sind jedoch gleich. Die gesamte Codebase wird in einem Bereitstellungsprozess dem Hosting Service zur Verfügung gestellt. Damit handelt es sich bei dem System von PluraPolit um einen Monolithen, welches teilweise modular ist, die REST-Standards erfüllt und nach dem MVC-Ansatz strukturiert ist. Des Weiteren nutzt es vereinzelt externe Services von AWS, um Tondateien zu speichern.
