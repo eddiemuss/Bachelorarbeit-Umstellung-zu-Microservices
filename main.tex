@@ -43,6 +43,9 @@
   
 % Inhaltsverwaltung wird eingefügt
 \usepackage[style=authortitle, citestyle=authoryear]{biblatex}
+%Dies fügt Umbrücke auch in urls ein
+\setcounter{biburllcpenalty}{9000}% Kleinbuchstaben
+\setcounter{biburlucpenalty}{9000}% Großbuchstaben
 
 %Klickbares Inhaltsverzeichnis
 \usepackage[hidelinks]{hyperref}
@@ -64,6 +67,8 @@
 \addbibresource{references.bib}
 
 \onehalfspacing
+
+\input{hyphenation}
 
 \begin{document}
 
@@ -110,7 +115,7 @@
 
 % Literaturverzeichnis
 \addcontentsline{toc}{section}{Literaturverzeichnis}
-%Todo überprüfe warum die Urls aus der Seite gehen
+
 \printbibliography[title=Literaturverzeichnis]
 
 \newpage
